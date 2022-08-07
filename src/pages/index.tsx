@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         <div>{`largerThanXl: ${largerThanXl}`}</div>
       </div>
       <Button dent onClick={handleClick} className="mt-4 block">
-        Click me!
+        Click me
       </Button>
       <Button onClick={handleClick} className="mt-4 block">
         Click me!
