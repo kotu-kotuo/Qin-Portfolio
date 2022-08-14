@@ -2,6 +2,7 @@ import {
   AppShell,
   Center,
   Container,
+  Footer,
   Group,
   Header,
   Text,
@@ -28,6 +29,19 @@ const Home: NextPage = () => {
   return (
     <>
       <div className="w-full">
+        <Header
+          fixed={false}
+          height={64}
+          className="flex items-center justify-between border-none px-4"
+        >
+          <Menu2 size={24} strokeWidth={2} className="text-gray-900" />
+          <Title order={1} className="text-lg text-gray-900">
+            Shimabu IT University
+          </Title>
+          <div className="-m-1 rounded-md border border-solid border-gray-900 px-1 pt-1 pb-0.5 leading-none text-gray-900">
+            <Moon size={20} strokeWidth={2} />
+          </div>
+        </Header>
         <div className="w-full bg-pink-600 px-4 py-10 text-white">
           <Group spacing={1}>
             <Title className="inline text-3xl">Shimabu IT University</Title>
@@ -41,6 +55,7 @@ const Home: NextPage = () => {
             <ImRss />
           </Group>
         </div>
+        <Footer height={60} className="text-xs text-gray-600 text-center py-6">© ️2022 Shimabu IT University</Footer>
       </div>
 
       {/* <AppShell
