@@ -5,16 +5,34 @@ import { Menu2, Moon } from "tabler-icons-react";
 type LayoutProps = {
   children: ReactNode;
 };
+import { slide as Menu } from "react-burger-menu";
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <div className="body w-full">
+      <Menu>
+        <div className="flex flex-col">
+          <Link href="/about">
+            <a>About</a>
+          </Link>
+          <Link href="/blog">
+            <a>Blog</a>
+          </Link>
+          <Link href="/portfolio">
+            <a>Portfolio</a>
+          </Link>
+          <Link href="/contact">
+            <a>Contact</a>
+          </Link>
+        </div>
+      </Menu>
+
       <Header
-        fixed={false}
+        fixed={true}
         height={64}
         className="flex items-center justify-between border-none px-4"
       >
-        <Menu2 size={24} strokeWidth={2} className="text-gray-900" />
+        <Menu2 size={24} strokeWidth={2} className="text-transparent" />
         <Link href="/">
           <a className="no-underline">
             <Title order={1} className="text-lg text-gray-900">
@@ -27,7 +45,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         </div>
       </Header>
 
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 mt-16">{children}</main>
 
       <Footer
         height={60}

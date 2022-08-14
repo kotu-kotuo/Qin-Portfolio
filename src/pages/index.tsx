@@ -28,7 +28,7 @@ const Home: NextPage = () => {
           <Group spacing={1}>
 
                 <Title className="inline text-3xl">Shimabu IT University</Title>
-            
+
             <Text className="inline text-base">
               しまぶーのポートフォリオのためのページです
             </Text>
