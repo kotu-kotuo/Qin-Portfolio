@@ -25,19 +25,20 @@ const Home: NextPage = () => {
     <>
       <Layout>
         <div className="w-full bg-pink-600 px-4 py-10 text-white">
-          <Group spacing={1}>
+          <div className="md:max-w-screen-lg md:mx-auto ">
+            <div className="flex flex-col justify-start">
+              <Title className="inline text-3xl">Shimabu IT University</Title>
 
-                <Title className="inline text-3xl">Shimabu IT University</Title>
-
-            <Text className="inline text-base">
-              しまぶーのポートフォリオのためのページです
-            </Text>
-          </Group>
-          <Group className="mt-10">
-            <BsTwitter />
-            <BsFacebook />
-            <ImRss />
-          </Group>
+              <Text className="inline text-base">
+                しまぶーのポートフォリオのためのページです
+              </Text>
+            </div>
+            <Group className="mt-10">
+              <BsTwitter />
+              <BsFacebook />
+              <ImRss />
+            </Group>
+          </div>
         </div>
 
         <Headline title="Blog" />

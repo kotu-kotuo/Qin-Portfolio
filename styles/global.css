@@ -7,6 +7,16 @@
   top: 24px;
 }
 
+@media screen and (min-width: 768px) {
+  .bm-burger-button {
+    position: fixed;
+    width: 0;
+    height: 0;
+    left: 0;
+    top: 0;
+  }
+}
+
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
   background: #222222;
