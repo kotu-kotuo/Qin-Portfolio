@@ -5,18 +5,21 @@ import {
   Footer,
   Group,
   Header,
+  Progress,
   Text,
   Title,
 } from "@mantine/core";
 import type { NextPage } from "next";
 import { Button, useMediaQuery, useViewportSize } from "src/lib/mantine";
 import { Menu2, Moon } from "tabler-icons-react";
-import { BsTwitter, BsFacebook } from "react-icons/bs";
+import { BsTwitter, BsFacebook, BsStar } from "react-icons/bs";
 import { ImRss } from "react-icons/im";
+import { BiGitRepoForked } from "react-icons/bi";
 import Headline from "src/components/Headline";
 import BlogItem from "src/components/BlogItem";
 import ButtonBlack from "src/components/ButtonBlack";
 import PortfolioItem from "src/components/PortfolioItem";
+import GithubItem from "src/components/GithubItem";
 
 const Home: NextPage = () => {
   const { width } = useViewportSize();
@@ -25,10 +28,6 @@ const Home: NextPage = () => {
   const largerThanMd = useMediaQuery("md");
   const largerThanLg = useMediaQuery("lg");
   const largerThanXl = useMediaQuery("xl");
-
-  const handleClick = () => {
-    console.log("Hello!");
-  };
 
   return (
     <>
@@ -70,27 +69,68 @@ const Home: NextPage = () => {
 
         <Headline title="Portfolio" />
 
-        <div className="mx-auto px-4">
-          <PortfolioItem/>
-          <PortfolioItem/>
-          <PortfolioItem/>
-          <img
-            src="https://source.unsplash.com/random?q=60"
-            alt="画像"
-            className="aspect-video w-full object-cover"
-          />
-          <div className="text-xl text-gray-900 font-bold my-4">IT KINGDOM</div>
-          <p className="text-gray-900">
-            当サロンのLPページ。React、Next.js、TypeScriptなどのモダンな技術を用いて作られています。初心者にちょうど良い難易度の制作物です。
-          </p>
-          <p className="font-bold text-gray-400 text-sm">2021.10 - 2021.12</p>
+        <div className="wrapper">
+          <PortfolioItem />
+          <PortfolioItem />
+          <PortfolioItem />
         </div>
-
         <ButtonBlack text="View All" />
 
         <Headline title="Github" />
+        <div className="wrapper mb-8">
+          <GithubItem/>
+          <GithubItem/>
+          <GithubItem/>
+          <div className="text-lg font-bold text-gray-900">
+            lightsound/nexst-tailwind
+          </div>
+          <p className="my-2 text-gray-600">Next.js starter template.</p>
+          <div className="flex items-center gap-x-4">
+            <div className="flex items-center gap-x-1">
+              <BsStar className="text-sm text-gray-400" />
+              <p className="my-0 text-xs font-bold text-gray-400">117</p>
+            </div>
+            <div className="flex items-center">
+              <BiGitRepoForked className="text-sm text-gray-400" />
+              <p className="my-0 text-xs font-bold text-gray-400">18</p>
+            </div>
+          </div>
+          <Progress
+            sections={[
+              { value: 60, color: "#3178C6" },
+              { value: 35, color: "#F1E05A" },
+              { value: 5, color: "#EDEDED" },
+            ]}
+            my={6}
+          />
+          <div>
+            <div className="flex flex-wrap gap-x-4">
+              <div className="flex items-center gap-x-1">
+                <div className="h-1.5 w-1.5 rounded-full bg-[#3178C6]"></div>
+                <p className="my-0 text-xs font-bold text-gray-900">
+                  TypeScript
+                </p>
+                <p className="my-0 text-xs font-bold text-gray-400">66.6%</p>
+              </div>
+              <div className="flex items-center gap-x-1">
+                <div className="h-1.5 w-1.5 rounded-full bg-[#F1E05A]"></div>
+                <p className="my-0 text-xs font-bold text-gray-900">
+                  JavaScript
+                </p>
+                <p className="my-0 text-xs font-bold text-gray-400">30.0%</p>
+              </div>
+              <div className="flex items-center gap-x-1">
+                <div className="h-1.5 w-1.5 rounded-full bg-[#EDEDED]"></div>
+                <p className="my-0 text-xs font-bold text-gray-900">Other</p>
+                <p className="my-0 text-xs font-bold text-gray-400">3.4%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ButtonBlack text="View on GitHub" />
 
         <Headline title="Twitter" />
+        <ButtonBlack text="View on Twitter" />
 
         <Footer height={60} className="py-6 text-center text-xs text-gray-600">
           © ️2022 Shimabu IT University

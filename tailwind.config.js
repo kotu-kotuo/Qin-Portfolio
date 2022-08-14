@@ -172,6 +172,7 @@ const mantineColors = {
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: "jit",
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   important: "#__next",
   theme: {
