@@ -55,7 +55,16 @@ const Home: NextPage = () => {
             <ImRss />
           </Group>
         </div>
-        <Footer height={60} className="text-xs text-gray-600 text-center py-6">© ️2022 Shimabu IT University</Footer>
+        <div className="border-b-4 border-gray-600 px-4 pt-10 pb-6">
+          <Title order={2} className="text-gray-900">
+            Blog
+          </Title>
+          <hr className="border-b border-solid border-t-0 border-gray-200 opacity-80 mt-6"></hr>
+        </div>
+        <div>おおおおおおおお</div>
+        <Footer height={60} className="py-6 text-center text-xs text-gray-600">
+          © ️2022 Shimabu IT University
+        </Footer>
       </div>
 
       {/* <AppShell
