@@ -8,14 +8,16 @@ const blog = () => {
     <>
       <Layout>
         <Headline title="Blog" />
-        <BlogItem />
-        <BlogItem />
-        <BlogItem />
-        <BlogItem />
-        <BlogItem />
-        <BlogItem />
-        <BlogItem />
-        <BlogItem />
+        <div className="md:mx-auto md:max-w-screen-md">
+          <BlogItem />
+          <BlogItem />
+          <BlogItem />
+          <BlogItem />
+          <BlogItem />
+          <BlogItem />
+          <BlogItem />
+          <BlogItem />
+        </div>
       </Layout>
     </>
   );

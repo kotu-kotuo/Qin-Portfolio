@@ -61,10 +61,18 @@ const Layout: FC<LayoutProps> = ({ children }) => {
               </a>
             </Link>
             <div className="flex gap-x-4 text-lg font-bold text-gray-900">
-              <div>About</div>
-              <div>Blog</div>
-              <div>Portfolio</div>
-              <div>Contact</div>
+              <Link href="/about">
+                <a className="text-gray-900 no-underline">About</a>
+              </Link>
+              <Link href="/blog">
+                <a className="text-gray-900 no-underline">Blog</a>
+              </Link>
+              <Link href="/portfolio">
+                <a className="text-gray-900 no-underline">Portfolio</a>
+              </Link>
+              <Link href="/contact">
+                <a className="text-gray-900 no-underline">Contact</a>
+              </Link>
               <div className="-m-[1px] block rounded-md border border-solid border-gray-900 px-1 pt-1 leading-none text-gray-900">
                 <Moon size={20} strokeWidth={2} />
               </div>
