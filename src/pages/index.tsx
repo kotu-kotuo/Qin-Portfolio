@@ -13,6 +13,10 @@ import { Button, useMediaQuery, useViewportSize } from "src/lib/mantine";
 import { Menu2, Moon } from "tabler-icons-react";
 import { BsTwitter, BsFacebook } from "react-icons/bs";
 import { ImRss } from "react-icons/im";
+import Headline from "src/components/Headline";
+import BlogItem from "src/components/BlogItem";
+import ButtonBlack from "src/components/ButtonBlack";
+import PortfolioItem from "src/components/PortfolioItem";
 
 const Home: NextPage = () => {
   const { width } = useViewportSize();
@@ -42,6 +46,7 @@ const Home: NextPage = () => {
             <Moon size={20} strokeWidth={2} />
           </div>
         </Header>
+
         <div className="w-full bg-pink-600 px-4 py-10 text-white">
           <Group spacing={1}>
             <Title className="inline text-3xl">Shimabu IT University</Title>
@@ -55,13 +60,38 @@ const Home: NextPage = () => {
             <ImRss />
           </Group>
         </div>
-        <div className="border-b-4 border-gray-600 px-4 pt-10 pb-6">
-          <Title order={2} className="text-gray-900">
-            Blog
-          </Title>
-          <hr className="border-b border-solid border-t-0 border-gray-200 opacity-80 mt-6"></hr>
+
+        <Headline title="Blog" />
+        <BlogItem />
+        <BlogItem />
+        <BlogItem />
+        <BlogItem />
+        <ButtonBlack text="View All" />
+
+        <Headline title="Portfolio" />
+
+        <div className="mx-auto px-4">
+          <PortfolioItem/>
+          <PortfolioItem/>
+          <PortfolioItem/>
+          <img
+            src="https://source.unsplash.com/random?q=60"
+            alt="画像"
+            className="aspect-video w-full object-cover"
+          />
+          <div className="text-xl text-gray-900 font-bold my-4">IT KINGDOM</div>
+          <p className="text-gray-900">
+            当サロンのLPページ。React、Next.js、TypeScriptなどのモダンな技術を用いて作られています。初心者にちょうど良い難易度の制作物です。
+          </p>
+          <p className="font-bold text-gray-400 text-sm">2021.10 - 2021.12</p>
         </div>
-        <div>おおおおおおおお</div>
+
+        <ButtonBlack text="View All" />
+
+        <Headline title="Github" />
+
+        <Headline title="Twitter" />
+
         <Footer height={60} className="py-6 text-center text-xs text-gray-600">
           © ️2022 Shimabu IT University
         </Footer>
