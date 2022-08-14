@@ -1,4 +1,4 @@
-import { Group, Progress, Text, Title } from "@mantine/core";
+import { Grid, Group, Progress, Text, Title } from "@mantine/core";
 import type { NextPage } from "next";
 import { useMediaQuery, useViewportSize } from "src/lib/mantine";
 import { BsTwitter, BsFacebook, BsStar } from "react-icons/bs";
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
     <>
       <Layout>
         <div className="w-full bg-pink-600 px-4 py-10 text-white">
-          <div className="md:max-w-screen-lg md:mx-auto ">
+          <div className="md:mx-auto md:max-w-screen-md">
             <div className="flex flex-col justify-start">
               <Title className="inline text-3xl">Shimabu IT University</Title>
 
@@ -42,44 +42,77 @@ const Home: NextPage = () => {
         </div>
 
         <Headline title="Blog" />
-        <BlogItem />
-        <BlogItem />
-        <BlogItem />
-        <BlogItem />
+        <div className="md:mx-auto md:max-w-screen-md">
+          <BlogItem />
+          <BlogItem />
+          <BlogItem />
+          <BlogItem />
+        </div>
         <ButtonBlack text="View All" link="blog" />
 
         <Headline title="Portfolio" />
-
-        <div className="wrapper">
-          <PortfolioItem />
-          <PortfolioItem />
-          <PortfolioItem />
+        <div className="wrapper md:mx-auto">
+          {width < 768 ? (
+            <>
+              <PortfolioItem />
+              <PortfolioItem />
+              <PortfolioItem />
+            </>
+          ) : (
+            <>
+              <Grid>
+                <Grid.Col span={4}>
+                  <PortfolioItem />
+                </Grid.Col>
+                <Grid.Col span={4}>
+                  <PortfolioItem />
+                </Grid.Col>
+                <Grid.Col span={4}>
+                  <PortfolioItem />
+                </Grid.Col>
+                <Grid.Col span={4}>
+                  <PortfolioItem />
+                </Grid.Col>
+                <Grid.Col span={4}>
+                  <PortfolioItem />
+                </Grid.Col>
+                <Grid.Col span={4}>
+                  <PortfolioItem />
+                </Grid.Col>
+              </Grid>
+            </>
+          )}
         </div>
         <ButtonBlack text="View All" link="portfolio" />
 
-        <Headline title="Github" />
-        <div className="wrapper mb-8">
-          <GithubItem />
-          <GithubItem />
-          <GithubItem />
+        <div className="gap-x-20 md:mx-auto md:flex md:max-w-screen-md">
+          <div className="md:flex-1">
+            <Headline title="Github" />
+            <div className="wrapper mb-8">
+              <GithubItem />
+              <GithubItem />
+              <GithubItem />
+            </div>
+            <ButtonBlack
+              text="View on GitHub"
+              link="https://github.com/qin-salon/admin-dashboard-with-next-mantine"
+              externalLink={true}
+            />
+          </div>
+          <div className="md:flex-1">
+            <Headline title="Twitter" />
+            <div className="wrapper ">
+              <TwitterItem />
+              <TwitterItem />
+              <TwitterItem />
+            </div>
+            <ButtonBlack
+              text="View on Twitter"
+              link="https://twitter.com/ATKINGDOM"
+              externalLink={true}
+            />
+          </div>
         </div>
-        <ButtonBlack
-          text="View on GitHub"
-          link="https://github.com/qin-salon/admin-dashboard-with-next-mantine"
-          externalLink={true}
-        />
-
-        <Headline title="Twitter" />
-        <div className="wrapper">
-          <TwitterItem />
-          <TwitterItem />
-          <TwitterItem />
-        </div>
-        <ButtonBlack
-          text="View on Twitter"
-          link="https://twitter.com/ATKINGDOM"
-          externalLink={true}
-        />
       </Layout>
     </>
     // <div className="p-20">
