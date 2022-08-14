@@ -8,7 +8,7 @@ type LayoutProps = {
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="w-full body">
+    <div className="body w-full">
       <Header
         fixed={false}
         height={64}
