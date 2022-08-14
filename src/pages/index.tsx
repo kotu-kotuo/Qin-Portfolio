@@ -1,5 +1,6 @@
 import {
   AppShell,
+  Avatar,
   Center,
   Container,
   Footer,
@@ -20,6 +21,7 @@ import BlogItem from "src/components/BlogItem";
 import ButtonBlack from "src/components/ButtonBlack";
 import PortfolioItem from "src/components/PortfolioItem";
 import GithubItem from "src/components/GithubItem";
+import TwitterItem from "src/components/TwitterItem";
 
 const Home: NextPage = () => {
   const { width } = useViewportSize();
@@ -78,9 +80,9 @@ const Home: NextPage = () => {
 
         <Headline title="Github" />
         <div className="wrapper mb-8">
-          <GithubItem/>
-          <GithubItem/>
-          <GithubItem/>
+          <GithubItem />
+          <GithubItem />
+          <GithubItem />
           <div className="text-lg font-bold text-gray-900">
             lightsound/nexst-tailwind
           </div>
@@ -130,48 +132,17 @@ const Home: NextPage = () => {
         <ButtonBlack text="View on GitHub" />
 
         <Headline title="Twitter" />
+        <div className="wrapper">
+          <TwitterItem />
+          <TwitterItem />
+          <TwitterItem />
+        </div>
         <ButtonBlack text="View on Twitter" />
 
-        <Footer height={60} className="py-6 text-center text-xs text-gray-600">
+        <Footer height={60} className="py-6 text-center text-xs text-gray-600 mt-16">
           © ️2022 Shimabu IT University
         </Footer>
       </div>
-
-      {/* <AppShell
-        className="w-full"
-        header={
-          <Header
-            fixed={true}
-            height={64}
-            className="flex items-center justify-between border-none px-4"
-          >
-            <Menu2 size={24} strokeWidth={2} className="text-gray-900" />
-            <Title order={1} className="text-lg text-gray-900">
-              Shimabu IT University
-            </Title>
-            <div className="-m-1 rounded-md border border-solid border-gray-900 px-1 pt-1 pb-0.5 leading-none text-gray-900">
-              <Moon size={20} strokeWidth={2} />
-            </div>
-          </Header>
-        }
-      >
-        <div className="-mx-4 mt-16 w-full bg-pink-600">
-          <Group className="text-white">
-            <Title className="text-3xl">Shimabu IT University</Title>
-            <Text className="text-base">
-              しまぶーのポートフォリオのためのページです
-            </Text>
-          </Group>
-        </div>
-        <Center mt={65} className="bg-pink-600">
-          <Group className="text-white">
-            <Title className="text-3xl">Shimabu IT University</Title>
-            <Text className="text-base">
-              しまぶーのポートフォリオのためのページです
-            </Text>
-          </Group>
-        </Center>
-      </AppShell> */}
     </>
     // <div className="p-20">
     //   <div className="bg-fuchsia-200 xs:bg-red-200 sm:bg-amber-200 md:bg-lime-200 lg:bg-emerald-200 xl:bg-cyan-200">
