@@ -1,11 +1,12 @@
 import { Textarea, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/hooks";
+import { NextPage } from "next";
 import React, { useEffect } from "react";
 import ButtonBlack from "src/components/ButtonBlack";
 import Headline from "src/components/Headline";
 import Layout from "src/components/Layout";
 
-const contact = () => {
+const Contact: NextPage = () => {
   const form = useForm({ initialValues: { email: "", name: "", message: "" } });
 
   useEffect(() => {
@@ -39,7 +40,12 @@ const contact = () => {
             placeholder="Taro Yamada"
             {...form.getInputProps("name")}
           />
-          <Textarea mt="md" placeholder="Your message" label="Message" className="mb-10" />
+          <Textarea
+            mt="md"
+            placeholder="Your message"
+            label="Message"
+            className="mb-10"
+          />
           <ButtonBlack text="Send message" link="/" />
         </div>
       </Layout>
@@ -47,4 +53,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;

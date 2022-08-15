@@ -1,8 +1,9 @@
+import { NextPage } from "next";
 import React from "react";
 import Headline from "src/components/Headline";
 import Layout from "src/components/Layout";
 
-const PortfolioContent = () => {
+const PortfolioContent: NextPage = () => {
   return (
     <>
       <Layout>

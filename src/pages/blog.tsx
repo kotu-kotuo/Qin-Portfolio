@@ -1,9 +1,10 @@
+import { NextPage } from "next";
 import React from "react";
 import BlogItem from "src/components/BlogItem";
 import Headline from "src/components/Headline";
 import Layout from "src/components/Layout";
 
-const blog = () => {
+const Blog: NextPage = () => {
   return (
     <>
       <Layout>
@@ -23,4 +24,4 @@ const blog = () => {
   );
 };
 
-export default blog;
+export default Blog;
