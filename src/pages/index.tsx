@@ -25,7 +25,7 @@ const Home: NextPage = () => {
     <>
       <Layout>
         <div className="w-full bg-pink-600 px-4 py-10 text-white">
-          <div className="md:mx-auto md:max-w-screen-md">
+          <div className="md:mx-auto md:flex md:max-w-screen-md md:items-center md:justify-between">
             <div className="flex flex-col justify-start">
               <Title className="inline font-main text-3xl">
                 Shimabu IT University
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
                 しまぶーのポートフォリオのためのページです
               </Text>
             </div>
-            <Group className="mt-10">
+            <Group className="mt-10 md:mt-0">
               <BsTwitter />
               <BsFacebook />
               <ImRss />

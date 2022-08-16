@@ -52,7 +52,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
       ) : (
         // PCヘッダー
         <Header fixed={true} height={64} className="pt-[18px]">
-          <div className="mx-auto flex max-w-screen-md items-center justify-between border-none sm:px-4 lg:px-0">
+          <div className="mx-auto flex max-w-screen-md items-center justify-between border-none sm:px-4 md:px-0">
             <Link href="/" className="block">
               <a className="no-underline">
                 <Title order={1} className="font-main text-lg text-gray-900">
