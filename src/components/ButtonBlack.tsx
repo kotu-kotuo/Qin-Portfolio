@@ -25,7 +25,7 @@ const ButtonBlack: FC<ButtonProps> = ({ text, link, externalLink }) => {
       ) : (
         <Link href={`/${link}`} passHref>
           <Button className="rounded-full bg-gray-900 font-main" component="a">
-            <a>{text}</a>
+            {text}
           </Button>
         </Link>
       )}
