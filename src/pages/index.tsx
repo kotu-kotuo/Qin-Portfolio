@@ -27,7 +27,9 @@ const Home: NextPage = () => {
         <div className="w-full bg-pink-600 px-4 py-10 text-white">
           <div className="md:mx-auto md:max-w-screen-md">
             <div className="flex flex-col justify-start">
-              <Title className="inline text-3xl">Shimabu IT University</Title>
+              <Title className="inline font-main text-3xl">
+                Shimabu IT University
+              </Title>
 
               <Text className="inline text-base">
                 しまぶーのポートフォリオのためのページです
@@ -108,7 +110,7 @@ const Home: NextPage = () => {
             </div>
             <ButtonBlack
               text="View on Twitter"
-              link="https://twitter.com/ATKINGDOM"
+              link="https://twitter.com/shimabu_it"
               externalLink={true}
             />
           </div>

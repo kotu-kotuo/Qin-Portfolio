@@ -14,7 +14,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <div className="body w-full">
       <Menu>
-        <div className="flex flex-col">
+        <div className="flex flex-col font-main">
           <Link href="/about">
             <a>About</a>
           </Link>
@@ -40,7 +40,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
           <Menu2 size={24} strokeWidth={2} className="text-transparent" />
           <Link href="/">
             <a className="no-underline">
-              <Title order={1} className="text-lg text-gray-900">
+              <Title order={1} className="font-main text-lg text-gray-900">
                 Shimabu IT University
               </Title>
             </a>
@@ -55,12 +55,12 @@ const Layout: FC<LayoutProps> = ({ children }) => {
           <div className="mx-auto flex max-w-screen-md items-center justify-between border-none sm:px-4 lg:px-0">
             <Link href="/" className="block">
               <a className="no-underline">
-                <Title order={1} className="text-lg text-gray-900">
+                <Title order={1} className="font-main text-lg text-gray-900">
                   Shimabu IT University
                 </Title>
               </a>
             </Link>
-            <div className="flex gap-x-4 text-lg font-bold text-gray-900">
+            <div className="flex gap-x-4 font-main text-lg font-bold text-gray-900">
               <Link href="/about">
                 <a className="text-gray-900 no-underline">About</a>
               </Link>

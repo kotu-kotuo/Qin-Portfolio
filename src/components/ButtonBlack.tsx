@@ -13,13 +13,18 @@ const ButtonBlack: FC<ButtonProps> = ({ text, link, externalLink }) => {
     <div className="text-center">
       {externalLink ? (
         <Button className="rounded-full bg-gray-900 text-white">
-          <a href={link} target="_blank" rel="noopener noreferrer" className="text-white no-underline">
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-main text-white no-underline"
+          >
             {text}
           </a>
         </Button>
       ) : (
         <Link href={`/${link}`}>
-          <Button className="rounded-full bg-gray-900">
+          <Button className="rounded-full bg-gray-900 font-main">
             <a>{text}</a>
           </Button>
         </Link>

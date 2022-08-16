@@ -187,6 +187,9 @@ module.exports = {
     extend: {
       colors: mantineColors,
     },
+    fontFamily: {
+      main: ["Avenir Next", "sans-serif"],
+    },
   },
   plugins: [require("@tailwindcss/line-clamp")],
 };
