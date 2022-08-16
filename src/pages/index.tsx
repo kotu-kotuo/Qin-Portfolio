@@ -1,9 +1,8 @@
-import { Grid, Group, Progress, Text, Title } from "@mantine/core";
+import { Grid, Group, Text, Title } from "@mantine/core";
 import type { NextPage } from "next";
-import { useMediaQuery, useViewportSize } from "src/lib/mantine";
-import { BsTwitter, BsFacebook, BsStar } from "react-icons/bs";
+import { useViewportSize } from "src/lib/mantine";
+import { BsTwitter, BsFacebook } from "react-icons/bs";
 import { ImRss } from "react-icons/im";
-import { BiGitRepoForked } from "react-icons/bi";
 import Headline from "src/components/Headline";
 import BlogItem from "src/components/BlogItem";
 import ButtonBlack from "src/components/ButtonBlack";
@@ -15,11 +14,11 @@ import Link from "next/link";
 
 const Home: NextPage = () => {
   const { width } = useViewportSize();
-  const largerThanXs = useMediaQuery("xs");
-  const largerThanSm = useMediaQuery("sm");
-  const largerThanMd = useMediaQuery("md");
-  const largerThanLg = useMediaQuery("lg");
-  const largerThanXl = useMediaQuery("xl");
+  // const largerThanXs = useMediaQuery("xs");
+  // const largerThanSm = useMediaQuery("sm");
+  // const largerThanMd = useMediaQuery("md");
+  // const largerThanLg = useMediaQuery("lg");
+  // const largerThanXl = useMediaQuery("xl");
 
   return (
     <>
@@ -117,22 +116,6 @@ const Home: NextPage = () => {
         </div>
       </Layout>
     </>
-    // <div className="p-20">
-    //   <div className="bg-fuchsia-200 xs:bg-red-200 sm:bg-amber-200 md:bg-lime-200 lg:bg-emerald-200 xl:bg-cyan-200">
-    //     <div>{`width: ${width}`}</div>
-    //     <div>{`largerThanXs: ${largerThanXs}`}</div>
-    //     <div>{`largerThanSm: ${largerThanSm}`}</div>
-    //     <div>{`largerThanMd: ${largerThanMd}`}</div>
-    //     <div>{`largerThanLg: ${largerThanLg}`}</div>
-    //     <div>{`largerThanXl: ${largerThanXl}`}</div>
-    //   </div>
-    //   <Button dent onClick={handleClick} className="mt-4 block">
-    //     Click me!!!!!!!!!
-    //   </Button>
-    //   <Button onClick={handleClick} className="mt-4 block">
-    //     Click me!
-    //   </Button>
-    // </div>
   );
 };
 

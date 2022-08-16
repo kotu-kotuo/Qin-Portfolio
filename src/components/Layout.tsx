@@ -38,7 +38,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
           className="flex items-center justify-between border-none px-4 md:hidden"
         >
           <Menu2 size={24} strokeWidth={2} className="text-transparent" />
-          <Link href="/">
+          <Link href="/" passHref>
             <a className="no-underline">
               <Title order={1} className="font-main text-lg text-gray-900">
                 Shimabu IT University
