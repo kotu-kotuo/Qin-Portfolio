@@ -12,7 +12,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   const { width } = useViewportSize();
 
   return (
-    <div className="body w-full">
+    <div className="contain w-full">
       <Menu>
         <div className="flex flex-col font-main">
           <Link href="/about">
