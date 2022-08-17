@@ -81,7 +81,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         </Header>
       )}
 
-      <main className="mt-16 flex-1">{children}</main>
+      <main className="mt-16">{children}</main>
 
       <Footer
         height={60}
