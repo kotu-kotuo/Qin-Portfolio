@@ -87,7 +87,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         height={60}
         className="mt-16 py-6 text-center text-xs text-gray-600"
       >
-        &copy; 2022 Shimabu IT University
+        &copy; {new Date().getFullYear()} Shimabu IT University
       </Footer>
     </div>
   );
