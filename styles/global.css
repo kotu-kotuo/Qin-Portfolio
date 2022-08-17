@@ -1,3 +1,9 @@
+body {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium",
+    "游ゴシック", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif !important;
+}
+
 .contain {
   display: grid;
   grid-template-rows: auto 1fr auto;
