@@ -6,9 +6,10 @@ type ButtonProps = {
   text: string;
   link: string;
   externalLink?: boolean;
+  type?: "button" | "submit" | "reset";
 };
 
-const ButtonBlack: FC<ButtonProps> = ({ text, link, externalLink }) => {
+const ButtonBlack: FC<ButtonProps> = ({ text, link, externalLink, type }) => {
   return (
     <div>
       {externalLink ? (
@@ -24,7 +25,11 @@ const ButtonBlack: FC<ButtonProps> = ({ text, link, externalLink }) => {
         </Button>
       ) : (
         <Link href={`/${link}`} passHref>
-          <Button className="rounded-full bg-gray-900 font-main" component="a">
+          <Button
+            className="rounded-full bg-gray-900 font-main"
+            component="a"
+            type={type}
+          >
             {text}
           </Button>
         </Link>

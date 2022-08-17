@@ -9,8 +9,6 @@ import ButtonBlack from "src/components/ButtonBlack";
 import PortfolioItem from "src/components/PortfolioItem";
 import GithubItem from "src/components/GithubItem";
 import TwitterItem from "src/components/TwitterItem";
-import Layout from "src/components/Layout";
-import Link from "next/link";
 
 const Home: NextPage = () => {
   const { width } = useViewportSize();

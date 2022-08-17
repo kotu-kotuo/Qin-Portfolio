@@ -1,13 +1,23 @@
 import { Textarea, TextInput } from "@mantine/core";
-import { useForm } from "@mantine/hooks";
+import { useForm } from "@mantine/form";
+
 import { NextPage } from "next";
 import React, { useEffect } from "react";
 import ButtonBlack from "src/components/ButtonBlack";
 import Headline from "src/components/Headline";
-import Layout from "src/components/Layout";
 
 const Contact: NextPage = () => {
-  const form = useForm({ initialValues: { email: "", name: "", message: "" } });
+  const form = useForm({
+    initialValues: { email: "", name: "", message: "" },
+    validate: {
+      email: (value: string) =>
+        /^\S+@\S+$/.test(value) ? null : "Invalid email",
+      name: (value: string) =>
+        value.length < 2 ? "Name must have at least 2 letters" : null,
+      message: (value: string) =>
+        value.length === undefined ? "Message is required" : null,
+    },
+  });
 
   useEffect(() => {
     const storedValue = window.localStorage.getItem("user-form");
@@ -27,7 +37,7 @@ const Contact: NextPage = () => {
   return (
     <>
       <div className="headline-wrapper">
-        <Headline title="Portfolio" />
+        <Headline title="Contact" />
       </div>
       <div className="wrapper">
         <TextInput
@@ -48,7 +58,7 @@ const Contact: NextPage = () => {
           className="mb-10"
         />
         <div className="text-center">
-          <ButtonBlack text="Send message" link="/" />
+          <ButtonBlack text="Send message" link="/" type="submit" />
         </div>
       </div>
     </>
