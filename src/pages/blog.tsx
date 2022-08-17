@@ -7,37 +7,35 @@ import Layout from "src/components/Layout";
 const Blog: NextPage = () => {
   return (
     <>
-      <Layout>
-        <div className="headline-wrapper">
-          <Headline title="Blog" />
+      <div className="headline-wrapper">
+        <Headline title="Blog" />
+      </div>
+      <div className="md:mx-auto md:max-w-screen-md">
+        <div className="item-wrapper">
+          <BlogItem />
         </div>
-        <div className="md:mx-auto md:max-w-screen-md">
-          <div className="item-wrapper">
-            <BlogItem />
-          </div>
-          <div className="item-wrapper">
-            <BlogItem />
-          </div>
-          <div className="item-wrapper">
-            <BlogItem />
-          </div>
-          <div className="item-wrapper">
-            <BlogItem />
-          </div>
-          <div className="item-wrapper">
-            <BlogItem />
-          </div>
-          <div className="item-wrapper">
-            <BlogItem />
-          </div>
-          <div className="item-wrapper">
-            <BlogItem />
-          </div>
-          <div className="item-wrapper">
-            <BlogItem />
-          </div>
+        <div className="item-wrapper">
+          <BlogItem />
         </div>
-      </Layout>
+        <div className="item-wrapper">
+          <BlogItem />
+        </div>
+        <div className="item-wrapper">
+          <BlogItem />
+        </div>
+        <div className="item-wrapper">
+          <BlogItem />
+        </div>
+        <div className="item-wrapper">
+          <BlogItem />
+        </div>
+        <div className="item-wrapper">
+          <BlogItem />
+        </div>
+        <div className="item-wrapper">
+          <BlogItem />
+        </div>
+      </div>
     </>
   );
 };

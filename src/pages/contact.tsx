@@ -26,33 +26,31 @@ const Contact: NextPage = () => {
 
   return (
     <>
-      <Layout>
-        <div className="headline-wrapper">
-          <Headline title="Portfolio" />
+      <div className="headline-wrapper">
+        <Headline title="Portfolio" />
+      </div>
+      <div className="wrapper">
+        <TextInput
+          label="Email"
+          placeholder="your@email.com"
+          {...form.getInputProps("email")}
+        />
+        <TextInput
+          mt="md"
+          label="Name"
+          placeholder="Taro Yamada"
+          {...form.getInputProps("name")}
+        />
+        <Textarea
+          mt="md"
+          placeholder="Your message"
+          label="Message"
+          className="mb-10"
+        />
+        <div className="text-center">
+          <ButtonBlack text="Send message" link="/" />
         </div>
-        <div className="wrapper">
-          <TextInput
-            label="Email"
-            placeholder="your@email.com"
-            {...form.getInputProps("email")}
-          />
-          <TextInput
-            mt="md"
-            label="Name"
-            placeholder="Taro Yamada"
-            {...form.getInputProps("name")}
-          />
-          <Textarea
-            mt="md"
-            placeholder="Your message"
-            label="Message"
-            className="mb-10"
-          />
-          <div className="text-center">
-            <ButtonBlack text="Send message" link="/" />
-          </div>
-        </div>
-      </Layout>
+      </div>
     </>
   );
 };

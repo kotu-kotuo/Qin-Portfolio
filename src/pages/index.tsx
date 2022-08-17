@@ -22,154 +22,152 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Layout>
-        <div className="w-full bg-pink-600 px-4 py-10 text-white">
-          <div className="md:mx-auto md:flex md:max-w-screen-md md:items-center md:justify-between">
-            <div className="flex flex-col justify-start">
-              <Title className="inline font-main text-3xl">
-                Shimabu IT University
-              </Title>
+      <div className="w-full bg-pink-600 px-4 py-10 text-white">
+        <div className="md:mx-auto md:flex md:max-w-screen-md md:items-center md:justify-between">
+          <div className="flex flex-col justify-start">
+            <Title className="inline font-main text-3xl">
+              Shimabu IT University
+            </Title>
 
-              <Text className="inline text-base">
-                しまぶーのポートフォリオのためのページです
-              </Text>
+            <Text className="inline text-base">
+              しまぶーのポートフォリオのためのページです
+            </Text>
+          </div>
+          <Group className="mt-10 md:mt-0">
+            <BsTwitter />
+            <BsFacebook />
+            <ImRss />
+          </Group>
+        </div>
+      </div>
+
+      <div className="headline-wrapper">
+        <Headline title="Blog" />
+      </div>
+      <div className="wrapper">
+        <div className="item-wrapper">
+          <BlogItem />
+        </div>
+        <div className="item-wrapper">
+          <BlogItem />
+        </div>
+        <div className="item-wrapper">
+          <BlogItem />
+        </div>
+        <div className="item-wrapper">
+          <BlogItem />
+        </div>
+      </div>
+      <div className="text-center">
+        <ButtonBlack text="View All" link="blog" />
+      </div>
+
+      <div className="headline-wrapper">
+        <Headline title="Portfolio" />
+      </div>
+      <div className="wrapper md:mx-auto">
+        {width < 768 ? (
+          <>
+            <div className="item-wrapper">
+              <PortfolioItem />
             </div>
-            <Group className="mt-10 md:mt-0">
-              <BsTwitter />
-              <BsFacebook />
-              <ImRss />
-            </Group>
+            <div className="item-wrapper">
+              <PortfolioItem />
+            </div>
+            <div className="item-wrapper">
+              <PortfolioItem />
+            </div>
+          </>
+        ) : (
+          <>
+            <Grid>
+              <Grid.Col span={4}>
+                <div className="item-wrapper">
+                  <PortfolioItem />
+                </div>
+              </Grid.Col>
+              <Grid.Col span={4}>
+                <div className="item-wrapper">
+                  <PortfolioItem />
+                </div>
+              </Grid.Col>
+              <Grid.Col span={4}>
+                <div className="item-wrapper">
+                  <PortfolioItem />
+                </div>
+              </Grid.Col>
+              <Grid.Col span={4}>
+                <div className="item-wrapper">
+                  <PortfolioItem />
+                </div>
+              </Grid.Col>
+              <Grid.Col span={4}>
+                <div className="item-wrapper">
+                  <PortfolioItem />
+                </div>
+              </Grid.Col>
+              <Grid.Col span={4}>
+                <div className="item-wrapper">
+                  <PortfolioItem />
+                </div>
+              </Grid.Col>
+            </Grid>
+          </>
+        )}
+      </div>
+      <div className="text-center">
+        <ButtonBlack text="View All" link="portfolio" />
+      </div>
+
+      <div className="gap-x-20 md:mx-auto md:flex md:max-w-screen-md">
+        <div className="md:flex-1">
+          <div className="headline-wrapper">
+            <Headline title="Github" />
+          </div>
+          <div className="wrapper mb-8">
+            <div className="item-wrapper">
+              <GithubItem />
+            </div>
+            <div className="item-wrapper">
+              <GithubItem />
+            </div>
+            <div className="item-wrapper">
+              <GithubItem />
+            </div>
+          </div>
+          <div className="text-center">
+            <ButtonBlack
+              text="View on GitHub"
+              link="https://github.com/qin-salon/admin-dashboard-with-next-mantine"
+              externalLink={true}
+            />
           </div>
         </div>
 
-        <div className="headline-wrapper">
-          <Headline title="Blog" />
-        </div>
-        <div className="wrapper">
-          <div className="item-wrapper">
-            <BlogItem />
+        <div className="md:flex-1">
+          <div className="headline-wrapper">
+            <Headline title="Twitter" />
           </div>
-          <div className="item-wrapper">
-            <BlogItem />
-          </div>
-          <div className="item-wrapper">
-            <BlogItem />
-          </div>
-          <div className="item-wrapper">
-            <BlogItem />
-          </div>
-        </div>
-        <div className="text-center">
-          <ButtonBlack text="View All" link="blog" />
-        </div>
-
-        <div className="headline-wrapper">
-          <Headline title="Portfolio" />
-        </div>
-        <div className="wrapper md:mx-auto">
-          {width < 768 ? (
-            <>
-              <div className="item-wrapper">
-                <PortfolioItem />
-              </div>
-              <div className="item-wrapper">
-                <PortfolioItem />
-              </div>
-              <div className="item-wrapper">
-                <PortfolioItem />
-              </div>
-            </>
-          ) : (
-            <>
-              <Grid>
-                <Grid.Col span={4}>
-                  <div className="item-wrapper">
-                    <PortfolioItem />
-                  </div>
-                </Grid.Col>
-                <Grid.Col span={4}>
-                  <div className="item-wrapper">
-                    <PortfolioItem />
-                  </div>
-                </Grid.Col>
-                <Grid.Col span={4}>
-                  <div className="item-wrapper">
-                    <PortfolioItem />
-                  </div>
-                </Grid.Col>
-                <Grid.Col span={4}>
-                  <div className="item-wrapper">
-                    <PortfolioItem />
-                  </div>
-                </Grid.Col>
-                <Grid.Col span={4}>
-                  <div className="item-wrapper">
-                    <PortfolioItem />
-                  </div>
-                </Grid.Col>
-                <Grid.Col span={4}>
-                  <div className="item-wrapper">
-                    <PortfolioItem />
-                  </div>
-                </Grid.Col>
-              </Grid>
-            </>
-          )}
-        </div>
-        <div className="text-center">
-          <ButtonBlack text="View All" link="portfolio" />
-        </div>
-
-        <div className="gap-x-20 md:mx-auto md:flex md:max-w-screen-md">
-          <div className="md:flex-1">
-            <div className="headline-wrapper">
-              <Headline title="Github" />
+          <div className="wrapper">
+            <div className="item-wrapper">
+              <TwitterItem />
             </div>
-            <div className="wrapper mb-8">
-              <div className="item-wrapper">
-                <GithubItem />
-              </div>
-              <div className="item-wrapper">
-                <GithubItem />
-              </div>
-              <div className="item-wrapper">
-                <GithubItem />
-              </div>
+            <div className="item-wrapper">
+              <TwitterItem />
             </div>
-            <div className="text-center">
-              <ButtonBlack
-                text="View on GitHub"
-                link="https://github.com/qin-salon/admin-dashboard-with-next-mantine"
-                externalLink={true}
-              />
+            <div className="item-wrapper">
+              <TwitterItem />
             </div>
           </div>
-
-          <div className="md:flex-1">
-            <div className="headline-wrapper">
-              <Headline title="Twitter" />
-            </div>
-            <div className="wrapper">
-              <div className="item-wrapper">
-                <TwitterItem />
-              </div>
-              <div className="item-wrapper">
-                <TwitterItem />
-              </div>
-              <div className="item-wrapper">
-                <TwitterItem />
-              </div>
-            </div>
-            <div className="text-center">
-              <ButtonBlack
-                text="View on Twitter"
-                link="https://twitter.com/shimabu_it"
-                externalLink={true}
-              />
-            </div>
+          <div className="text-center">
+            <ButtonBlack
+              text="View on Twitter"
+              link="https://twitter.com/shimabu_it"
+              externalLink={true}
+            />
           </div>
         </div>
-      </Layout>
+      </div>
     </>
   );
 };
