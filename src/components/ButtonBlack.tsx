@@ -10,7 +10,7 @@ type ButtonProps = {
 
 const ButtonBlack: FC<ButtonProps> = ({ text, link, externalLink }) => {
   return (
-    <div className="text-center">
+    <div>
       {externalLink ? (
         <Button className="rounded-full bg-gray-900 text-white">
           <a

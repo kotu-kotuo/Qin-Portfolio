@@ -3,7 +3,7 @@ import React from "react";
 
 const TwitterItem = () => {
   return (
-    <div className="mb-8 flex">
+    <div className="flex">
       <Avatar
         src="https://source.unsplash.com/nEdGnX7u5O0?q=60"
         radius="xl"

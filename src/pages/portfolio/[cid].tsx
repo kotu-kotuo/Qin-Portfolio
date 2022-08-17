@@ -7,7 +7,9 @@ const PortfolioContent: NextPage = () => {
   return (
     <>
       <Layout>
-        <Headline title="Portfolio" />
+        <div className="headline-wrapper">
+          <Headline title="Portfolio" />
+        </div>
         <div className="wrapper">
           <img
             src="https://source.unsplash.com/random?q=60"

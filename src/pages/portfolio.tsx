@@ -12,49 +12,84 @@ const PortfolioList: NextPage = () => {
   return (
     <>
       <Layout>
-        <Headline title="Portfolio" />
+        <div className="headline-wrapper">
+          <Headline title="Portfolio" />
+        </div>
         <div className="wrapper">
           {width < 768 ? (
             <>
-              <PortfolioItem />
-              <PortfolioItem />
-              <PortfolioItem />
-              <PortfolioItem />
-              <PortfolioItem />
-              <PortfolioItem />
-              <PortfolioItem />
-              <PortfolioItem />
-              <PortfolioItem />
+              <div className="item-wrapper">
+                <PortfolioItem />
+              </div>
+              <div className="item-wrapper">
+                <PortfolioItem />
+              </div>
+              <div className="item-wrapper">
+                <PortfolioItem />
+              </div>
+              <div className="item-wrapper">
+                <PortfolioItem />
+              </div>
+              <div className="item-wrapper">
+                <PortfolioItem />
+              </div>
+              <div className="item-wrapper">
+                <PortfolioItem />
+              </div>
+              <div className="item-wrapper">
+                <PortfolioItem />
+              </div>
+              <div className="item-wrapper">
+                <PortfolioItem />
+              </div>
             </>
           ) : (
             <>
               <Grid>
                 <Grid.Col span={4}>
-                  <PortfolioItem />
+                  <div className="headline-wrapper">
+                    <PortfolioItem />
+                  </div>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                  <PortfolioItem />
+                  <div className="headline-wrapper">
+                    <PortfolioItem />
+                  </div>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                  <PortfolioItem />
+                  <div className="headline-wrapper">
+                    <PortfolioItem />
+                  </div>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                  <PortfolioItem />
+                  <div className="headline-wrapper">
+                    <PortfolioItem />
+                  </div>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                  <PortfolioItem />
+                  <div className="headline-wrapper">
+                    <PortfolioItem />
+                  </div>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                  <PortfolioItem />
+                  <div className="headline-wrapper">
+                    <PortfolioItem />
+                  </div>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                  <PortfolioItem />
+                  <div className="headline-wrapper">
+                    <PortfolioItem />
+                  </div>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                  <PortfolioItem />
+                  <div className="headline-wrapper">
+                    <PortfolioItem />
+                  </div>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                  <PortfolioItem />
+                  <div className="headline-wrapper">
+                    <PortfolioItem />
+                  </div>
                 </Grid.Col>
               </Grid>
             </>

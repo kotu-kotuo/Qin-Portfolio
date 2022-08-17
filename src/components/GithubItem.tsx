@@ -5,7 +5,7 @@ import { BsStar } from "react-icons/bs";
 
 const GithubItem = () => {
   return (
-    <div className="mb-8">
+    <div>
       <div className="text-lg font-bold text-gray-900">
         lightsound/nexst-tailwind
       </div>

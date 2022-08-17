@@ -7,7 +7,9 @@ const BlogContent: NextPage = () => {
   return (
     <>
       <Layout>
-        <Headline title="This is a header" />
+        <div className="headline-wrapper">
+          <Headline title="This is a header" />
+        </div>
         <div className="wrapper">
           <p className="my-1 text-sm font-bold text-gray-400">2022.07.11</p>
           <p>

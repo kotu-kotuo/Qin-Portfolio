@@ -27,7 +27,9 @@ const Contact: NextPage = () => {
   return (
     <>
       <Layout>
-        <Headline title="Portfolio" />
+        <div className="headline-wrapper">
+          <Headline title="Portfolio" />
+        </div>
         <div className="wrapper">
           <TextInput
             label="Email"
@@ -46,7 +48,9 @@ const Contact: NextPage = () => {
             label="Message"
             className="mb-10"
           />
-          <ButtonBlack text="Send message" link="/" />
+          <div className="text-center">
+            <ButtonBlack text="Send message" link="/" />
+          </div>
         </div>
       </Layout>
     </>

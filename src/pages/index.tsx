@@ -42,76 +42,131 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <Headline title="Blog" />
-        <div className="md:mx-auto md:max-w-screen-md">
-          <BlogItem />
-          <BlogItem />
-          <BlogItem />
-          <BlogItem />
+        <div className="headline-wrapper">
+          <Headline title="Blog" />
         </div>
-        <ButtonBlack text="View All" link="blog" />
+        <div className="wrapper">
+          <div className="item-wrapper">
+            <BlogItem />
+          </div>
+          <div className="item-wrapper">
+            <BlogItem />
+          </div>
+          <div className="item-wrapper">
+            <BlogItem />
+          </div>
+          <div className="item-wrapper">
+            <BlogItem />
+          </div>
+        </div>
+        <div className="text-center">
+          <ButtonBlack text="View All" link="blog" />
+        </div>
 
-        <Headline title="Portfolio" />
+        <div className="headline-wrapper">
+          <Headline title="Portfolio" />
+        </div>
         <div className="wrapper md:mx-auto">
           {width < 768 ? (
             <>
-              <PortfolioItem />
-              <PortfolioItem />
-              <PortfolioItem />
+              <div className="item-wrapper">
+                <PortfolioItem />
+              </div>
+              <div className="item-wrapper">
+                <PortfolioItem />
+              </div>
+              <div className="item-wrapper">
+                <PortfolioItem />
+              </div>
             </>
           ) : (
             <>
               <Grid>
                 <Grid.Col span={4}>
-                  <PortfolioItem />
+                  <div className="item-wrapper">
+                    <PortfolioItem />
+                  </div>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                  <PortfolioItem />
+                  <div className="item-wrapper">
+                    <PortfolioItem />
+                  </div>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                  <PortfolioItem />
+                  <div className="item-wrapper">
+                    <PortfolioItem />
+                  </div>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                  <PortfolioItem />
+                  <div className="item-wrapper">
+                    <PortfolioItem />
+                  </div>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                  <PortfolioItem />
+                  <div className="item-wrapper">
+                    <PortfolioItem />
+                  </div>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                  <PortfolioItem />
+                  <div className="item-wrapper">
+                    <PortfolioItem />
+                  </div>
                 </Grid.Col>
               </Grid>
             </>
           )}
         </div>
-        <ButtonBlack text="View All" link="portfolio" />
+        <div className="text-center">
+          <ButtonBlack text="View All" link="portfolio" />
+        </div>
 
         <div className="gap-x-20 md:mx-auto md:flex md:max-w-screen-md">
           <div className="md:flex-1">
-            <Headline title="Github" />
+            <div className="headline-wrapper">
+              <Headline title="Github" />
+            </div>
             <div className="wrapper mb-8">
-              <GithubItem />
-              <GithubItem />
-              <GithubItem />
+              <div className="item-wrapper">
+                <GithubItem />
+              </div>
+              <div className="item-wrapper">
+                <GithubItem />
+              </div>
+              <div className="item-wrapper">
+                <GithubItem />
+              </div>
             </div>
-            <ButtonBlack
-              text="View on GitHub"
-              link="https://github.com/qin-salon/admin-dashboard-with-next-mantine"
-              externalLink={true}
-            />
+            <div className="text-center">
+              <ButtonBlack
+                text="View on GitHub"
+                link="https://github.com/qin-salon/admin-dashboard-with-next-mantine"
+                externalLink={true}
+              />
+            </div>
           </div>
+
           <div className="md:flex-1">
-            <Headline title="Twitter" />
-            <div className="wrapper ">
-              <TwitterItem />
-              <TwitterItem />
-              <TwitterItem />
+            <div className="headline-wrapper">
+              <Headline title="Twitter" />
             </div>
-            <ButtonBlack
-              text="View on Twitter"
-              link="https://twitter.com/shimabu_it"
-              externalLink={true}
-            />
+            <div className="wrapper">
+              <div className="item-wrapper">
+                <TwitterItem />
+              </div>
+              <div className="item-wrapper">
+                <TwitterItem />
+              </div>
+              <div className="item-wrapper">
+                <TwitterItem />
+              </div>
+            </div>
+            <div className="text-center">
+              <ButtonBlack
+                text="View on Twitter"
+                link="https://twitter.com/shimabu_it"
+                externalLink={true}
+              />
+            </div>
           </div>
         </div>
       </Layout>

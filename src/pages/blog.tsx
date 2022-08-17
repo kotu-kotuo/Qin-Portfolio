@@ -8,16 +8,34 @@ const Blog: NextPage = () => {
   return (
     <>
       <Layout>
-        <Headline title="Blog" />
+        <div className="headline-wrapper">
+          <Headline title="Blog" />
+        </div>
         <div className="md:mx-auto md:max-w-screen-md">
-          <BlogItem />
-          <BlogItem />
-          <BlogItem />
-          <BlogItem />
-          <BlogItem />
-          <BlogItem />
-          <BlogItem />
-          <BlogItem />
+          <div className="item-wrapper">
+            <BlogItem />
+          </div>
+          <div className="item-wrapper">
+            <BlogItem />
+          </div>
+          <div className="item-wrapper">
+            <BlogItem />
+          </div>
+          <div className="item-wrapper">
+            <BlogItem />
+          </div>
+          <div className="item-wrapper">
+            <BlogItem />
+          </div>
+          <div className="item-wrapper">
+            <BlogItem />
+          </div>
+          <div className="item-wrapper">
+            <BlogItem />
+          </div>
+          <div className="item-wrapper">
+            <BlogItem />
+          </div>
         </div>
       </Layout>
     </>

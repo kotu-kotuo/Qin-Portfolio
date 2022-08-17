@@ -8,7 +8,9 @@ const About: NextPage = () => {
   return (
     <>
       <Layout>
-        <Headline title="About" />
+        <div className="headline-wrapper">
+          <Headline title="About" />
+        </div>
         <div className="wrapper">
           <Title className="text-xl font-semibold text-gray-900">
             Lightsound Shimabu
