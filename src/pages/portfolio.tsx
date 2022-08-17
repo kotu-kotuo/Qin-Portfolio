@@ -1,8 +1,8 @@
 import { Grid } from "@mantine/core";
 import { NextPage } from "next";
 import React from "react";
-import Headline from "src/components/Headline";
-import PortfolioItem from "src/components/PortfolioItem";
+import Headline from "src/components/Element/Headline";
+import PortfolioItem from "src/components/Item/PortfolioItem";
 import { useViewportSize } from "src/lib/mantine";
 
 const PortfolioList: NextPage = () => {

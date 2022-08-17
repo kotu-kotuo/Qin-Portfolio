@@ -3,12 +3,12 @@ import type { NextPage } from "next";
 import { useViewportSize } from "src/lib/mantine";
 import { BsTwitter, BsFacebook } from "react-icons/bs";
 import { ImRss } from "react-icons/im";
-import Headline from "src/components/Headline";
-import BlogItem from "src/components/BlogItem";
-import ButtonBlack from "src/components/ButtonBlack";
-import PortfolioItem from "src/components/PortfolioItem";
-import GithubItem from "src/components/GithubItem";
-import TwitterItem from "src/components/TwitterItem";
+import Headline from "src/components/Element/Headline";
+import BlogItem from "src/components/Item/BlogItem";
+import ButtonBlack from "src/components/Element/ButtonBlack";
+import PortfolioItem from "src/components/Item/PortfolioItem";
+import GithubItem from "src/components/Item/GithubItem";
+import TwitterItem from "src/components/Item/TwitterItem";
 
 const Home: NextPage = () => {
   const { width } = useViewportSize();

@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import React from "react";
-import BlogItem from "src/components/BlogItem";
-import Headline from "src/components/Headline";
+import BlogItem from "src/components/Item/BlogItem";
+import Headline from "src/components/Element/Headline";
 
 const Blog: NextPage = () => {
   return (

@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import React from "react";
-import Headline from "src/components/Headline";
+import Headline from "src/components/Element/Headline";
 
 const BlogContent: NextPage = () => {
   return (

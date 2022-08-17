@@ -3,8 +3,8 @@ import { useForm } from "@mantine/form";
 
 import { NextPage } from "next";
 import React, { useEffect } from "react";
-import ButtonBlack from "src/components/ButtonBlack";
-import Headline from "src/components/Headline";
+import ButtonBlack from "src/components/Element/ButtonBlack";
+import Headline from "src/components/Element/Headline";
 
 const Contact: NextPage = () => {
   const form = useForm({
