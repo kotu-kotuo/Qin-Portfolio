@@ -10,28 +10,24 @@ type ButtonProps = {
 };
 
 const ButtonBlack: FC<ButtonProps> = ({ text, link, externalLink, type }) => {
-  return (
-    <div>
-      {externalLink ? (
-        <Button
-          className="rounded-full bg-gray-900 font-button text-white no-underline"
-          href={link}
-          component="a"
-        >
-          {text}
-        </Button>
-      ) : (
-        <Link href={`/${link}`} passHref>
-          <Button
-            className="rounded-full bg-gray-900 font-button"
-            component="a"
-            type={type}
-          >
-            {text}
-          </Button>
-        </Link>
-      )}
-    </div>
+  return externalLink ? (
+    <Button
+      className="rounded-full bg-gray-900 font-button text-white no-underline"
+      href={link}
+      component="a"
+    >
+      {text}
+    </Button>
+  ) : (
+    <Link href={`/${link}`} passHref>
+      <Button
+        className="rounded-full bg-gray-900 font-button"
+        component="a"
+        type={type}
+      >
+        {text}
+      </Button>
+    </Link>
   );
 };
 
