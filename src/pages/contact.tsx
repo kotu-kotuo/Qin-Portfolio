@@ -3,8 +3,8 @@ import { useForm } from "@mantine/form";
 
 import { NextPage } from "next";
 import React, { useEffect } from "react";
-import ButtonBlack from "src/components/Element/ButtonBlack";
 import Headline from "src/components/Element/Headline";
+import { Button } from "src/lib/mantine";
 
 const Contact: NextPage = () => {
   const form = useForm({
@@ -19,27 +19,31 @@ const Contact: NextPage = () => {
     },
   });
 
-  useEffect(() => {
-    const storedValue = window.localStorage.getItem("user-form");
-    if (storedValue) {
-      try {
-        form.setValues(JSON.parse(window.localStorage.getItem("user-form")));
-      } catch (e) {
-        console.log("Failed to parse stored value");
-      }
-    }
-  }, []);
+  type FormValues = typeof form.values;
 
-  useEffect(() => {
-    window.localStorage.setItem("user-form", JSON.stringify(form.values));
-  }, [form.values]);
+  const handleSubmit = (values: FormValues) => console.log(values);
+
+  // useEffect(() => {
+  //   const storedValue = window.localStorage.getItem("user-form");
+  //   if (storedValue) {
+  //     try {
+  //       form.setValues(JSON.parse(window.localStorage.getItem("user-form")));
+  //     } catch (e) {
+  //       console.log("Failed to parse stored value");
+  //     }
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   window.localStorage.setItem("user-form", JSON.stringify(form.values));
+  // }, [form.values]);
 
   return (
     <>
       <div className="headline-wrapper">
         <Headline title="Contact" />
       </div>
-      <div className="wrapper">
+      <form className="wrapper" onSubmit={form.onSubmit(handleSubmit)}>
         <TextInput
           label="Email"
           placeholder="your@email.com"
@@ -56,11 +60,17 @@ const Contact: NextPage = () => {
           placeholder="Your message"
           label="Message"
           className="mb-10"
+          {...form.getInputProps("message")}
         />
         <div className="text-center">
-          <ButtonBlack text="Send message" link="/" type="submit" />
+          <Button
+            className="rounded-full bg-gray-900 font-button"
+            type="submit"
+          >
+            Send message
+          </Button>
         </div>
-      </div>
+      </form>
     </>
   );
 };
