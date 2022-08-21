@@ -1,29 +1,28 @@
 import { Textarea, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
-
 import { NextPage } from "next";
 import React, { useEffect } from "react";
 import Headline from "src/components/Element/Headline";
 import { Button } from "src/lib/mantine";
 
 const Contact: NextPage = () => {
-  const form = useForm({
+  const form = useForm<{ email: string; name: string; message: string }>({
     initialValues: { email: "", name: "", message: "" },
-    validate: {
-      email: (value: string) =>
-        ""
+    validate: (values) => ({
+      email:
+        values.email === ""
           ? "Email is required"
-          : /^\S+@\S+$/.test(value)
+          : /^\S+@\S+$/.test(values.email)
           ? null
           : "Invalid email",
-      name: (value: string) =>
-        ""
+      name:
+        values.name === ""
           ? "Name is required"
-          : value.length < 2
+          : values.name.length < 2
           ? "Name must have at least 2 letters"
           : null,
-      message: (value: string) => ("" ? "Message is required" : null),
-    },
+      message: values.message === "" ? "Message is required" : null,
+    }),
   });
 
   type FormValues = typeof form.values;
