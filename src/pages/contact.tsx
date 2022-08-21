@@ -11,11 +11,18 @@ const Contact: NextPage = () => {
     initialValues: { email: "", name: "", message: "" },
     validate: {
       email: (value: string) =>
-        /^\S+@\S+$/.test(value) ? null : "Invalid email",
+        ""
+          ? "Email is required"
+          : /^\S+@\S+$/.test(value)
+          ? null
+          : "Invalid email",
       name: (value: string) =>
-        value.length < 2 ? "Name must have at least 2 letters" : null,
-      message: (value: string) =>
-        value.length === undefined ? "Message is required" : null,
+        ""
+          ? "Name is required"
+          : value.length < 2
+          ? "Name must have at least 2 letters"
+          : null,
+      message: (value: string) => ("" ? "Message is required" : null),
     },
   });
 
