@@ -1,5 +1,5 @@
 import { Grid, Group, Text, Title } from "@mantine/core";
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { useViewportSize } from "src/lib/mantine";
 import { BsTwitter, BsFacebook } from "react-icons/bs";
 import { ImRss } from "react-icons/im";
@@ -9,8 +9,15 @@ import ButtonBlack from "src/components/Element/ButtonBlack";
 import PortfolioItem from "src/components/Item/PortfolioItem";
 import GithubItem from "src/components/Item/GithubItem";
 import TwitterItem from "src/components/Item/TwitterItem";
+import { client } from "src/lib/client";
+import { MicroCMSListResponse } from "microcms-js-sdk";
 
-const Home: NextPage = () => {
+type Blog = {
+  title: string;
+  content: string;
+};
+
+const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
   const { width } = useViewportSize();
   // const largerThanXs = useMediaQuery("xs");
   // const largerThanSm = useMediaQuery("sm");
@@ -20,6 +27,7 @@ const Home: NextPage = () => {
 
   return (
     <>
+      {console.log(props)}
       <div className="w-full bg-pink-600 px-4 py-10 text-white">
         <div className="md:mx-auto md:flex md:max-w-screen-md md:items-center md:justify-between">
           <div className="flex flex-col justify-start">
@@ -42,20 +50,18 @@ const Home: NextPage = () => {
       <div className="headline-wrapper">
         <Headline title="Blog" />
       </div>
-      <div className="wrapper">
-        <div className="item-wrapper">
-          <BlogItem />
-        </div>
-        <div className="item-wrapper">
-          <BlogItem />
-        </div>
-        <div className="item-wrapper">
-          <BlogItem />
-        </div>
-        <div className="item-wrapper">
-          <BlogItem />
-        </div>
-      </div>
+      <ul className="wrapper my-0 list-none">
+        {props.contents.map((content) => (
+          <li className="item-wrapper">
+            <BlogItem
+              contentID={content.id}
+              title={content.title}
+              content={content.content}
+              publishedAt={content.publishedAt}
+            />
+          </li>
+        ))}
+      </ul>
       <div className="text-center">
         <ButtonBlack text="View All" link="blog" />
       </div>
@@ -168,6 +174,13 @@ const Home: NextPage = () => {
       </div>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await client.getList({ endpoint: "blog" });
+  return {
+    props: data,
+  };
 };
 
 export default Home;

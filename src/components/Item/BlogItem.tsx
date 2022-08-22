@@ -1,14 +1,23 @@
 import Link from "next/link";
 import React from "react";
+import innerText from "react-innertext";
 
-const BlogItem = () => {
+type BlogProps = {
+  contentID: string;
+  title: string;
+  content: string;
+  publishedAt: any;
+};
+
+const BlogItem = (props: BlogProps) => {
   return (
-    <Link href="/blog/contentID">
+    <Link href={`/blog/${props.contentID}`}>
       <a className="no-underline">
-        <div className="text-xl font-bold text-gray-900">This is a header</div>
-        <p className="my-1.5 mb-1 text-base text-gray-900  line-clamp-2">
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-          sint. Velit officia consequat duis enim velit mollit.
+        <div className="text-xl font-bold text-gray-900">{props.title}</div>
+        <p
+          className="my-1.5 mb-1 text-base text-gray-900  line-clamp-2"
+        >
+          {props.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "")}
         </p>
         <time className="text-sm font-bold text-gray-400">2022.07.11</time>
       </a>

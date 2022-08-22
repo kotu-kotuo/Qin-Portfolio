@@ -10,7 +10,7 @@ const Blog: NextPage = () => {
         <Headline title="Blog" />
       </div>
       <div className="md:mx-auto md:max-w-screen-md">
-        <div className="item-wrapper">
+        {/* <div className="item-wrapper">
           <BlogItem />
         </div>
         <div className="item-wrapper">
@@ -33,7 +33,7 @@ const Blog: NextPage = () => {
         </div>
         <div className="item-wrapper">
           <BlogItem />
-        </div>
+        </div> */}
       </div>
     </>
   );
