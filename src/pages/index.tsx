@@ -19,8 +19,10 @@ export type Blog = {
 
 export type Portfolio = {
   title: string;
-  featuredImage: string;
+  featuredImage: any;
   content: string;
+  startDate: string;
+  endDate: string;
 };
 
 type HomeProps = {
@@ -85,6 +87,8 @@ const Home: NextPage<HomeProps> = (props) => {
                   title={content.title}
                   content={content.content}
                   featuredImage={content.featuredImage}
+                  startDate={content.startDate}
+                  endDate={content.endDate}
                 />
               </div>
             ))}
@@ -109,6 +113,8 @@ const Home: NextPage<HomeProps> = (props) => {
                       title={content.title}
                       content={content.content}
                       featuredImage={content.featuredImage}
+                      startDate={content.startDate}
+                      endDate={content.endDate}
                     />
                   </div>
                 </Grid.Col>

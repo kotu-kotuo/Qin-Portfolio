@@ -1,11 +1,14 @@
 import Link from "next/link";
 import React from "react";
+import dayjs from "dayjs";
 
 type PortfolioProps = {
   contentID: string;
   title: string;
-  content: string;
   featuredImage: any;
+  content: string;
+  startDate: string;
+  endDate: string;
 };
 
 const PortfolioItem = (props: PortfolioProps) => {
@@ -24,7 +27,9 @@ const PortfolioItem = (props: PortfolioProps) => {
           {props.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "")}
         </p>
         <p className="my-2 text-sm font-bold text-gray-400">
-          2021.10 - 2021.12
+          {dayjs(props.startDate).format("YYYY.MM")}{" "}
+          <span>{props.endDate ? "-" : "~"}</span>{" "}
+          {dayjs(props.endDate).format("YYYY.MM")}
         </p>
       </a>
     </Link>
