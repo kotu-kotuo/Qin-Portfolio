@@ -46,7 +46,7 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
         <Headline title="Blog" />
       </div>
       <ul className="wrapper my-0 list-none">
-        {props.contents.map((content) => (
+        {props.contents.slice(0, 4).map((content) => (
           <li className="item-wrapper" key={content.id}>
             <BlogItem
               contentID={content.id}
