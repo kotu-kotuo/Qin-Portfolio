@@ -12,18 +12,13 @@ import TwitterItem from "src/components/Item/TwitterItem";
 import { client } from "src/lib/client";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 
-type Blog = {
+export type Blog = {
   title: string;
   content: string;
 };
 
 const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
   const { width } = useViewportSize();
-  // const largerThanXs = useMediaQuery("xs");
-  // const largerThanSm = useMediaQuery("sm");
-  // const largerThanMd = useMediaQuery("md");
-  // const largerThanLg = useMediaQuery("lg");
-  // const largerThanXl = useMediaQuery("xl");
 
   return (
     <>
@@ -52,7 +47,7 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
       </div>
       <ul className="wrapper my-0 list-none">
         {props.contents.map((content) => (
-          <li className="item-wrapper">
+          <li className="item-wrapper" key={content.id}>
             <BlogItem
               contentID={content.id}
               title={content.title}
@@ -177,7 +172,7 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await client.getList({ endpoint: "blog" });
+  const data = await client.getList<Blog>({ endpoint: "blog" });
   return {
     props: data,
   };
