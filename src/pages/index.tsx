@@ -17,7 +17,18 @@ export type Blog = {
   content: string;
 };
 
-const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
+export type Portfolio = {
+  title: string;
+  featuredImage: string;
+  content: string;
+};
+
+type HomeProps = {
+  blogData: MicroCMSListResponse<Blog>;
+  portfolioData: MicroCMSListResponse<Portfolio>;
+};
+
+const Home: NextPage<HomeProps> = (props) => {
   const { width } = useViewportSize();
 
   return (
@@ -46,7 +57,7 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
         <Headline title="Blog" />
       </div>
       <ul className="wrapper my-0 list-none">
-        {props.contents.slice(0, 4).map((content) => (
+        {props.blogData.contents.slice(0, 4).map((content) => (
           <li className="item-wrapper" key={content.id}>
             <BlogItem
               contentID={content.id}
@@ -67,7 +78,17 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
       <div className="wrapper md:mx-auto">
         {width < 768 ? (
           <>
-            <div className="item-wrapper">
+            {props.portfolioData.contents.slice(0, 3).map((content) => (
+              <div className="item-wrapper" key={content.id}>
+                <PortfolioItem
+                  contentID={content.id}
+                  title={content.title}
+                  content={content.content}
+                  featuredImage={content.featuredImage}
+                />
+              </div>
+            ))}
+            {/* <div className="item-wrapper">
               <PortfolioItem />
             </div>
             <div className="item-wrapper">
@@ -75,12 +96,24 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
             </div>
             <div className="item-wrapper">
               <PortfolioItem />
-            </div>
+            </div> */}
           </>
         ) : (
           <>
             <Grid>
-              <Grid.Col span={4}>
+              {props.portfolioData.contents.slice(0, 6).map((content) => (
+                <Grid.Col span={4}>
+                  <div className="item-wrapper" key={content.id}>
+                    <PortfolioItem
+                      contentID={content.id}
+                      title={content.title}
+                      content={content.content}
+                      featuredImage={content.featuredImage}
+                    />
+                  </div>
+                </Grid.Col>
+              ))}
+              {/* <Grid.Col span={4}>
                 <div className="item-wrapper">
                   <PortfolioItem />
                 </div>
@@ -109,7 +142,7 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
                 <div className="item-wrapper">
                   <PortfolioItem />
                 </div>
-              </Grid.Col>
+              </Grid.Col> */}
             </Grid>
           </>
         )}
@@ -172,9 +205,12 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await client.getList<Blog>({ endpoint: "blog" });
+  const blogData = await client.getList<Blog>({ endpoint: "blog" });
+  const portfolioData = await client.getList<Portfolio>({
+    endpoint: "portfolio",
+  });
   return {
-    props: data,
+    props: { blogData, portfolioData },
   };
 };
 
