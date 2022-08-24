@@ -1,11 +1,14 @@
 import { Grid } from "@mantine/core";
-import { NextPage } from "next";
+import { MicroCMSListResponse } from "microcms-js-sdk";
+import { GetStaticProps, NextPage } from "next";
 import React from "react";
 import Headline from "src/components/Element/Headline";
 import PortfolioItem from "src/components/Item/PortfolioItem";
+import { client } from "src/lib/client";
 import { useViewportSize } from "src/lib/mantine";
+import { Portfolio } from "src/pages";
 
-const PortfolioList: NextPage = () => {
+const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
   const { width } = useViewportSize();
 
   return (
@@ -16,85 +19,51 @@ const PortfolioList: NextPage = () => {
       <div className="wrapper">
         {width < 768 ? (
           <>
-            <div className="item-wrapper">
-              <PortfolioItem />
-            </div>
-            <div className="item-wrapper">
-              <PortfolioItem />
-            </div>
-            <div className="item-wrapper">
-              <PortfolioItem />
-            </div>
-            <div className="item-wrapper">
-              <PortfolioItem />
-            </div>
-            <div className="item-wrapper">
-              <PortfolioItem />
-            </div>
-            <div className="item-wrapper">
-              <PortfolioItem />
-            </div>
-            <div className="item-wrapper">
-              <PortfolioItem />
-            </div>
-            <div className="item-wrapper">
-              <PortfolioItem />
-            </div>
+            {props.contents.map((content) => (
+              <div className="item-wrapper" key={content.id}>
+                <PortfolioItem
+                  contentID={content.id}
+                  title={content.title}
+                  content={content.content}
+                  featuredImage={content.featuredImage}
+                  startDate={content.startDate}
+                  endDate={content.endDate}
+                />
+              </div>
+            ))}
           </>
         ) : (
           <>
             <Grid>
-              <Grid.Col span={4}>
-                <div className="headline-wrapper">
-                  <PortfolioItem />
-                </div>
-              </Grid.Col>
-              <Grid.Col span={4}>
-                <div className="headline-wrapper">
-                  <PortfolioItem />
-                </div>
-              </Grid.Col>
-              <Grid.Col span={4}>
-                <div className="headline-wrapper">
-                  <PortfolioItem />
-                </div>
-              </Grid.Col>
-              <Grid.Col span={4}>
-                <div className="headline-wrapper">
-                  <PortfolioItem />
-                </div>
-              </Grid.Col>
-              <Grid.Col span={4}>
-                <div className="headline-wrapper">
-                  <PortfolioItem />
-                </div>
-              </Grid.Col>
-              <Grid.Col span={4}>
-                <div className="headline-wrapper">
-                  <PortfolioItem />
-                </div>
-              </Grid.Col>
-              <Grid.Col span={4}>
-                <div className="headline-wrapper">
-                  <PortfolioItem />
-                </div>
-              </Grid.Col>
-              <Grid.Col span={4}>
-                <div className="headline-wrapper">
-                  <PortfolioItem />
-                </div>
-              </Grid.Col>
-              <Grid.Col span={4}>
-                <div className="headline-wrapper">
-                  <PortfolioItem />
-                </div>
-              </Grid.Col>
+              {props.contents.map((content) => (
+                <Grid.Col span={4}>
+                  <div className="item-wrapper" key={content.id}>
+                    <PortfolioItem
+                      contentID={content.id}
+                      title={content.title}
+                      content={content.content}
+                      featuredImage={content.featuredImage}
+                      startDate={content.startDate}
+                      endDate={content.endDate}
+                    />
+                  </div>
+                </Grid.Col>
+              ))}
             </Grid>
           </>
         )}
       </div>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await client.getList<Portfolio>({
+    endpoint: "portfolio",
+  });
+  return {
+    props: data,
+  };
 };
 
 export default PortfolioList;

@@ -92,15 +92,6 @@ const Home: NextPage<HomeProps> = (props) => {
                 />
               </div>
             ))}
-            {/* <div className="item-wrapper">
-              <PortfolioItem />
-            </div>
-            <div className="item-wrapper">
-              <PortfolioItem />
-            </div>
-            <div className="item-wrapper">
-              <PortfolioItem />
-            </div> */}
           </>
         ) : (
           <>
@@ -119,36 +110,6 @@ const Home: NextPage<HomeProps> = (props) => {
                   </div>
                 </Grid.Col>
               ))}
-              {/* <Grid.Col span={4}>
-                <div className="item-wrapper">
-                  <PortfolioItem />
-                </div>
-              </Grid.Col>
-              <Grid.Col span={4}>
-                <div className="item-wrapper">
-                  <PortfolioItem />
-                </div>
-              </Grid.Col>
-              <Grid.Col span={4}>
-                <div className="item-wrapper">
-                  <PortfolioItem />
-                </div>
-              </Grid.Col>
-              <Grid.Col span={4}>
-                <div className="item-wrapper">
-                  <PortfolioItem />
-                </div>
-              </Grid.Col>
-              <Grid.Col span={4}>
-                <div className="item-wrapper">
-                  <PortfolioItem />
-                </div>
-              </Grid.Col>
-              <Grid.Col span={4}>
-                <div className="item-wrapper">
-                  <PortfolioItem />
-                </div>
-              </Grid.Col> */}
             </Grid>
           </>
         )}

@@ -6,7 +6,7 @@ import Headline from "src/components/Element/Headline";
 import { client } from "src/lib/client";
 import { Portfolio } from "src/pages";
 
-type PortfolioProps = Portfolio & MicroCMSContentId & MicroCMSDate;
+export type PortfolioProps = Portfolio & MicroCMSContentId & MicroCMSDate;
 
 const PortfolioContent: NextPage<PortfolioProps> = (props) => {
   return (
