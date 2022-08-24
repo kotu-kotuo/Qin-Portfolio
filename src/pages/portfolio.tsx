@@ -36,8 +36,8 @@ const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
           <>
             <Grid>
               {props.contents.map((content) => (
-                <Grid.Col span={4}>
-                  <div className="item-wrapper" key={content.id}>
+                <Grid.Col span={4} key={content.id}>
+                  <div className="item-wrapper">
                     <PortfolioItem
                       contentID={content.id}
                       title={content.title}

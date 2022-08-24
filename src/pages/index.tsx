@@ -35,14 +35,12 @@ const Home: NextPage<HomeProps> = (props) => {
 
   return (
     <>
-      {console.log(props)}
       <div className="w-full bg-pink-600 px-4 py-10 text-white">
         <div className="md:mx-auto md:flex md:max-w-screen-md md:items-center md:justify-between">
           <div className="flex flex-col justify-start">
             <Title className="inline font-main text-3xl">
               Shimabu IT University
             </Title>
-
             <Text className="inline text-base">
               しまぶーのポートフォリオのためのページです
             </Text>
@@ -97,8 +95,8 @@ const Home: NextPage<HomeProps> = (props) => {
           <>
             <Grid>
               {props.portfolioData.contents.slice(0, 6).map((content) => (
-                <Grid.Col span={4}>
-                  <div className="item-wrapper" key={content.id}>
+                <Grid.Col span={4} key={content.id}>
+                  <div className="item-wrapper">
                     <PortfolioItem
                       contentID={content.id}
                       title={content.title}
