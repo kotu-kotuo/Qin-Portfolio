@@ -1,6 +1,6 @@
 import { Grid, Group, Text, Title } from "@mantine/core";
 import type { GetStaticProps, NextPage } from "next";
-import { useViewportSize } from "src/lib/mantine";
+import { useMediaQuery, useViewportSize } from "src/lib/mantine";
 import { BsTwitter, BsFacebook } from "react-icons/bs";
 import { ImRss } from "react-icons/im";
 import Headline from "src/components/Element/Headline";
@@ -31,7 +31,7 @@ type HomeProps = {
 };
 
 const Home: NextPage<HomeProps> = (props) => {
-  const { width } = useViewportSize();
+  const sm = useMediaQuery("sm");
 
   return (
     <>
@@ -76,7 +76,8 @@ const Home: NextPage<HomeProps> = (props) => {
         <Headline title="Portfolio" />
       </div>
       <div className="wrapper md:mx-auto">
-        {width < 768 ? (
+        {!sm ? (
+          // モバイルポートフォリオリスト
           <>
             {props.portfolioData.contents.slice(0, 3).map((content) => (
               <div className="item-wrapper" key={content.id}>
@@ -92,6 +93,7 @@ const Home: NextPage<HomeProps> = (props) => {
             ))}
           </>
         ) : (
+          // PCポートフォリオリスト
           <>
             <Grid>
               {props.portfolioData.contents.slice(0, 6).map((content) => (

@@ -5,11 +5,11 @@ import React from "react";
 import Headline from "src/components/Element/Headline";
 import PortfolioItem from "src/components/Item/PortfolioItem";
 import { client } from "src/lib/client";
-import { useViewportSize } from "src/lib/mantine";
+import { useMediaQuery } from "src/lib/mantine";
 import { Portfolio } from "src/pages";
 
 const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
-  const { width } = useViewportSize();
+  const sm = useMediaQuery("sm");
 
   return (
     <>
@@ -17,7 +17,8 @@ const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
         <Headline title="Portfolio" />
       </div>
       <div className="wrapper">
-        {width < 768 ? (
+        {!sm ? (
+          // モバイルポートフォリオリスト
           <>
             {props.contents.map((content) => (
               <div className="item-wrapper" key={content.id}>
@@ -33,6 +34,7 @@ const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
             ))}
           </>
         ) : (
+          // PCポートフォリオリスト
           <>
             <Grid>
               {props.contents.map((content) => (

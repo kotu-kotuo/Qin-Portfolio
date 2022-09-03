@@ -6,11 +6,8 @@ type LayoutProps = {
 };
 import { slide as Menu } from "react-burger-menu";
 import Header from "src/components/Layout/Header";
-import { useViewportSize } from "src/lib/mantine";
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
-  const { width } = useViewportSize();
-
   return (
     <div className="contain w-full">
       <Menu>
