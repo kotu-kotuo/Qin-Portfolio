@@ -1,5 +1,5 @@
 import React from "react";
-import { useMediaQuery, useViewportSize } from "src/lib/mantine";
+import { useMediaQuery } from "src/lib/mantine";
 import Link from "next/link";
 import { Menu2, Moon } from "tabler-icons-react";
 import { Header as HeaderMantine, Title } from "@mantine/core";

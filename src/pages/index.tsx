@@ -1,6 +1,6 @@
 import { Grid, Group, Text, Title } from "@mantine/core";
 import type { GetStaticProps, NextPage } from "next";
-import { useMediaQuery, useViewportSize } from "src/lib/mantine";
+import { useMediaQuery } from "src/lib/mantine";
 import { BsTwitter, BsFacebook } from "react-icons/bs";
 import { ImRss } from "react-icons/im";
 import Headline from "src/components/Element/Headline";
@@ -178,6 +178,7 @@ export const getStaticProps: GetStaticProps = async () => {
   });
   return {
     props: { blogData, portfolioData },
+    revalidate: 100,
   };
 };
 
