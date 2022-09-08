@@ -12,6 +12,7 @@ import TwitterItem from "src/components/Item/TwitterItem";
 import { client } from "src/lib/client";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import useSWR from "swr";
+import { twitterUrl } from "src/lib/urls";
 
 export type Blog = {
   title: string;
@@ -26,6 +27,13 @@ export type Portfolio = {
   endDate: string;
 };
 
+export type Tweet = {
+  author_id: string;
+  created_at: string;
+  id: string;
+  text: string;
+};
+
 type HomeProps = {
   blogData: MicroCMSListResponse<Blog>;
   portfolioData: MicroCMSListResponse<Portfolio>;
@@ -33,11 +41,13 @@ type HomeProps = {
 
 const Home: NextPage<HomeProps> = (props) => {
   const sm = useMediaQuery("sm");
-  const { data: user, error } = useSWR(
-    `/api/twitter/user?user.fields=profile_image_url`
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const { data: twitterData, error: twitterError } = useSWR(
+    "/api/twitter",
+    fetcher
   );
 
-  console.log(user, error);
+  console.log(twitterData, twitterError);
   return (
     <>
       <div className="w-full bg-pink-600 px-4 py-10 text-white">
@@ -153,20 +163,16 @@ const Home: NextPage<HomeProps> = (props) => {
             <Headline title="Twitter" />
           </div>
           <div className="wrapper">
-            <div className="item-wrapper">
-              <TwitterItem />
-            </div>
-            <div className="item-wrapper">
-              <TwitterItem />
-            </div>
-            <div className="item-wrapper">
-              <TwitterItem />
-            </div>
+            {twitterData?.data.slice(0, 3).map((data: Tweet) => (
+              <div className="item-wrapper" key={data.id}>
+                <TwitterItem data={data} user={twitterData.includes.users[0]} />
+              </div>
+            ))}
           </div>
           <div className="text-center">
             <ButtonBlack
               text="View on Twitter"
-              link="https://twitter.com/shimabu_it"
+              link={twitterUrl}
               externalLink={true}
             />
           </div>

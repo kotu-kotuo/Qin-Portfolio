@@ -1,7 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Client from "twitter-api-sdk";
 
-const getTweet = async (req: NextApiRequest, res: NextApiResponse) => {
+export default async function getTweet(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   try {
     // Pass auth credentials to the library client
     const twitterClient = new Client(process.env.BEARER_TOKEN as string);
@@ -20,11 +23,20 @@ const getTweet = async (req: NextApiRequest, res: NextApiResponse) => {
       max_results: 10,
     });
 
+    const userName = "kotu_kotuo";
+    // const { data } = await twitterClient.users.findUserByUsername(userName);
+
+    // data.idにuserIdが格納されている
+    // const tweets = twitterClient.tweets.usersIdTweets("1120285710668296198");
+
+    // const tweet = await twitterClient.tweets.findTweetById(
+    //   "1564895534397005825"
+    // );
+    // console.log(tweet);
+    // console.log(tweets);
     res.status(200).json(recentSearch);
   } catch (err) {
     console.error(err);
     res.statusCode = 500;
   }
-};
-
-export default getTweet;
+}

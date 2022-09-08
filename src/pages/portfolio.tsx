@@ -10,7 +10,6 @@ import { Portfolio } from "src/pages";
 
 const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
   const sm = useMediaQuery("sm");
-  console.log(!sm);
 
   return (
     <>
