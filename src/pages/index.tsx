@@ -11,6 +11,7 @@ import GithubItem from "src/components/Item/GithubItem";
 import TwitterItem from "src/components/Item/TwitterItem";
 import { client } from "src/lib/client";
 import { MicroCMSListResponse } from "microcms-js-sdk";
+import useSWR from "swr";
 
 export type Blog = {
   title: string;
@@ -32,7 +33,11 @@ type HomeProps = {
 
 const Home: NextPage<HomeProps> = (props) => {
   const sm = useMediaQuery("sm");
+  const { data: user, error } = useSWR(
+    `/api/twitter/user?user.fields=profile_image_url`
+  );
 
+  console.log(user, error);
   return (
     <>
       <div className="w-full bg-pink-600 px-4 py-10 text-white">

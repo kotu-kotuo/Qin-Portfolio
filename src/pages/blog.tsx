@@ -12,18 +12,20 @@ const Blog: NextPage<MicroCMSListResponse<Blog>> = (props) => {
       <div className="headline-wrapper">
         <Headline title="Blog" />
       </div>
-      <ul className="list-none pl-0 md:mx-auto  md:max-w-screen-md">
-        {props.contents.map((content) => (
-          <li className="item-wrapper" key={content.id}>
-            <BlogItem
-              contentID={content.id}
-              title={content.title}
-              content={content.content}
-              publishedAt={content.publishedAt}
-            />
-          </li>
-        ))}
-      </ul>
+      <div className="px-4">
+        <ul className="list-none pl-0 md:mx-auto  md:max-w-screen-md">
+          {props.contents.map((content) => (
+            <li className="item-wrapper" key={content.id}>
+              <BlogItem
+                contentID={content.id}
+                title={content.title}
+                content={content.content}
+                publishedAt={content.publishedAt}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };

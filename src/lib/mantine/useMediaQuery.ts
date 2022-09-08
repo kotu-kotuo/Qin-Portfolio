@@ -11,7 +11,7 @@ const map = {
 
 export const useMediaQuery = (
   query: keyof typeof map,
-  initialValue: Parameters<typeof useMediaQueryOriginal>[1] = true
+  initialValue: Parameters<typeof useMediaQueryOriginal>[1] = null
 ) => {
   return useMediaQueryOriginal(`(min-width: ${map[query]})`, initialValue);
 };
