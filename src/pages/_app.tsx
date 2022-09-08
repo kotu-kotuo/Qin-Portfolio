@@ -5,6 +5,7 @@ import { MantineProvider } from "@mantine/core";
 import { Layout } from "src/components/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  console.log(process.env.NEXT_PUBLIC_MICROCMS_KEY);
   return (
     <MantineProvider
       withGlobalStyles
