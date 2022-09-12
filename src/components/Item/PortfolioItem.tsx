@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 type PortfolioProps = {
   contentID: string;
   title: string;
-  featuredImage: any;
+  featuredImage: { url: string; height: number; width: number };
   content: string;
   startDate: string;
   endDate: string;

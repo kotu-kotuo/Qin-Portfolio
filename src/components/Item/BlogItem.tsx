@@ -5,7 +5,7 @@ type BlogProps = {
   contentID: string;
   title: string;
   content: string;
-  publishedAt: any;
+  publishedAt: string;
 };
 
 const BlogItem = (props: BlogProps) => {

@@ -21,7 +21,7 @@ export type Blog = {
 
 export type Portfolio = {
   title: string;
-  featuredImage: any;
+  featuredImage: { url: string; height: number; width: number };
   content: string;
   startDate: string;
   endDate: string;
@@ -47,7 +47,7 @@ const Home: NextPage<HomeProps> = (props) => {
     fetcher
   );
 
-  console.log(twitterData, twitterError);
+  console.log(props.blogData, props.portfolioData);
   return (
     <>
       <div className="w-full bg-pink-600 px-4 py-10 text-white">
