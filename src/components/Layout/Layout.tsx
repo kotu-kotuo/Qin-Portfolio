@@ -1,28 +1,37 @@
 import { Footer } from "@mantine/core";
 import Link from "next/link";
-import React, { FC, ReactNode } from "react";
+import React, { FC, ReactNode, useState } from "react";
 type LayoutProps = {
   children: ReactNode;
 };
-import { slide as Menu } from "react-burger-menu";
+import { slide as Menu, State } from "react-burger-menu";
 import Header from "src/components/Layout/Header";
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const handleMenuClick = () => {
+    setIsOpen((prevState) => !prevState);
+  };
+
+  console.log(isOpen);
   return (
     <div className="contain w-full">
-      <Menu>
+      <Menu
+        isOpen={isOpen}
+        onStateChange={(state: State) => setIsOpen(state.isOpen)}
+      >
         <div className="flex flex-col font-main">
           <Link href="/about">
-            <a>About</a>
+            <a onClick={handleMenuClick}>About</a>
           </Link>
           <Link href="/blog">
-            <a>Blog</a>
+            <a onClick={handleMenuClick}>Blog</a>
           </Link>
           <Link href="/portfolio">
-            <a>Portfolio</a>
+            <a onClick={handleMenuClick}>Portfolio</a>
           </Link>
           <Link href="/contact">
-            <a>Contact</a>
+            <a onClick={handleMenuClick}>Contact</a>
           </Link>
         </div>
       </Menu>
