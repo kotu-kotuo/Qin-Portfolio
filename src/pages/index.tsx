@@ -43,7 +43,7 @@ const Home: NextPage<HomeProps> = (props) => {
   const sm = useMediaQuery("sm");
   const { twitterData, twitterError } = useTwitter();
 
-  console.log(props.blogData, props.portfolioData);
+  console.log(props.blogData, props.portfolioData, twitterData);
   return (
     <>
       <div className="w-full bg-pink-600 px-4 py-10 text-white">
@@ -159,9 +159,13 @@ const Home: NextPage<HomeProps> = (props) => {
             <Headline title="Twitter" />
           </div>
           <div className="wrapper">
-            {twitterData?.data.slice(0, 3).map((data: Tweet) => (
+            {twitterData?.recentSearch.data.slice(0, 3).map((data: Tweet) => (
               <div className="item-wrapper" key={data.id}>
-                <TwitterItem data={data} user={twitterData.includes.users[0]} />
+                <TwitterItem
+                  data={data}
+                  user={twitterData?.recentSearch.includes.users[0]}
+                  userImage={twitterData?.user.profile_image_url}
+                />
               </div>
             ))}
           </div>

@@ -6,13 +6,14 @@ import { Tweet } from "src/pages";
 type TwitterProps = {
   data: Tweet;
   user: { id: string; name: string; username: string };
+  userImage: string;
 };
 
 const TwitterItem = (props: TwitterProps) => {
   console.log(props);
   return (
     <div className="flex">
-      <Avatar src="/kaja.png" radius="xl" className="mr-4" />
+      <Avatar src={props.userImage} radius="xl" className="mr-4" />
       <div>
         <div className="flex items-center gap-x-2">
           <div className="font-bold text-gray-900">{props.user?.name}</div>

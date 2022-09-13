@@ -23,7 +23,14 @@ export default async function getTweet(
       max_results: 10,
     });
 
-    res.status(200).json(recentSearch);
+    const { data: user } = await twitterClient.users.findUserByUsername(
+      "kotu_kotuo",
+      {
+        "user.fields": ["profile_image_url"],
+      }
+    );
+
+    res.status(200).json({ recentSearch, user });
   } catch (err) {
     console.error(err);
     res.statusCode = 500;
