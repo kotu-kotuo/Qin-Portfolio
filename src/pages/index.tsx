@@ -11,8 +11,8 @@ import GithubItem from "src/components/Item/GithubItem";
 import TwitterItem from "src/components/Item/TwitterItem";
 import { client } from "src/lib/client";
 import { MicroCMSListResponse } from "microcms-js-sdk";
-import useSWR from "swr";
 import { twitterUrl } from "src/lib/urls";
+import useTwitter from "src/hooks/useTwitter";
 
 export type Blog = {
   title: string;
@@ -41,11 +41,7 @@ type HomeProps = {
 
 const Home: NextPage<HomeProps> = (props) => {
   const sm = useMediaQuery("sm");
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const { data: twitterData, error: twitterError } = useSWR(
-    "/api/twitter",
-    fetcher
-  );
+  const { twitterData, twitterError } = useTwitter();
 
   console.log(props.blogData, props.portfolioData);
   return (
