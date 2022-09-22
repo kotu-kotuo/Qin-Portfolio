@@ -11,7 +11,6 @@ const GithubItem = (props) => {
       return a + b;
     });
 
-  console.log(languagesSizeTotal);
   return (
     <div>
       <div className="text-lg font-bold text-gray-900">{repoData.name}</div>
@@ -44,7 +43,7 @@ const GithubItem = (props) => {
       <div>
         <div className="flex flex-wrap gap-x-4">
           {repoData.languages.edges.map((edge) => (
-            <div className="flex items-center gap-x-1">
+            <div className="flex items-center gap-x-1" key={edge.node.id}>
               <div
                 className="h-1.5 w-1.5 rounded-full "
                 style={{ backgroundColor: edge.node.color }}

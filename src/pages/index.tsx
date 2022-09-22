@@ -83,7 +83,7 @@ const Home: NextPage<HomeProps> = (props) => {
           </li>
         ))}
       </ul>
-      <div className="text-center">
+      <div className="buttonBlackSpace text-center">
         <ButtonBlack text="View All" link="blog" />
       </div>
 
@@ -129,7 +129,7 @@ const Home: NextPage<HomeProps> = (props) => {
           </>
         )}
       </div>
-      <div className="text-center">
+      <div className="buttonBlackSpace  text-center">
         <ButtonBlack text="View All" link="portfolio" />
       </div>
 
@@ -145,7 +145,7 @@ const Home: NextPage<HomeProps> = (props) => {
               </div>
             ))}
           </div>
-          <div className="text-center">
+          <div className="buttonBlackSpace  text-center">
             <ButtonBlack
               text="View on GitHub"
               link="https://github.com/qin-salon/admin-dashboard-with-next-mantine"
@@ -173,7 +173,7 @@ const Home: NextPage<HomeProps> = (props) => {
                   ))
               : null}
           </div>
-          <div className="text-center">
+          <div className="buttonBlackSpace  text-center">
             <ButtonBlack
               text="View on Twitter"
               link={twitterUrl}

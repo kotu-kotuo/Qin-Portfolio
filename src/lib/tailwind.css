@@ -11,6 +11,10 @@
   }
 
   .item-wrapper {
-    @apply mb-8
+    @apply mb-8;
   }
+}
+
+.buttonBlackSpace {
+  @apply mb-6 md:mb-8;
 }
