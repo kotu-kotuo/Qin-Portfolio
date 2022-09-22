@@ -3,48 +3,63 @@ import React from "react";
 import { BiGitRepoForked } from "react-icons/bi";
 import { BsStar } from "react-icons/bs";
 
-const GithubItem = () => {
+const GithubItem = (props) => {
+  const repoData = props.repository.node;
+  const languagesSizeTotal = repoData.languages.edges
+    .map((edge) => edge.size)
+    .reduce((a, b) => {
+      return a + b;
+    });
+
+  console.log(languagesSizeTotal);
   return (
     <div>
-      <div className="text-lg font-bold text-gray-900">
-        lightsound/nexst-tailwind
-      </div>
-      <p className="my-2 text-gray-600">Next.js starter template.</p>
+      <div className="text-lg font-bold text-gray-900">{repoData.name}</div>
+      <p className="my-2 text-sm text-gray-600">{repoData.description}</p>
       <div className="flex items-center gap-x-4">
         <div className="flex items-center gap-x-1">
           <BsStar className="text-sm text-gray-400" />
-          <p className="my-0 text-xs font-bold text-gray-400">117</p>
+          <p className="my-0 text-xs font-bold text-gray-400">
+            {repoData.stargazerCount}
+          </p>
         </div>
         <div className="flex items-center">
           <BiGitRepoForked className="text-sm text-gray-400" />
-          <p className="my-0 text-xs font-bold text-gray-400">18</p>
+          <p className="my-0 text-xs font-bold text-gray-400">
+            {repoData.forkCount}
+          </p>
         </div>
       </div>
+
       <Progress
-        sections={[
-          { value: 60, color: "#3178C6" },
-          { value: 35, color: "#F1E05A" },
-          { value: 5, color: "#EDEDED" },
-        ]}
+        sections={repoData.languages.edges.map((edge) => {
+          return {
+            value: (edge.size / languagesSizeTotal) * 100,
+            color: edge.node.color,
+          };
+        })}
         my={6}
       />
+
       <div>
         <div className="flex flex-wrap gap-x-4">
-          <div className="flex items-center gap-x-1">
-            <div className="h-1.5 w-1.5 rounded-full bg-[#3178C6]"></div>
-            <p className="my-0 text-xs font-bold text-gray-900">TypeScript</p>
-            <p className="my-0 text-xs font-bold text-gray-400">66.6%</p>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <div className="h-1.5 w-1.5 rounded-full bg-[#F1E05A]"></div>
-            <p className="my-0 text-xs font-bold text-gray-900">JavaScript</p>
-            <p className="my-0 text-xs font-bold text-gray-400">30.0%</p>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <div className="h-1.5 w-1.5 rounded-full bg-[#EDEDED]"></div>
-            <p className="my-0 text-xs font-bold text-gray-900">Other</p>
-            <p className="my-0 text-xs font-bold text-gray-400">3.4%</p>
-          </div>
+          {repoData.languages.edges.map((edge) => (
+            <div className="flex items-center gap-x-1">
+              <div
+                className="h-1.5 w-1.5 rounded-full "
+                style={{ backgroundColor: edge.node.color }}
+              ></div>
+              <p className="my-0 text-xs font-bold text-gray-900">
+                {edge.node.name}
+              </p>
+              <p className="my-0 text-xs font-bold text-gray-400">
+                {Math.round(
+                  (edge.size / languagesSizeTotal) * Math.pow(10, 3)
+                ) / Math.pow(10, 1)}
+                %
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

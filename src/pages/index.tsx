@@ -13,6 +13,7 @@ import { client } from "src/lib/client";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { twitterUrl } from "src/lib/urls";
 import useTwitter from "src/hooks/useTwitter";
+import useGithub from "src/hooks/useGithub";
 
 export type Blog = {
   title: string;
@@ -37,13 +38,16 @@ export type Tweet = {
 type HomeProps = {
   blogData: MicroCMSListResponse<Blog>;
   portfolioData: MicroCMSListResponse<Portfolio>;
+  repositories: any;
 };
 
 const Home: NextPage<HomeProps> = (props) => {
   const sm = useMediaQuery("sm");
-  const { twitterData, twitterError } = useTwitter();
+  const { twitterData } = useTwitter();
+  const { repositories } = useGithub();
 
-  console.log(props.blogData, props.portfolioData, twitterData);
+  console.log(repositories);
+
   return (
     <>
       <div className="w-full bg-pink-600 px-4 py-10 text-white">
@@ -135,15 +139,11 @@ const Home: NextPage<HomeProps> = (props) => {
             <Headline title="Github" />
           </div>
           <div className="wrapper mb-8">
-            <div className="item-wrapper">
-              <GithubItem />
-            </div>
-            <div className="item-wrapper">
-              <GithubItem />
-            </div>
-            <div className="item-wrapper">
-              <GithubItem />
-            </div>
+            {repositories?.map((repository) => (
+              <div className="item-wrapper" key={repository.node.name}>
+                <GithubItem repository={repository} />
+              </div>
+            ))}
           </div>
           <div className="text-center">
             <ButtonBlack
@@ -156,18 +156,22 @@ const Home: NextPage<HomeProps> = (props) => {
 
         <div className="md:flex-1">
           <div className="headline-wrapper">
-            <Headline title="Twitter" />
+            <Headline title="Twitter (1week)" />
           </div>
           <div className="wrapper">
-            {twitterData?.recentSearch.data.slice(0, 3).map((data: Tweet) => (
-              <div className="item-wrapper" key={data.id}>
-                <TwitterItem
-                  data={data}
-                  user={twitterData?.recentSearch.includes.users[0]}
-                  userImage={twitterData?.user.profile_image_url}
-                />
-              </div>
-            ))}
+            {twitterData?.recentSearch.data
+              ? twitterData?.recentSearch.data
+                  .slice(0, 3)
+                  .map((data: Tweet) => (
+                    <div className="item-wrapper" key={data.id}>
+                      <TwitterItem
+                        data={data}
+                        user={twitterData?.recentSearch.includes.users[0]}
+                        userImage={twitterData?.user.profile_image_url}
+                      />
+                    </div>
+                  ))
+              : null}
           </div>
           <div className="text-center">
             <ButtonBlack
@@ -187,6 +191,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const portfolioData = await client.getList<Portfolio>({
     endpoint: "portfolio",
   });
+
   return {
     props: { blogData, portfolioData },
     revalidate: 100,
