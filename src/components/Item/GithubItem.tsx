@@ -5,11 +5,7 @@ import { BsStar } from "react-icons/bs";
 
 const GithubItem = (props) => {
   const repoData = props.repository.node;
-  const languagesSizeTotal = repoData.languages.edges
-    .map((edge) => edge.size)
-    .reduce((a, b) => {
-      return a + b;
-    });
+  const languagesTotalSize = repoData.languages.totalSize;
 
   return (
     <div>
@@ -33,7 +29,7 @@ const GithubItem = (props) => {
       <Progress
         sections={repoData.languages.edges.map((edge) => {
           return {
-            value: (edge.size / languagesSizeTotal) * 100,
+            value: (edge.size / languagesTotalSize) * 100,
             color: edge.node.color,
           };
         })}
@@ -53,7 +49,7 @@ const GithubItem = (props) => {
               </p>
               <p className="my-0 text-xs font-bold text-gray-400">
                 {Math.round(
-                  (edge.size / languagesSizeTotal) * Math.pow(10, 3)
+                  (edge.size / languagesTotalSize) * Math.pow(10, 3)
                 ) / Math.pow(10, 1)}
                 %
               </p>
