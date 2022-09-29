@@ -91,43 +91,24 @@ const Home: NextPage<HomeProps> = (props) => {
         <Headline title="Portfolio" />
       </div>
       <div className="wrapper md:mx-auto">
-        {!largerThanSM ? (
-          // モバイルポートフォリオリスト
-          <>
-            {props.portfolioData.contents.slice(0, 3).map((content) => (
-              <div className="item-wrapper" key={content.id}>
-                <PortfolioItem
-                  contentID={content.id}
-                  title={content.title}
-                  content={content.content}
-                  featuredImage={content.featuredImage}
-                  startDate={content.startDate}
-                  endDate={content.endDate}
-                />
-              </div>
+        <Grid>
+          {props.portfolioData.contents
+            .slice(0, largerThanSM ? 6 : 3)
+            .map((content) => (
+              <Grid.Col span={largerThanSM ? 4 : 12} key={content.id}>
+                <div className="item-wrapper">
+                  <PortfolioItem
+                    contentID={content.id}
+                    title={content.title}
+                    content={content.content}
+                    featuredImage={content.featuredImage}
+                    startDate={content.startDate}
+                    endDate={content.endDate}
+                  />
+                </div>
+              </Grid.Col>
             ))}
-          </>
-        ) : (
-          // PCポートフォリオリスト
-          <>
-            <Grid>
-              {props.portfolioData.contents.slice(0, 6).map((content) => (
-                <Grid.Col span={4} key={content.id}>
-                  <div className="item-wrapper">
-                    <PortfolioItem
-                      contentID={content.id}
-                      title={content.title}
-                      content={content.content}
-                      featuredImage={content.featuredImage}
-                      startDate={content.startDate}
-                      endDate={content.endDate}
-                    />
-                  </div>
-                </Grid.Col>
-              ))}
-            </Grid>
-          </>
-        )}
+        </Grid>
       </div>
       <div className="buttonBlackSpace  text-center">
         <ButtonBlack text="View All" link="portfolio" />

@@ -17,11 +17,10 @@ const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
         <Headline title="Portfolio" />
       </div>
       <div className="wrapper">
-        {!largerThanSM ? (
-          // モバイルポートフォリオリスト
-          <>
-            {props.contents.map((content) => (
-              <div className="item-wrapper" key={content.id}>
+        <Grid>
+          {props.contents.map((content) => (
+            <Grid.Col span={largerThanSM ? 4 : 12} key={content.id}>
+              <div className="item-wrapper">
                 <PortfolioItem
                   contentID={content.id}
                   title={content.title}
@@ -31,29 +30,9 @@ const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
                   endDate={content.endDate}
                 />
               </div>
-            ))}
-          </>
-        ) : (
-          // PCポートフォリオリスト
-          <>
-            <Grid>
-              {props.contents.map((content) => (
-                <Grid.Col span={4} key={content.id}>
-                  <div className="item-wrapper">
-                    <PortfolioItem
-                      contentID={content.id}
-                      title={content.title}
-                      content={content.content}
-                      featuredImage={content.featuredImage}
-                      startDate={content.startDate}
-                      endDate={content.endDate}
-                    />
-                  </div>
-                </Grid.Col>
-              ))}
-            </Grid>
-          </>
-        )}
+            </Grid.Col>
+          ))}
+        </Grid>
       </div>
     </>
   );
