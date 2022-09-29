@@ -11,7 +11,7 @@ import GithubItem from "src/components/Item/GithubItem";
 import TwitterItem from "src/components/Item/TwitterItem";
 import { client } from "src/lib/client";
 import { MicroCMSListResponse } from "microcms-js-sdk";
-import { twitterUrl } from "src/lib/urls";
+import { githubUrl, twitterUrl } from "src/lib/urls";
 import useTwitter from "src/hooks/useTwitter";
 import useGithub from "src/hooks/useGithub";
 
@@ -129,7 +129,7 @@ const Home: NextPage<HomeProps> = (props) => {
           <div className="buttonBlackSpace  text-center">
             <ButtonBlack
               text="View on GitHub"
-              link="https://github.com/qin-salon/admin-dashboard-with-next-mantine"
+              link={githubUrl}
               externalLink={true}
             />
           </div>

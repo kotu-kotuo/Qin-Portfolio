@@ -4,6 +4,25 @@ import Link from "next/link";
 import { Menu2, Moon } from "tabler-icons-react";
 import { Header as HeaderMantine, Title } from "@mantine/core";
 
+const headerNavLink = [
+  {
+    link: "/about",
+    text: "About",
+  },
+  {
+    link: "/blog",
+    text: "Blog",
+  },
+  {
+    link: "/portfolio",
+    text: "Portfolio",
+  },
+  {
+    link: "/contact",
+    text: "Contact",
+  },
+];
+
 const Header = () => {
   const largerThanSM = useMediaQuery("sm");
 
@@ -18,23 +37,16 @@ const Header = () => {
             </Title>
           </a>
         </Link>
-        <div className="flex gap-x-4 font-main text-lg font-bold text-gray-900">
-          <Link href="/about">
-            <a className="text-gray-900 no-underline">About</a>
-          </Link>
-          <Link href="/blog">
-            <a className="text-gray-900 no-underline">Blog</a>
-          </Link>
-          <Link href="/portfolio">
-            <a className="text-gray-900 no-underline">Portfolio</a>
-          </Link>
-          <Link href="/contact">
-            <a className="text-gray-900 no-underline">Contact</a>
-          </Link>
+        <nav className="flex gap-x-4 font-main text-lg font-bold text-gray-900">
+          {headerNavLink.map(({ link, text }) => (
+            <Link href={link}>
+              <a className="text-gray-900 no-underline">{text}</a>
+            </Link>
+          ))}
           <div className="-m-[1px] block rounded-md border border-solid border-gray-900 px-1 pt-1 leading-none text-gray-900">
             <Moon size={20} strokeWidth={2} />
           </div>
-        </div>
+        </nav>
       </div>
     </HeaderMantine>
   ) : (
