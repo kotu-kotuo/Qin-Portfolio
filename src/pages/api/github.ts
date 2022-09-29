@@ -1,5 +1,11 @@
-import { graphql, GraphQlQueryResponseData } from "@octokit/graphql";
-import { User } from "@octokit/graphql-schema";
+import { graphql } from "@octokit/graphql";
+import {
+  LanguageEdge,
+  RepositoryEdge,
+  RepositoryLanguagesArgs,
+  RepositoryProjectsV2Args,
+  User,
+} from "@octokit/graphql-schema";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function getRepositories(
@@ -15,6 +21,16 @@ export default async function getRepositories(
 
     const repositories = await graphqlWithAuth<{
       user: User;
+      // user: User & {
+      //   repositories: RepositoryProjectsV2Args & {
+      //     edges: RepositoryEdge[] &
+      //       {
+      //         node: {
+      //           languages: RepositoryLanguagesArgs & { edges: LanguageEdge[] };
+      //         };
+      //       }[];
+      //   };
+      // };
     }>(`
     {
     user(login: "kotu-kotuo"){
@@ -44,7 +60,6 @@ export default async function getRepositories(
 }
   `);
 
-    console.log("おおお", repositories);
     res.status(200).json(repositories);
   } catch (error) {
     console.error(error);

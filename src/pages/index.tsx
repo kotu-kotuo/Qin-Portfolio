@@ -42,7 +42,7 @@ type HomeProps = {
 };
 
 const Home: NextPage<HomeProps> = (props) => {
-  const sm = useMediaQuery("sm");
+  const largerThanSM = useMediaQuery("sm");
   const { twitterData } = useTwitter();
   const { repositories } = useGithub();
 
@@ -91,7 +91,7 @@ const Home: NextPage<HomeProps> = (props) => {
         <Headline title="Portfolio" />
       </div>
       <div className="wrapper md:mx-auto">
-        {!sm ? (
+        {!largerThanSM ? (
           // モバイルポートフォリオリスト
           <>
             {props.portfolioData.contents.slice(0, 3).map((content) => (

@@ -5,9 +5,9 @@ import { Menu2, Moon } from "tabler-icons-react";
 import { Header as HeaderMantine, Title } from "@mantine/core";
 
 const Header = () => {
-  const sm = useMediaQuery("sm");
+  const largerThanSM = useMediaQuery("sm");
 
-  return !sm ? (
+  return !largerThanSM ? (
     //  モバイルヘッダー
     <HeaderMantine
       fixed={true}

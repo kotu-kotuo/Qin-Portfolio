@@ -9,7 +9,7 @@ import { useMediaQuery } from "src/lib/mantine";
 import { Portfolio } from "src/pages";
 
 const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
-  const sm = useMediaQuery("sm");
+  const largerThanSM = useMediaQuery("sm");
 
   return (
     <>
@@ -17,7 +17,7 @@ const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
         <Headline title="Portfolio" />
       </div>
       <div className="wrapper">
-        { !sm ? (
+        {!largerThanSM ? (
           // モバイルポートフォリオリスト
           <>
             {props.contents.map((content) => (
