@@ -1,19 +1,11 @@
 import Link from "next/link";
 import React from "react";
 import dayjs from "dayjs";
-
-type PortfolioProps = {
-  contentID: string;
-  title: string;
-  featuredImage: { url: string; height: number; width: number };
-  content: string;
-  startDate: string;
-  endDate: string;
-};
+import { PortfolioProps } from "src/types/types";
 
 const PortfolioItem = (props: PortfolioProps) => {
   return (
-    <Link href={`/portfolio/${props.contentID}`}>
+    <Link href={`/portfolio/${props.id}`}>
       <a className="no-underline">
         <img
           src={props.featuredImage.url}

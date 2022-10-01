@@ -1,16 +1,10 @@
 import Link from "next/link";
 import React from "react";
-
-type BlogProps = {
-  contentID: string;
-  title: string;
-  content: string;
-  publishedAt: string;
-};
+import { BlogProps } from "src/types/types";
 
 const BlogItem = (props: BlogProps) => {
   return (
-    <Link href={`/blog/${props.contentID}`}>
+    <Link href={`/blog/${props.id}`}>
       <a className="no-underline">
         <div className="text-xl font-bold text-gray-900">{props.title}</div>
         <p className="my-1.5 mb-1 text-base text-gray-900  line-clamp-2">

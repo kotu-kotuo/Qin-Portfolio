@@ -1,7 +1,7 @@
 import { Avatar } from "@mantine/core";
 import dayjs from "dayjs";
 import React from "react";
-import { Tweet } from "src/pages";
+import { Tweet } from "src/types/types";
 
 type TwitterProps = {
   data: Tweet;

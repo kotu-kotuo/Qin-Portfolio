@@ -55,10 +55,12 @@ const Home: NextPage<HomeProps> = (props) => {
         {props.blogData.contents.slice(0, 4).map((content) => (
           <li className="item-wrapper" key={content.id}>
             <BlogItem
-              contentID={content.id}
+              id={content.id}
               title={content.title}
               content={content.content}
               publishedAt={content.publishedAt}
+              createdAt={content.createdAt}
+              updatedAt={content.updatedAt}
             />
           </li>
         ))}
@@ -79,12 +81,15 @@ const Home: NextPage<HomeProps> = (props) => {
                 <Grid.Col span={largerThanSM ? 4 : 12} key={content.id}>
                   <div className="item-wrapper">
                     <PortfolioItem
-                      contentID={content.id}
+                      id={content.id}
                       title={content.title}
                       content={content.content}
                       featuredImage={content.featuredImage}
                       startDate={content.startDate}
                       endDate={content.endDate}
+                      publishedAt={content.publishedAt}
+                      createdAt={content.createdAt}
+                      updatedAt={content.updatedAt}
                     />
                   </div>
                 </Grid.Col>

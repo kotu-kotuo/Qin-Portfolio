@@ -17,10 +17,12 @@ const Blog: NextPage<MicroCMSListResponse<Blog>> = (props) => {
           {props.contents.map((content) => (
             <li className="item-wrapper" key={content.id}>
               <BlogItem
-                contentID={content.id}
+                id={content.id}
                 title={content.title}
                 content={content.content}
                 publishedAt={content.publishedAt}
+                createdAt={content.createdAt}
+                updatedAt={content.updatedAt}
               />
             </li>
           ))}

@@ -23,12 +23,15 @@ const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
               <Grid.Col span={largerThanSM ? 4 : 12} key={content.id}>
                 <div className="item-wrapper">
                   <PortfolioItem
-                    contentID={content.id}
+                    id={content.id}
                     title={content.title}
                     content={content.content}
                     featuredImage={content.featuredImage}
                     startDate={content.startDate}
                     endDate={content.endDate}
+                    publishedAt={content.publishedAt}
+                    createdAt={content.createdAt}
+                    updatedAt={content.updatedAt}
                   />
                 </div>
               </Grid.Col>

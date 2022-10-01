@@ -1,3 +1,5 @@
+import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
+
 export type Blog = {
   id: string;
   title: string;
@@ -6,6 +8,8 @@ export type Blog = {
   createdAt: string;
   updatedAt: string;
 };
+
+export type BlogProps = Blog & MicroCMSContentId & MicroCMSDate;
 
 export type Portfolio = {
   id: string;
@@ -19,6 +23,8 @@ export type Portfolio = {
   updatedAt: string;
 };
 
+export type PortfolioProps = Portfolio & MicroCMSContentId & MicroCMSDate;
+
 export type Tweet = {
   author_id: string;
   created_at: string;
@@ -26,23 +32,25 @@ export type Tweet = {
   text: string;
 };
 
-export type Repository = {
-  node: {
-    name: string;
-    description: string;
-    stargazerCount: number;
-    forkCount: number;
-    updatedAt?: string;
-    languages: {
-      totalSize: number;
-      edges: {
-        size: number;
-        node: {
-          color: string;
-          id: string;
-          name: string;
-        };
-      }[];
-    };
+export type RepoData = {
+  name: string;
+  description: string;
+  stargazerCount: number;
+  forkCount: number;
+  updatedAt?: string;
+  languages: {
+    totalSize: number;
+    edges: {
+      size: number;
+      node: {
+        color: string;
+        id: string;
+        name: string;
+      };
+    }[];
   };
+};
+
+export type Repository = {
+  node: RepoData;
 };
