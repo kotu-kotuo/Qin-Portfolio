@@ -1,4 +1,4 @@
-import { Grid, Group, Text, Title } from "@mantine/core";
+import { Grid, Group, Skeleton, Text, Title } from "@mantine/core";
 import type { GetStaticProps, NextPage } from "next";
 import { useMediaQuery } from "src/lib/mantine";
 import { BsTwitter, BsFacebook } from "react-icons/bs";
@@ -70,27 +70,28 @@ const Home: NextPage<HomeProps> = (props) => {
       <div className="headline-wrapper">
         <Headline title="Portfolio" />
       </div>
-      {/* {largerThanSM !== null ? <div></div> : null} */}
-      <div className="wrapper md:mx-auto">
-        <Grid>
-          {props.portfolioData.contents
-            .slice(0, largerThanSM ? 6 : 3)
-            .map((content) => (
-              <Grid.Col span={largerThanSM ? 4 : 12} key={content.id}>
-                <div className="item-wrapper">
-                  <PortfolioItem
-                    contentID={content.id}
-                    title={content.title}
-                    content={content.content}
-                    featuredImage={content.featuredImage}
-                    startDate={content.startDate}
-                    endDate={content.endDate}
-                  />
-                </div>
-              </Grid.Col>
-            ))}
-        </Grid>
-      </div>
+      <Skeleton visible={largerThanSM === null}>
+        <div className="wrapper md:mx-auto">
+          <Grid>
+            {props.portfolioData.contents
+              .slice(0, largerThanSM ? 6 : 3)
+              .map((content) => (
+                <Grid.Col span={largerThanSM ? 4 : 12} key={content.id}>
+                  <div className="item-wrapper">
+                    <PortfolioItem
+                      contentID={content.id}
+                      title={content.title}
+                      content={content.content}
+                      featuredImage={content.featuredImage}
+                      startDate={content.startDate}
+                      endDate={content.endDate}
+                    />
+                  </div>
+                </Grid.Col>
+              ))}
+          </Grid>
+        </div>
+      </Skeleton>
       <div className="buttonBlackSpace  text-center">
         <ButtonBlack text="View All" link="portfolio" />
       </div>

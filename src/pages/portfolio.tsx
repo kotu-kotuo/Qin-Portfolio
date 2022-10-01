@@ -1,4 +1,4 @@
-import { Grid } from "@mantine/core";
+import { Grid, Skeleton } from "@mantine/core";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticProps, NextPage } from "next";
 import React from "react";
@@ -16,24 +16,26 @@ const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
       <div className="headline-wrapper">
         <Headline title="Portfolio" />
       </div>
-      <div className="wrapper">
-        <Grid>
-          {props.contents.map((content) => (
-            <Grid.Col span={largerThanSM ? 4 : 12} key={content.id}>
-              <div className="item-wrapper">
-                <PortfolioItem
-                  contentID={content.id}
-                  title={content.title}
-                  content={content.content}
-                  featuredImage={content.featuredImage}
-                  startDate={content.startDate}
-                  endDate={content.endDate}
-                />
-              </div>
-            </Grid.Col>
-          ))}
-        </Grid>
-      </div>
+      <Skeleton visible={largerThanSM === null}>
+        <div className="wrapper">
+          <Grid>
+            {props.contents.map((content) => (
+              <Grid.Col span={largerThanSM ? 4 : 12} key={content.id}>
+                <div className="item-wrapper">
+                  <PortfolioItem
+                    contentID={content.id}
+                    title={content.title}
+                    content={content.content}
+                    featuredImage={content.featuredImage}
+                    startDate={content.startDate}
+                    endDate={content.endDate}
+                  />
+                </div>
+              </Grid.Col>
+            ))}
+          </Grid>
+        </div>
+      </Skeleton>
     </>
   );
 };
