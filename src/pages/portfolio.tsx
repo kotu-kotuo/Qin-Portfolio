@@ -6,7 +6,7 @@ import Headline from "src/components/Element/Headline";
 import PortfolioItem from "src/components/Item/PortfolioItem";
 import { client } from "src/lib/client";
 import { useMediaQuery } from "src/lib/mantine";
-import { Portfolio } from "src/pages";
+import { Portfolio } from "src/types/types";
 
 const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
   const largerThanSM = useMediaQuery("sm");

@@ -3,12 +3,13 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import React from "react";
 import Headline from "src/components/Element/Headline";
 import { client } from "src/lib/client";
-import { Blog } from "src/pages";
 import dayjs from "dayjs";
+import { Blog } from "src/types/types";
 
 type BlogProps = Blog & MicroCMSContentId & MicroCMSDate;
 
 const BlogContent: NextPage<BlogProps> = (props) => {
+  console.log("cid", props);
   return (
     <>
       <div className="headline-wrapper">

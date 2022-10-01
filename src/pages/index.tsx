@@ -14,31 +14,11 @@ import { MicroCMSListResponse } from "microcms-js-sdk";
 import { githubUrl, twitterUrl } from "src/lib/urls";
 import useTwitter from "src/hooks/useTwitter";
 import useGithub from "src/hooks/useGithub";
-
-export type Blog = {
-  title: string;
-  content: string;
-};
-
-export type Portfolio = {
-  title: string;
-  featuredImage: { url: string; height: number; width: number };
-  content: string;
-  startDate: string;
-  endDate: string;
-};
-
-export type Tweet = {
-  author_id: string;
-  created_at: string;
-  id: string;
-  text: string;
-};
+import { Blog, Portfolio, Tweet } from "src/types/types";
 
 type HomeProps = {
   blogData: MicroCMSListResponse<Blog>;
   portfolioData: MicroCMSListResponse<Portfolio>;
-  repositories: any;
 };
 
 const Home: NextPage<HomeProps> = (props) => {
@@ -46,7 +26,7 @@ const Home: NextPage<HomeProps> = (props) => {
   const { twitterData } = useTwitter();
   const { repositories } = useGithub();
 
-  console.log(repositories);
+  console.log(largerThanSM);
 
   return (
     <>
@@ -90,6 +70,7 @@ const Home: NextPage<HomeProps> = (props) => {
       <div className="headline-wrapper">
         <Headline title="Portfolio" />
       </div>
+      {/* {largerThanSM !== null ? <div></div> : null} */}
       <div className="wrapper md:mx-auto">
         <Grid>
           {props.portfolioData.contents

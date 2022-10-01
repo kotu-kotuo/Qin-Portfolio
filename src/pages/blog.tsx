@@ -3,8 +3,8 @@ import React from "react";
 import BlogItem from "src/components/Item/BlogItem";
 import Headline from "src/components/Element/Headline";
 import { client } from "src/lib/client";
-import { Blog } from "src/pages";
 import { MicroCMSListResponse } from "microcms-js-sdk";
+import { Blog } from "src/types/types";
 
 const Blog: NextPage<MicroCMSListResponse<Blog>> = (props) => {
   return (

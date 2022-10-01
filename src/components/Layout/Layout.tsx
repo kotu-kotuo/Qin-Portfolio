@@ -13,7 +13,6 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
     setIsOpen((prevState) => !prevState);
   };
 
-  console.log(isOpen);
   return (
     <div className="contain w-full">
       <Menu

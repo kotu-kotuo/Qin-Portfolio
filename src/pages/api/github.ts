@@ -1,11 +1,4 @@
 import { graphql } from "@octokit/graphql";
-import {
-  LanguageEdge,
-  RepositoryEdge,
-  RepositoryLanguagesArgs,
-  RepositoryProjectsV2Args,
-  User,
-} from "@octokit/graphql-schema";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function getRepositories(
@@ -19,19 +12,7 @@ export default async function getRepositories(
       },
     });
 
-    const repositories = await graphqlWithAuth<{
-      user: User;
-      // user: User & {
-      //   repositories: RepositoryProjectsV2Args & {
-      //     edges: RepositoryEdge[] &
-      //       {
-      //         node: {
-      //           languages: RepositoryLanguagesArgs & { edges: LanguageEdge[] };
-      //         };
-      //       }[];
-      //   };
-      // };
-    }>(`
+    const user = await graphqlWithAuth(`
     {
     user(login: "kotu-kotuo"){
     repositories(first: 3, orderBy: {field:UPDATED_AT,direction:DESC}){
@@ -60,7 +41,7 @@ export default async function getRepositories(
 }
   `);
 
-    res.status(200).json(repositories);
+    res.status(200).json(user);
   } catch (error) {
     console.error(error);
     res.statusCode = 500;

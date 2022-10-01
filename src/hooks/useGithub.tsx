@@ -1,15 +1,13 @@
+import { Repository } from "src/types/types";
 import useSWR from "swr";
 
 const useGithub = () => {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const { data: githubData, error: githubError } = useSWR(
-    "/api/github",
-    fetcher
-  );
+  const { data: githubData } = useSWR("/api/github", fetcher);
 
-  const repositories = githubData?.user.repositories.edges;
+  const repositories: Repository[] = githubData?.user.repositories.edges;
 
-  return { repositories, githubError };
+  return { repositories };
 };
 
 export default useGithub;

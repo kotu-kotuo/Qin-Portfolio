@@ -39,7 +39,7 @@ const Header = () => {
         </Link>
         <nav className="flex gap-x-4 font-main text-lg font-bold text-gray-900">
           {headerNavLink.map(({ link, text }) => (
-            <Link href={link}>
+            <Link href={link} key={text}>
               <a className="text-gray-900 no-underline">{text}</a>
             </Link>
           ))}

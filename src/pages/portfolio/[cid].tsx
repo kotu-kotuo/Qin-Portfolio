@@ -4,9 +4,9 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import React from "react";
 import Headline from "src/components/Element/Headline";
 import { client } from "src/lib/client";
-import { Portfolio } from "src/pages";
+import { Portfolio } from "src/types/types";
 
-export type PortfolioProps = Portfolio & MicroCMSContentId & MicroCMSDate;
+type PortfolioProps = Portfolio & MicroCMSContentId & MicroCMSDate;
 
 const PortfolioContent: NextPage<PortfolioProps> = (props) => {
   return (
