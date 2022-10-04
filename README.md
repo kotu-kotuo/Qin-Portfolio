@@ -6,4 +6,6 @@
 - TailwindCSS
 - Mantine UI
 - microCMS
-
+- TwitterAPI
+- GithubAPI
+- GraphQL

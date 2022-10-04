@@ -34,7 +34,7 @@ export type Tweet = {
 
 export type RepoData = {
   name: string;
-  description: string;
+  description?: string;
   stargazerCount: number;
   forkCount: number;
   updatedAt?: string;

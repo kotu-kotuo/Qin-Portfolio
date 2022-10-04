@@ -11,7 +11,9 @@ const GithubItem = (props) => {
   return (
     <div>
       <div className="text-lg font-bold text-gray-900">{repoData.name}</div>
-      <p className="my-2 text-sm text-gray-600">{repoData.description}</p>
+      {repoData.description ? (
+        <p className="my-2 text-sm text-gray-600">{repoData.description}</p>
+      ) : null}
       <div className="flex items-center gap-x-4">
         <div className="flex items-center gap-x-1">
           <BsStar className="text-sm text-gray-400" />
