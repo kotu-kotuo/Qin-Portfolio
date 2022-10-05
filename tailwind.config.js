@@ -191,6 +191,7 @@ module.exports = {
           DEFAULT: "#FFA100",
         },
         dark: "#191B1F",
+        light: "#F6F6F6",
       },
     },
     fontFamily: {

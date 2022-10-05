@@ -41,7 +41,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
 
       <Footer
         height={60}
-        className="mt-16 py-6 text-center text-xs text-gray-600"
+        className="mt-16 border-gray-600 bg-dark py-6 text-center text-xs text-gray-400"
       >
         &copy; {new Date().getFullYear()} Shimabu IT University
       </Footer>

@@ -32,20 +32,20 @@ const Header = () => {
       <div className="mx-auto flex max-w-screen-md items-center justify-between border-none sm:px-4 md:px-0">
         <Link href="/" className="block">
           <a className="no-underline">
-            <Title order={1} className="font-main text-lg text-gray-900">
+            <Title order={1} className="font-main text-lg text-light">
               Shimabu IT University
             </Title>
           </a>
         </Link>
-        <nav className="flex gap-x-4 font-main text-lg font-bold text-gray-900">
+        <nav className="flex gap-x-4 font-main text-lg font-bold">
           {headerNavLink.map(({ link, text }) => (
             <Link href={link} key={text}>
-              <a className="text-gray-900 no-underline">{text}</a>
+              <a className="text-light no-underline">{text}</a>
             </Link>
           ))}
-          <div className="-m-[1px] block rounded-md border border-solid border-gray-900 px-1 pt-1 leading-none text-gray-900">
+          {/* <div className="-m-[1px] block rounded-md border border-solid border-gray-900 px-1 pt-1 leading-none text-gray-900">
             <Moon size={20} strokeWidth={2} />
-          </div>
+          </div> */}
         </nav>
       </div>
     </HeaderMantine>
@@ -59,12 +59,12 @@ const Header = () => {
       <Menu2 size={24} strokeWidth={2} className="text-transparent" />
       <Link href="/">
         <a className="no-underline">
-          <Title order={1} className="font-main text-lg text-gray-900">
+          <Title order={1} className="font-main text-lg  text-light">
             Shimabu IT University
           </Title>
         </a>
       </Link>
-      <div className="-m-1 rounded-md border border-solid border-gray-900 px-1 pt-1 pb-0.5 leading-none text-gray-900">
+      <div className="-m-1 rounded-md border border-solid border-gray-900 px-1 pt-1 pb-0.5 leading-none text-light">
         <Moon size={20} strokeWidth={2} />
       </div>
     </HeaderMantine>

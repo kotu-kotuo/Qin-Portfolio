@@ -10,9 +10,9 @@ const GithubItem = (props) => {
 
   return (
     <div>
-      <div className="text-lg font-bold text-gray-900">{repoData.name}</div>
+      <div className="text-lg font-bold text-light">{repoData.name}</div>
       {repoData.description ? (
-        <p className="my-2 text-sm text-gray-600">{repoData.description}</p>
+        <p className="my-2 text-sm text-gray-400">{repoData.description}</p>
       ) : null}
       <div className="flex items-center gap-x-4">
         <div className="flex items-center gap-x-1">
@@ -47,7 +47,7 @@ const GithubItem = (props) => {
                 className="h-1.5 w-1.5 rounded-full "
                 style={{ backgroundColor: edge.node.color }}
               ></div>
-              <p className="my-0 text-xs font-bold text-gray-900">
+              <p className="my-0 text-xs font-bold text-light">
                 {edge.node.name}
               </p>
               <p className="my-0 text-xs font-bold text-gray-400">
