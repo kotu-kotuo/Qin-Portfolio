@@ -14,7 +14,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className="contain w-full">
+    <div className="contain w-full bg-dark">
       <Menu
         isOpen={isOpen}
         onStateChange={(state: State) => setIsOpen(state.isOpen)}

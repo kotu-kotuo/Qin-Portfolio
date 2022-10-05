@@ -189,8 +189,8 @@ module.exports = {
       colors: {
         primary: {
           DEFAULT: "#FFA100",
-          // dark: '',
         },
+        dark: "#191B1F",
       },
     },
     fontFamily: {
