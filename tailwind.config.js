@@ -186,6 +186,12 @@ module.exports = {
     },
     extend: {
       colors: mantineColors,
+      colors: {
+        primary: {
+          DEFAULT: "#FFA100",
+          // dark: '',
+        },
+      },
     },
     fontFamily: {
       main: ["Avenir Next", "sans-serif"],
