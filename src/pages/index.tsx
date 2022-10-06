@@ -5,7 +5,7 @@ import { BsTwitter, BsFacebook } from "react-icons/bs";
 import { ImRss } from "react-icons/im";
 import Headline from "src/components/Element/Headline";
 import BlogItem from "src/components/Item/BlogItem";
-import ButtonBlack from "src/components/Element/ButtonBlack";
+import ButtonPrimary from "src/components/Element/ButtonPrimary";
 import PortfolioItem from "src/components/Item/PortfolioItem";
 import GithubItem from "src/components/Item/GithubItem";
 import TwitterItem from "src/components/Item/TwitterItem";
@@ -65,8 +65,8 @@ const Home: NextPage<HomeProps> = (props) => {
           </li>
         ))}
       </ul>
-      <div className="buttonBlackSpace text-center">
-        <ButtonBlack text="View All" link="blog" />
+      <div className="ButtonPrimarySpace text-center">
+        <ButtonPrimary text="View All" link="blog" />
       </div>
 
       <div className="headline-wrapper">
@@ -97,8 +97,8 @@ const Home: NextPage<HomeProps> = (props) => {
           </Grid>
         </div>
       </Skeleton>
-      <div className="buttonBlackSpace  text-center">
-        <ButtonBlack text="View All" link="portfolio" />
+      <div className="ButtonPrimarySpace  text-center">
+        <ButtonPrimary text="View All" link="portfolio" />
       </div>
 
       <div className="gap-x-20 md:mx-auto md:flex md:max-w-screen-md">
@@ -119,8 +119,8 @@ const Home: NextPage<HomeProps> = (props) => {
               </div>
             ))}
           </div>
-          <div className="buttonBlackSpace  text-center">
-            <ButtonBlack
+          <div className="ButtonPrimarySpace  text-center">
+            <ButtonPrimary
               text="View on GitHub"
               link={githubUrl}
               externalLink={true}
@@ -147,8 +147,8 @@ const Home: NextPage<HomeProps> = (props) => {
                   ))
               : null}
           </div>
-          <div className="buttonBlackSpace  text-center">
-            <ButtonBlack
+          <div className="ButtonPrimarySpace  text-center">
+            <ButtonPrimary
               text="View on Twitter"
               link={twitterUrl}
               externalLink={true}

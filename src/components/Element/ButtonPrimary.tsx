@@ -9,11 +9,13 @@ type ButtonProps = {
   type?: "button" | "submit" | "reset";
 };
 
-const ButtonBlack: FC<ButtonProps> = ({ text, link, externalLink, type }) => {
+const ButtonPrimary: FC<ButtonProps> = ({ text, link, externalLink, type }) => {
   return externalLink ? (
     <Button
       className="rounded-full bg-light font-button text-dark no-underline"
       href={link}
+      target="_blank"
+      rel="noopener noreferrer"
       component="a"
     >
       {text}
@@ -31,4 +33,4 @@ const ButtonBlack: FC<ButtonProps> = ({ text, link, externalLink, type }) => {
   );
 };
 
-export default ButtonBlack;
+export default ButtonPrimary;
