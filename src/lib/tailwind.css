@@ -15,6 +15,6 @@
   }
 }
 
-.buttonBlackSpace {
+.buttonPrimarySpace {
   @apply mb-6 md:mb-8;
 }
