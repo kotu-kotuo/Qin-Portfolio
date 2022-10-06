@@ -1,5 +1,4 @@
 import { GetStaticProps, NextPage } from "next";
-import React from "react";
 import BlogItem from "src/components/Item/BlogItem";
 import Headline from "src/components/Element/Headline";
 import { client } from "src/lib/client";

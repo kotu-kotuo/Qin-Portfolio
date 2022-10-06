@@ -9,7 +9,7 @@ import {
 import { useForm } from "@mantine/form";
 import { NextPage } from "next";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import Headline from "src/components/Element/Headline";
 import { client } from "src/lib/client";
 import { Button } from "src/lib/mantine";

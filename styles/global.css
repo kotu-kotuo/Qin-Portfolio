@@ -11,7 +11,9 @@ body {
   min-height: 100vh;
 }
 
-/* ## Hamburger Menu  ============================= */
+/*==============================================
+# Hamburger Menu
+===============================================*/
 
 /* Position and sizing of burger button */
 .bm-burger-button {

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import { BlogProps } from "src/types/types";
 
 const BlogItem = (props: BlogProps) => {

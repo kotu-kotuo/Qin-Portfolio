@@ -1,5 +1,4 @@
 import { Progress } from "@mantine/core";
-import React from "react";
 import { BiGitRepoForked } from "react-icons/bi";
 import { BsStar } from "react-icons/bs";
 import { RepoData } from "src/types/types";
