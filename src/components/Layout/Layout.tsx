@@ -1,6 +1,6 @@
 import { Footer } from "@mantine/core";
 import Link from "next/link";
-import React, { FC, ReactNode, useState } from "react";
+import { FC, ReactNode, useState } from "react";
 type LayoutProps = {
   children: ReactNode;
 };

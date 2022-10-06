@@ -1,7 +1,6 @@
 import { Grid, Skeleton } from "@mantine/core";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticProps, NextPage } from "next";
-import React from "react";
 import Headline from "src/components/Element/Headline";
 import PortfolioItem from "src/components/Item/PortfolioItem";
 import { client } from "src/lib/client";

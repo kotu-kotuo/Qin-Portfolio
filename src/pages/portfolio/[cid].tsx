@@ -1,7 +1,6 @@
 import dayjs from "dayjs";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import React from "react";
 import Headline from "src/components/Element/Headline";
 import { client } from "src/lib/client";
 import { Portfolio } from "src/types/types";

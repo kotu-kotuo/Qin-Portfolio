@@ -1,4 +1,3 @@
-import React from "react";
 import { useMediaQuery } from "src/lib/mantine";
 import Link from "next/link";
 import { Menu2, Moon } from "tabler-icons-react";
