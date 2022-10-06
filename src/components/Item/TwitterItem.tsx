@@ -1,5 +1,6 @@
 import { Avatar } from "@mantine/core";
 import dayjs from "dayjs";
+import { FC } from "react";
 import { Tweet } from "src/types/types";
 
 type TwitterProps = {
@@ -8,7 +9,7 @@ type TwitterProps = {
   userImage: string;
 };
 
-const TwitterItem = (props: TwitterProps) => {
+const TwitterItem: FC<TwitterProps> = (props) => {
   console.log(props);
   return (
     <div className="flex">

@@ -32,7 +32,7 @@ export type Tweet = {
   text: string;
 };
 
-export type RepoData = {
+export type GithubProps = {
   name: string;
   description?: string;
   stargazerCount: number;
@@ -52,5 +52,5 @@ export type RepoData = {
 };
 
 export type Repository = {
-  node: RepoData;
+  node: GithubProps;
 };

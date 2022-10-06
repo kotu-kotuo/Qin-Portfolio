@@ -1,8 +1,9 @@
 import Link from "next/link";
 import dayjs from "dayjs";
 import { PortfolioProps } from "src/types/types";
+import { FC } from "react";
 
-const PortfolioItem = (props: PortfolioProps) => {
+const PortfolioItem: FC<PortfolioProps> = (props) => {
   return (
     <Link href={`/portfolio/${props.id}`}>
       <a className="no-underline">

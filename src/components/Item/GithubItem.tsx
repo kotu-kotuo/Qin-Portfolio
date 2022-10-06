@@ -1,9 +1,10 @@
 import { Progress } from "@mantine/core";
+import { FC } from "react";
 import { BiGitRepoForked } from "react-icons/bi";
 import { BsStar } from "react-icons/bs";
-import { RepoData } from "src/types/types";
+import { GithubProps } from "src/types/types";
 
-const GithubItem = (props: RepoData) => {
+const GithubItem: FC<GithubProps> = (props) => {
   console.log(props);
   const languagesTotalSize = props.languages.totalSize;
 
