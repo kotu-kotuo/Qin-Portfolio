@@ -82,7 +82,7 @@ const Contact: NextPage = () => {
           />
           <div className="text-center">
             <Button
-              className="rounded-full bg-gray-900 font-button"
+              className="rounded-full bg-light font-button text-dark"
               type="submit"
             >
               Send message

@@ -1,3 +1,4 @@
+import { TypographyStylesProvider } from "@mantine/core";
 import dayjs from "dayjs";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
@@ -19,20 +20,20 @@ const PortfolioContent: NextPage<PortfolioProps> = (props) => {
           alt="画像"
           className="aspect-video w-full object-cover"
         />
-        <div className="my-4 text-xl font-bold text-gray-900">
-          {props.title}
-        </div>
+        <div className="my-4 text-xl font-bold text-light">{props.title}</div>
         <p className="mb-4 text-xs font-bold text-gray-400">
           {dayjs(props.startDate).format("YYYY.MM")}{" "}
           <span>{props.endDate ? "-" : "~"}</span>{" "}
           {dayjs(props.endDate).format("YYYY.MM")}
         </p>
-        <div
-          className="my-2 text-gray-900"
-          dangerouslySetInnerHTML={{
-            __html: props.content,
-          }}
-        />
+        <TypographyStylesProvider>
+          <div
+            className="my-2"
+            dangerouslySetInnerHTML={{
+              __html: props.content,
+            }}
+          />
+        </TypographyStylesProvider>
       </div>
     </>
   );

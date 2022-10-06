@@ -12,10 +12,8 @@ const PortfolioItem: FC<PortfolioProps> = (props) => {
           alt="画像"
           className="aspect-video w-full object-cover"
         />
-        <div className="my-4 text-xl font-bold text-gray-900">
-          {props.title}
-        </div>
-        <p className="my-2 text-gray-900 line-clamp-3">
+        <div className="my-4 text-xl font-bold text-light">{props.title}</div>
+        <p className="my-2 text-gray-300 line-clamp-3">
           {props.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "")}
         </p>
         <p className="my-2 text-sm font-bold text-gray-400">

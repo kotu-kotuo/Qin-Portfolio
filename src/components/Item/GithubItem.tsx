@@ -47,7 +47,7 @@ const GithubItem: FC<GithubProps> = (props) => {
                 className="h-1.5 w-1.5 rounded-full "
                 style={{ backgroundColor: edge.node.color }}
               ></div>
-              <p className="my-0 text-xs font-bold text-gray-900">
+              <p className="my-0 text-xs font-bold text-light">
                 {edge.node.name}
               </p>
               <p className="my-0 text-xs font-bold text-gray-400">

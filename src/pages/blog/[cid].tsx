@@ -4,6 +4,7 @@ import Headline from "src/components/Element/Headline";
 import { client } from "src/lib/client";
 import dayjs from "dayjs";
 import { Blog } from "src/types/types";
+import { TypographyStylesProvider } from "@mantine/core";
 
 type BlogProps = Blog & MicroCMSContentId & MicroCMSDate;
 
@@ -18,11 +19,13 @@ const BlogContent: NextPage<BlogProps> = (props) => {
         <p className="-mt-1 mb-1 text-sm font-bold text-gray-400">
           {dayjs(props.publishedAt).format("YYYY/MM/DD")}
         </p>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: props.content,
-          }}
-        />
+        <TypographyStylesProvider>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: props.content,
+            }}
+          />
+        </TypographyStylesProvider>
       </div>
     </>
   );
