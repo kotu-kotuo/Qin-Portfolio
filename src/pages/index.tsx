@@ -26,7 +26,7 @@ const Home: NextPage<HomeProps> = (props) => {
   const { twitterData } = useTwitter();
   const { repositories } = useGithub();
 
-  console.log(largerThanSM);
+  console.log(repositories);
 
   return (
     <>
@@ -109,7 +109,13 @@ const Home: NextPage<HomeProps> = (props) => {
           <div className="wrapper mb-8">
             {repositories?.map((repository) => (
               <div className="item-wrapper" key={repository.node.name}>
-                <GithubItem repository={repository} />
+                <GithubItem
+                  name={repository.node.name}
+                  description={repository.node.description}
+                  stargazerCount={repository.node.stargazerCount}
+                  forkCount={repository.node.forkCount}
+                  languages={repository.node.languages}
+                />
               </div>
             ))}
           </div>

@@ -3,33 +3,33 @@ import { BiGitRepoForked } from "react-icons/bi";
 import { BsStar } from "react-icons/bs";
 import { RepoData } from "src/types/types";
 
-const GithubItem = (props) => {
-  const repoData: RepoData = props.repository.node;
-  const languagesTotalSize = repoData.languages.totalSize;
+const GithubItem = (props: RepoData) => {
+  console.log(props);
+  const languagesTotalSize = props.languages.totalSize;
 
   return (
     <div>
-      <div className="text-lg font-bold text-light">{repoData.name}</div>
-      {repoData.description ? (
-        <p className="my-2 text-sm text-gray-400">{repoData.description}</p>
+      <div className="text-lg font-bold text-gray-900">{props.name}</div>
+      {props.description ? (
+        <p className="my-2 text-sm text-gray-600">{props.description}</p>
       ) : null}
       <div className="flex items-center gap-x-4">
         <div className="flex items-center gap-x-1">
           <BsStar className="text-sm text-gray-400" />
           <p className="my-0 text-xs font-bold text-gray-400">
-            {repoData.stargazerCount}
+            {props.stargazerCount}
           </p>
         </div>
         <div className="flex items-center">
           <BiGitRepoForked className="text-sm text-gray-400" />
           <p className="my-0 text-xs font-bold text-gray-400">
-            {repoData.forkCount}
+            {props.forkCount}
           </p>
         </div>
       </div>
 
       <Progress
-        sections={repoData.languages.edges.map((edge) => {
+        sections={props.languages.edges.map((edge) => {
           return {
             value: (edge.size / languagesTotalSize) * 100,
             color: edge.node.color,
@@ -40,7 +40,7 @@ const GithubItem = (props) => {
 
       <div>
         <div className="flex flex-wrap gap-x-4">
-          {repoData.languages.edges.map((edge) => (
+          {props.languages.edges.map((edge) => (
             <div className="flex items-center gap-x-1" key={edge.node.id}>
               <div
                 className="h-1.5 w-1.5 rounded-full "
