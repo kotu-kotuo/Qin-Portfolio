@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { FC } from "react";
 import { BlogProps } from "src/types/types";
 
-const BlogItem = (props: BlogProps) => {
+const BlogItem: FC<BlogProps> = (props) => {
   return (
     <Link href={`/blog/${props.id}`}>
       <a className="no-underline">
