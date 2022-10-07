@@ -19,6 +19,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
       <Menu
         isOpen={isOpen}
         onStateChange={(state: State) => setIsOpen(state.isOpen)}
+        right
       >
         <div className="flex flex-col font-main">
           <Link href="/about">

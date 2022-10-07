@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Menu2, Moon } from "tabler-icons-react";
-import { Header as HeaderMantine, Title } from "@mantine/core";
+import { Menu2 } from "tabler-icons-react";
+import { Header as HeaderMantine } from "@mantine/core";
 import { FC } from "react";
+import Image from "next/image";
 
 const Header: FC = () => {
   return (
@@ -11,17 +12,12 @@ const Header: FC = () => {
       height={64}
       className="flex items-center justify-between border-none px-4 sm:hidden"
     >
-      <Menu2 size={24} strokeWidth={2} className="text-transparent" />
       <Link href="/">
-        <a className="no-underline">
-          <Title order={1} className="font-main text-lg  text-light">
-            Shimabu IT University
-          </Title>
+        <a className="mt-0.5 no-underline">
+          <Image src="/Qin-Neko.png" width={60} height={60} />
         </a>
       </Link>
-      <div className="-m-1 rounded-md border border-solid border-gray-900 px-1 pt-1 pb-0.5 leading-none text-light">
-        <Moon size={20} strokeWidth={2} />
-      </div>
+      <Menu2 size={24} strokeWidth={2} className="text-transparent" />
     </HeaderMantine>
   );
 };

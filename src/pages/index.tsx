@@ -81,30 +81,7 @@ const Home: NextPage<HomeProps> = (props) => {
         </div>
       </Container>
 
-      {/* ブログ */}
-      <Container>
-        <div className="headline-wrapper">
-          <Headline title="Blog" />
-        </div>
-        <ul className="my-0 list-none px-0">
-          {props.blogData.contents.slice(0, 4).map((content) => (
-            <li className="item-wrapper" key={content.id}>
-              <BlogItem
-                id={content.id}
-                title={content.title}
-                content={content.content}
-                publishedAt={content.publishedAt}
-                createdAt={content.createdAt}
-                updatedAt={content.updatedAt}
-              />
-            </li>
-          ))}
-        </ul>
-        <div className="text-center">
-          <ButtonPrimary text="View All" link="blog" />
-        </div>
-      </Container>
-
+      {/* ポートフォリオ */}
       <Container>
         <div className="headline-wrapper">
           <Headline title="Portfolio" />
@@ -136,6 +113,30 @@ const Home: NextPage<HomeProps> = (props) => {
         </Skeleton>
         <div className="text-center">
           <ButtonPrimary text="View All" link="portfolio" />
+        </div>
+      </Container>
+
+      {/* ブログ */}
+      <Container>
+        <div className="headline-wrapper">
+          <Headline title="Blog" />
+        </div>
+        <ul className="my-0 list-none px-0">
+          {props.blogData.contents.slice(0, 4).map((content) => (
+            <li className="item-wrapper" key={content.id}>
+              <BlogItem
+                id={content.id}
+                title={content.title}
+                content={content.content}
+                publishedAt={content.publishedAt}
+                createdAt={content.createdAt}
+                updatedAt={content.updatedAt}
+              />
+            </li>
+          ))}
+        </ul>
+        <div className="text-center">
+          <ButtonPrimary text="View All" link="blog" />
         </div>
       </Container>
 
