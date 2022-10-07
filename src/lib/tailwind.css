@@ -3,11 +3,11 @@
 
 @layer components {
   .wrapper {
-    @apply mx-auto px-4 md:max-w-screen-md md:px-0;
+    @apply mx-auto px-4 sm:max-w-screen-md sm:px-0;
   }
 
   .headline-wrapper {
-    @apply px-4 pt-10 pb-6 md:mx-auto md:max-w-screen-md md:px-0;
+    @apply px-4 pt-10 pb-6 sm:mx-auto sm:max-w-screen-md sm:px-0;
   }
 
   .item-wrapper {
@@ -16,5 +16,5 @@
 }
 
 .buttonPrimarySpace {
-  @apply mb-6 md:mb-8;
+  @apply mb-6 sm:mb-8;
 }

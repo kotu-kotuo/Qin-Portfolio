@@ -54,7 +54,7 @@ const Header: FC = () => {
     <HeaderMantine
       fixed={true}
       height={64}
-      className="flex items-center justify-between border-none px-4 md:hidden"
+      className="flex items-center justify-between border-none px-4 sm:hidden"
     >
       <Menu2 size={24} strokeWidth={2} className="text-transparent" />
       <Link href="/">

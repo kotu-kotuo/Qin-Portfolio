@@ -11,6 +11,14 @@ body {
   min-height: 100vh;
 }
 
+.diamond {
+  height: 9px;
+  width: 9px;
+  background: #ffa100;
+  transform: rotate(45deg) skew(2deg, 2deg);
+  margin-bottom: 1px;
+}
+
 /*==============================================
 # Hamburger Menu
 ===============================================*/

@@ -26,11 +26,9 @@ const Home: NextPage<HomeProps> = (props) => {
   const { twitterData } = useTwitter();
   const { repositories } = useGithub();
 
-  console.log(repositories);
-
   return (
     <>
-      <div className="w-full bg-pink-600 px-4 py-10 text-white">
+      {/* <div className="w-full bg-pink-600 px-4 py-10 text-white">
         <div className="md:mx-auto md:flex md:max-w-screen-md md:items-center md:justify-between">
           <div className="flex flex-col justify-start">
             <Title className="inline font-main text-3xl">
@@ -46,7 +44,7 @@ const Home: NextPage<HomeProps> = (props) => {
             <ImRss />
           </Group>
         </div>
-      </div>
+      </div> */}
 
       <div className="headline-wrapper">
         <Headline title="Blog" />
@@ -73,7 +71,7 @@ const Home: NextPage<HomeProps> = (props) => {
         <Headline title="Portfolio" />
       </div>
       <Skeleton visible={largerThanSM === null}>
-        <div className="wrapper md:mx-auto">
+        <div className="wrapper sm:mx-auto">
           <Grid>
             {props.portfolioData.contents
               .slice(0, largerThanSM ? 6 : 3)
@@ -101,8 +99,8 @@ const Home: NextPage<HomeProps> = (props) => {
         <ButtonPrimary text="View All" link="portfolio" />
       </div>
 
-      <div className="gap-x-20 md:mx-auto md:flex md:max-w-screen-md">
-        <div className="md:flex-1">
+      <div className="gap-x-20 sm:mx-auto sm:flex sm:max-w-screen-md">
+        <div className="sm:flex-1">
           <div className="headline-wrapper">
             <Headline title="Github" />
           </div>
@@ -128,7 +126,7 @@ const Home: NextPage<HomeProps> = (props) => {
           </div>
         </div>
 
-        <div className="md:flex-1">
+        <div className="sm:flex-1">
           <div className="headline-wrapper">
             <Headline title="Twitter (1week)" />
           </div>

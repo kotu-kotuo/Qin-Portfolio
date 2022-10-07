@@ -10,9 +10,9 @@ const GithubItem: FC<GithubProps> = (props) => {
 
   return (
     <div>
-      <div className="text-lg font-bold text-gray-900">{props.name}</div>
+      <div className="text-lg font-bold text-light">{props.name}</div>
       {props.description ? (
-        <p className="my-2 text-sm text-gray-600">{props.description}</p>
+        <p className="my-2 text-sm text-gray-400">{props.description}</p>
       ) : null}
       <div className="flex items-center gap-x-4">
         <div className="flex items-center gap-x-1">
