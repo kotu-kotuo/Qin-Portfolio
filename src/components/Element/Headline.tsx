@@ -7,8 +7,8 @@ type HeadlineProps = {
 const Headline: FC<HeadlineProps> = ({ title }) => {
   return (
     <div>
-      <div className="font-main text-2xl font-bold text-light">{title}</div>
-      <hr className="mt-6 border-b border-t-0 border-solid border-gray-200 opacity-80" />
+      <div className="font-main text-3xl font-bold text-light">{title}</div>
+      <hr className="mt-6 border-b border-t-0 border-solid border-light opacity-80" />
     </div>
   );
 };

@@ -16,6 +16,7 @@ import useTwitter from "src/hooks/useTwitter";
 import useGithub from "src/hooks/useGithub";
 import { Blog, Portfolio, Tweet } from "src/types/types";
 import Container from "src/components/Layout/Container";
+import Image from "next/image";
 
 type HomeProps = {
   blogData: MicroCMSListResponse<Blog>;
@@ -57,6 +58,28 @@ const Home: NextPage<HomeProps> = (props) => {
       </Container>
 
       {/* アバウト */}
+      <Container>
+        <div className="headline-wrapper">
+          <Headline title="About" />
+        </div>
+        <div className="sm:flex">
+          <div className="-my-12 text-center sm:-mt-8 sm:-mb-6  sm:w-1/2">
+            <Image src="/Qin-Neko.png" width={400} height={400} />
+          </div>
+          <div className="sm:w-1/2">
+            <p className="text-light">
+              After graduating, I worked at an Italian restaurant as a cooking
+              assistant, but I resigned and am currently unemployed. <br />
+              <br />
+              I taught myself the front-end field and developed "happy horse," a
+              horse trading platform, and "NonoTech," a technology blog using
+              NotionAPI and Next.js. <br />
+              <br /> I would like to continue to develop various products in the
+              future, so I will devote myself to it every day!
+            </p>
+          </div>
+        </div>
+      </Container>
 
       {/* ブログ */}
       <Container>

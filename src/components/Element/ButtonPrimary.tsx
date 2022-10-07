@@ -12,7 +12,7 @@ type ButtonProps = {
 const ButtonPrimary: FC<ButtonProps> = ({ text, link, externalLink, type }) => {
   return externalLink ? (
     <Button
-      className="rounded-full bg-light font-button text-dark no-underline"
+      className="rounded-full bg-light font-button text-dark no-underline hover:bg-primary transition"
       href={link}
       target="_blank"
       rel="noopener noreferrer"
