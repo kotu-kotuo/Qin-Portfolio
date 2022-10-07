@@ -46,6 +46,14 @@ const Home: NextPage<HomeProps> = (props) => {
         </div>
       </div> */}
 
+      <div className="wrapper mt-40 mb-28">
+        <p className="text-primary tracking-wider">Hi! My name is</p>
+        <h1 className="text-6xl font-bold text-light">Makoto Nonoyama</h1>
+        <h2 className="text-3xl font-bold text-gray-400">
+          I'm a would-be front-end engineer.
+        </h2>
+      </div>
+
       <div className="headline-wrapper">
         <Headline title="Blog" />
       </div>

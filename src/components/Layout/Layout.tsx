@@ -43,12 +43,12 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
           <div className="fixed flex h-screen items-center">
             <SideMenu />
           </div>
-          <div className="w-1/4"></div>
-          <main className="mt-16 ">{children}</main>
+          <div className="w-[240px] min-w-[150px]"></div>
+          <main>{children}</main>
         </div>
       </div>
 
-      <main className="mt-16 sm:hidden">{children}</main>
+      <main className="sm:hidden">{children}</main>
 
       <Footer
         height={60}

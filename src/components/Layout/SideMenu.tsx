@@ -1,4 +1,6 @@
-const SideMenu = () => {
+import { FC } from "react";
+
+const SideMenu: FC = () => {
   return (
     <nav>
       <ul className="list-none space-y-2 font-main">

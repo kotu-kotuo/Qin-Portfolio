@@ -1,55 +1,10 @@
-import { useMediaQuery } from "src/lib/mantine";
 import Link from "next/link";
 import { Menu2, Moon } from "tabler-icons-react";
 import { Header as HeaderMantine, Title } from "@mantine/core";
 import { FC } from "react";
 
-const headerNavLink = [
-  {
-    link: "/about",
-    text: "About",
-  },
-  {
-    link: "/blog",
-    text: "Blog",
-  },
-  {
-    link: "/portfolio",
-    text: "Portfolio",
-  },
-  {
-    link: "/contact",
-    text: "Contact",
-  },
-];
-
 const Header: FC = () => {
-  const largerThanSM = useMediaQuery("sm");
-
-  return largerThanSM ? (
-    // PCヘッダー
-    <HeaderMantine fixed={true} height={64} className="pt-[18px]">
-      <div className="mx-auto flex max-w-screen-md items-center justify-between border-none sm:px-4 md:px-0">
-        <Link href="/" className="block">
-          <a className="no-underline">
-            <Title order={1} className="font-main text-lg text-light">
-              Shimabu IT University
-            </Title>
-          </a>
-        </Link>
-        <nav className="flex gap-x-4 font-main text-lg font-bold">
-          {headerNavLink.map(({ link, text }) => (
-            <Link href={link} key={text}>
-              <a className="text-light no-underline">{text}</a>
-            </Link>
-          ))}
-          {/* <div className="-m-[1px] block rounded-md border border-solid border-gray-900 px-1 pt-1 leading-none text-gray-900">
-            <Moon size={20} strokeWidth={2} />
-          </div> */}
-        </nav>
-      </div>
-    </HeaderMantine>
-  ) : (
+  return (
     //  モバイルヘッダー
     <HeaderMantine
       fixed={true}
@@ -72,3 +27,45 @@ const Header: FC = () => {
 };
 
 export default Header;
+
+// const headerNavLink = [
+//   {
+//     link: "/about",
+//     text: "About",
+//   },
+//   {
+//     link: "/blog",
+//     text: "Blog",
+//   },
+//   {
+//     link: "/portfolio",
+//     text: "Portfolio",
+//   },
+//   {
+//     link: "/contact",
+//     text: "Contact",
+//   },
+// ];
+
+// PCヘッダー
+// <HeaderMantine fixed={true} height={64} className="pt-[18px]">
+//   <div className="mx-auto flex max-w-screen-md items-center justify-between border-none sm:px-4 md:px-0">
+//     <Link href="/" className="block">
+//       <a className="no-underline">
+//         <Title order={1} className="font-main text-lg text-light">
+//           Shimabu IT University
+//         </Title>
+//       </a>
+//     </Link>
+//     <nav className="flex gap-x-4 font-main text-lg font-bold">
+//       {headerNavLink.map(({ link, text }) => (
+//         <Link href={link} key={text}>
+//           <a className="text-light no-underline">{text}</a>
+//         </Link>
+//       ))}
+//       <div className="-m-[1px] block rounded-md border border-solid border-gray-900 px-1 pt-1 leading-none text-gray-900">
+//         <Moon size={20} strokeWidth={2} />
+//       </div>
+//     </nav>
+//   </div>
+// </HeaderMantine>
