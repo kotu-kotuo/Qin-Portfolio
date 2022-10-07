@@ -2,19 +2,11 @@
 @tailwind utilities;
 
 @layer components {
-  .wrapper {
-    @apply mx-auto px-4 sm:max-w-screen-md sm:px-0;
-  }
-
   .headline-wrapper {
-    @apply px-4 pt-10 pb-6 sm:mx-auto sm:max-w-screen-md sm:px-0;
+    @apply pt-10 pb-6;
   }
 
   .item-wrapper {
     @apply mb-8;
   }
-}
-
-.buttonPrimarySpace {
-  @apply mb-6 sm:mb-8;
 }

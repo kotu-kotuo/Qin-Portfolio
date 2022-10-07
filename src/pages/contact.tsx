@@ -61,7 +61,7 @@ const Contact: NextPage = () => {
       <div style={{ position: "relative" }}>
         <LoadingOverlay visible={visible} />
 
-        <form className="wrapper" onSubmit={form.onSubmit(handleSubmit)}>
+        <form className="" onSubmit={form.onSubmit(handleSubmit)}>
           <TextInput
             label="Email"
             placeholder="your@email.com"

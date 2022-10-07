@@ -16,7 +16,7 @@ const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
         <Headline title="Portfolio" />
       </div>
       <Skeleton visible={largerThanSM === null}>
-        <div className="wrapper">
+        <div className="">
           <Grid>
             {props.contents.map((content) => (
               <Grid.Col span={largerThanSM ? 4 : 12} key={content.id}>

@@ -14,7 +14,7 @@ const PortfolioContent: NextPage<PortfolioProps> = (props) => {
       <div className="headline-wrapper">
         <Headline title="Portfolio" />
       </div>
-      <div className="wrapper">
+      <div className="">
         <img
           src={props.featuredImage.url}
           alt="画像"

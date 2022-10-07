@@ -15,7 +15,7 @@ const BlogContent: NextPage<BlogProps> = (props) => {
       <div className="headline-wrapper">
         <Headline title={props.title} />
       </div>
-      <div className="wrapper">
+      <div className="">
         <p className="-mt-1 mb-1 text-sm font-bold text-gray-400">
           {dayjs(props.publishedAt).format("YYYY/MM/DD")}
         </p>

@@ -15,6 +15,7 @@ import { githubUrl, twitterUrl } from "src/lib/urls";
 import useTwitter from "src/hooks/useTwitter";
 import useGithub from "src/hooks/useGithub";
 import { Blog, Portfolio, Tweet } from "src/types/types";
+import Container from "src/components/Layout/Container";
 
 type HomeProps = {
   blogData: MicroCMSListResponse<Blog>;
@@ -46,99 +47,109 @@ const Home: NextPage<HomeProps> = (props) => {
         </div>
       </div> */}
 
-      <div className="wrapper mt-40 mb-28">
-        <p className="text-primary tracking-wider">Hi! My name is</p>
+      {/* ホーム */}
+      <Container className="mb-28 mt-48 sm:mt-40">
+        <p className="tracking-wider text-primary">Hi! My name is</p>
         <h1 className="text-6xl font-bold text-light">Makoto Nonoyama</h1>
-        <h2 className="text-3xl font-bold text-gray-400">
+        <h2 className="mb-24 text-3xl font-bold text-gray-400">
           I'm a would-be front-end engineer.
         </h2>
-      </div>
+      </Container>
 
-      <div className="headline-wrapper">
-        <Headline title="Blog" />
-      </div>
-      <ul className="wrapper my-0 list-none">
-        {props.blogData.contents.slice(0, 4).map((content) => (
-          <li className="item-wrapper" key={content.id}>
-            <BlogItem
-              id={content.id}
-              title={content.title}
-              content={content.content}
-              publishedAt={content.publishedAt}
-              createdAt={content.createdAt}
-              updatedAt={content.updatedAt}
-            />
-          </li>
-        ))}
-      </ul>
-      <div className="ButtonPrimarySpace text-center">
-        <ButtonPrimary text="View All" link="blog" />
-      </div>
+      {/* アバウト */}
 
-      <div className="headline-wrapper">
-        <Headline title="Portfolio" />
-      </div>
-      <Skeleton visible={largerThanSM === null}>
-        <div className="wrapper sm:mx-auto">
-          <Grid>
-            {props.portfolioData.contents
-              .slice(0, largerThanSM ? 6 : 3)
-              .map((content) => (
-                <Grid.Col span={largerThanSM ? 4 : 12} key={content.id}>
-                  <div className="item-wrapper">
-                    <PortfolioItem
-                      id={content.id}
-                      title={content.title}
-                      content={content.content}
-                      featuredImage={content.featuredImage}
-                      startDate={content.startDate}
-                      endDate={content.endDate}
-                      publishedAt={content.publishedAt}
-                      createdAt={content.createdAt}
-                      updatedAt={content.updatedAt}
-                    />
-                  </div>
-                </Grid.Col>
-              ))}
-          </Grid>
+      {/* ブログ */}
+      <Container>
+        <div className="headline-wrapper">
+          <Headline title="Blog" />
         </div>
-      </Skeleton>
-      <div className="ButtonPrimarySpace  text-center">
-        <ButtonPrimary text="View All" link="portfolio" />
-      </div>
+        <ul className="my-0 list-none px-0">
+          {props.blogData.contents.slice(0, 4).map((content) => (
+            <li className="item-wrapper" key={content.id}>
+              <BlogItem
+                id={content.id}
+                title={content.title}
+                content={content.content}
+                publishedAt={content.publishedAt}
+                createdAt={content.createdAt}
+                updatedAt={content.updatedAt}
+              />
+            </li>
+          ))}
+        </ul>
+        <div className="text-center">
+          <ButtonPrimary text="View All" link="blog" />
+        </div>
+      </Container>
+
+      <Container>
+        <div className="headline-wrapper">
+          <Headline title="Portfolio" />
+        </div>
+        <Skeleton visible={largerThanSM === null}>
+          <div className="sm:mx-auto">
+            <Grid>
+              {props.portfolioData.contents
+                .slice(0, largerThanSM ? 6 : 3)
+                .map((content) => (
+                  <Grid.Col span={largerThanSM ? 4 : 12} key={content.id}>
+                    <div className="item-wrapper">
+                      <PortfolioItem
+                        id={content.id}
+                        title={content.title}
+                        content={content.content}
+                        featuredImage={content.featuredImage}
+                        startDate={content.startDate}
+                        endDate={content.endDate}
+                        publishedAt={content.publishedAt}
+                        createdAt={content.createdAt}
+                        updatedAt={content.updatedAt}
+                      />
+                    </div>
+                  </Grid.Col>
+                ))}
+            </Grid>
+          </div>
+        </Skeleton>
+        <div className="text-center">
+          <ButtonPrimary text="View All" link="portfolio" />
+        </div>
+      </Container>
 
       <div className="gap-x-20 sm:mx-auto sm:flex sm:max-w-screen-md">
         <div className="sm:flex-1">
-          <div className="headline-wrapper">
-            <Headline title="Github" />
-          </div>
-          <div className="wrapper mb-8">
-            {repositories?.map((repository) => (
-              <div className="item-wrapper" key={repository.node.name}>
-                <GithubItem
-                  name={repository.node.name}
-                  description={repository.node.description}
-                  stargazerCount={repository.node.stargazerCount}
-                  forkCount={repository.node.forkCount}
-                  languages={repository.node.languages}
-                />
-              </div>
-            ))}
-          </div>
-          <div className="ButtonPrimarySpace  text-center">
-            <ButtonPrimary
-              text="View on GitHub"
-              link={githubUrl}
-              externalLink={true}
-            />
-          </div>
+          <Container>
+            <div className="headline-wrapper">
+              <Headline title="Github" />
+            </div>
+            <div className="mb-8">
+              {repositories?.map((repository) => (
+                <div className="item-wrapper" key={repository.node.name}>
+                  <GithubItem
+                    name={repository.node.name}
+                    description={repository.node.description}
+                    stargazerCount={repository.node.stargazerCount}
+                    forkCount={repository.node.forkCount}
+                    languages={repository.node.languages}
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="text-center">
+              <ButtonPrimary
+                text="View on GitHub"
+                link={githubUrl}
+                externalLink={true}
+              />
+            </div>
+          </Container>
         </div>
 
         <div className="sm:flex-1">
-          <div className="headline-wrapper">
-            <Headline title="Twitter (1week)" />
-          </div>
-          <div className="wrapper">
+          <Container>
+            <div className="headline-wrapper">
+              <Headline title="Twitter (1week)" />
+            </div>
             {twitterData?.recentSearch.data
               ? twitterData?.recentSearch.data
                   .slice(0, 3)
@@ -152,14 +163,14 @@ const Home: NextPage<HomeProps> = (props) => {
                     </div>
                   ))
               : null}
-          </div>
-          <div className="ButtonPrimarySpace  text-center">
-            <ButtonPrimary
-              text="View on Twitter"
-              link={twitterUrl}
-              externalLink={true}
-            />
-          </div>
+            <div className="text-center">
+              <ButtonPrimary
+                text="View on Twitter"
+                link={twitterUrl}
+                externalLink={true}
+              />
+            </div>
+          </Container>
         </div>
       </div>
     </>
