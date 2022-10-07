@@ -11,12 +11,13 @@ import GithubItem from "src/components/Item/GithubItem";
 import TwitterItem from "src/components/Item/TwitterItem";
 import { client } from "src/lib/client";
 import { MicroCMSListResponse } from "microcms-js-sdk";
-import { githubUrl, twitterUrl } from "src/lib/urls";
+import { githubUrl, twitterUrl } from "src/utils/urls";
 import useTwitter from "src/hooks/useTwitter";
 import useGithub from "src/hooks/useGithub";
 import { Blog, Portfolio, Tweet } from "src/types/types";
 import Container from "src/components/Layout/Container";
 import Image from "next/image";
+import { skillList } from "src/utils/const";
 
 type HomeProps = {
   blogData: MicroCMSListResponse<Blog>;
@@ -63,7 +64,7 @@ const Home: NextPage<HomeProps> = (props) => {
           <Headline title="About" />
         </div>
         <div className="sm:flex">
-          <div className="-my-12 text-center sm:-mt-8 sm:-mb-6  sm:w-1/2">
+          <div className="-my-20 text-center sm:-mt-8 sm:-mb-6  sm:w-1/2">
             <Image src="/Qin-Neko.png" width={400} height={400} />
           </div>
           <div className="sm:w-1/2">
@@ -79,6 +80,23 @@ const Home: NextPage<HomeProps> = (props) => {
             </p>
           </div>
         </div>
+      </Container>
+
+      {/* スキル */}
+      <Container>
+        <div className="headline-wrapper">
+          <Headline title="Skill" />
+        </div>
+        <Grid>
+          {skillList.map((skill, index) => (
+            <Grid.Col span={4} xs={3} sm={2} key={index}>
+              <div className="p-2 text-center">
+                <skill.icon className="h-auto w-4/5 text-light" />
+                <p>{skill.title}</p>
+              </div>
+            </Grid.Col>
+          ))}
+        </Grid>
       </Container>
 
       {/* ポートフォリオ */}
