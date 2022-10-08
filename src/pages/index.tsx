@@ -208,8 +208,8 @@ const Home: NextPage<HomeProps> = (props) => {
       <div className="pt-6 text-center sm:pt-0">
         <Image
           src="/portfolio-bottom-art.png"
-          width={600}
-          height={600}
+          width={540}
+          height={540}
           alt="Clip art of girl zoning out in park while drinking"
         />
       </div>

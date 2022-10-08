@@ -19,6 +19,7 @@ const SideMenu: FC<SideMenuProps> = ({ isActiveScroll, setIsActiveScroll }) => {
             offset={-40}
             onSetActive={(id) => setIsActiveScroll(id)}
             spy={true}
+            key={menu}
           >
             <li className="flex items-center transition">
               <div
