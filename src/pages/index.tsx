@@ -1,8 +1,6 @@
-import { Grid, Group, Skeleton, Text, Title } from "@mantine/core";
+import { Grid, Skeleton } from "@mantine/core";
 import type { GetStaticProps, NextPage } from "next";
 import { useMediaQuery } from "src/lib/mantine";
-import { BsTwitter, BsFacebook } from "react-icons/bs";
-import { ImRss } from "react-icons/im";
 import Headline from "src/components/Element/Headline";
 import BlogItem from "src/components/Item/BlogItem";
 import ButtonPrimary from "src/components/Element/ButtonPrimary";
@@ -18,6 +16,7 @@ import { Blog, Portfolio, Tweet } from "src/types/types";
 import Container from "src/components/Layout/Container";
 import Image from "next/image";
 import { skillList } from "src/utils/const";
+import Contact from "src/components/Contact";
 
 type HomeProps = {
   blogData: MicroCMSListResponse<Blog>;
@@ -31,7 +30,7 @@ const Home: NextPage<HomeProps> = (props) => {
 
   return (
     <>
-      {/* ホーム */}
+      {/* Home */}
       <Container className="mb-28 mt-48 sm:mt-40">
         <p className="tracking-wider text-primary">Hi! My name is</p>
         <h1 className="text-6xl font-bold text-light">Makoto Nonoyama</h1>
@@ -40,7 +39,7 @@ const Home: NextPage<HomeProps> = (props) => {
         </h2>
       </Container>
 
-      {/* アバウト */}
+      {/* About */}
       <Container>
         <div className="headline-wrapper">
           <Headline title="About" />
@@ -70,7 +69,7 @@ const Home: NextPage<HomeProps> = (props) => {
         </div>
       </Container>
 
-      {/* スキル */}
+      {/* Skill */}
       <Container>
         <div className="headline-wrapper">
           <Headline title="Skill" />
@@ -87,14 +86,21 @@ const Home: NextPage<HomeProps> = (props) => {
         </Grid>
       </Container>
 
-      {/* ワーク */}
+      {/* Work */}
       <Container>
         <div className="headline-wrapper">
           <Headline title="Work" />
         </div>
         <Skeleton visible={largerThanSM === null}>
           {props.portfolioData.contents.map((content, index) => (
-            <div className="mb-20 mt-4" key={index}>
+            <div
+              className={`mt-4 ${
+                props.portfolioData.contents.length !== index + 1
+                  ? "mb-20"
+                  : "mb-8"
+              }`}
+              key={index}
+            >
               <PortfolioItem
                 id={content.id}
                 order={index + 1}
@@ -111,35 +117,9 @@ const Home: NextPage<HomeProps> = (props) => {
             </div>
           ))}
         </Skeleton>
-        {/* <Skeleton visible={largerThanSM === null}>
-          <div className="sm:mx-auto">
-            <Grid>
-              {props.portfolioData.contents
-                .slice(0, largerThanSM ? 6 : 3)
-                .map((content) => (
-                  <Grid.Col span={largerThanSM ? 4 : 12} key={content.id}>
-                    <div className="item-wrapper">
-                      <PortfolioItem
-                        id={content.id}
-                        title={content.title}
-                        content={content.content}
-                        featuredImage={content.featuredImage}
-                        technologies={content.technologies}
-                        siteLink={content.siteLink}
-                        githubLink={content.githubLink}
-                        publishedAt={content.publishedAt}
-                        createdAt={content.createdAt}
-                        updatedAt={content.updatedAt}
-                      />
-                    </div>
-                  </Grid.Col>
-                ))}
-            </Grid>
-          </div>
-        </Skeleton> */}
       </Container>
 
-      {/* ブログ */}
+      {/* Blog */}
       <Container>
         <div className="headline-wrapper">
           <Headline title="Blog" />
@@ -163,6 +143,7 @@ const Home: NextPage<HomeProps> = (props) => {
         </div>
       </Container>
 
+      {/* Github */}
       <div className="gap-x-20 sm:mx-auto sm:flex sm:max-w-screen-md">
         <div className="sm:flex-1">
           <Container>
@@ -192,10 +173,11 @@ const Home: NextPage<HomeProps> = (props) => {
           </Container>
         </div>
 
+        {/* Twitter */}
         <div className="sm:flex-1">
           <Container>
             <div className="headline-wrapper">
-              <Headline title="Twitter (1week)" />
+              <Headline title="Twitter" />
             </div>
             {twitterData?.recentSearch.data
               ? twitterData?.recentSearch.data
@@ -220,6 +202,10 @@ const Home: NextPage<HomeProps> = (props) => {
           </Container>
         </div>
       </div>
+
+      <Container>
+        <Contact />
+      </Container>
     </>
   );
 };

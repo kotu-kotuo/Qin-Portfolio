@@ -7,14 +7,13 @@ import {
   TextInput,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { NextPage } from "next";
 import Link from "next/link";
 import { useState } from "react";
 import Headline from "src/components/Element/Headline";
 import { client } from "src/lib/client";
 import { Button } from "src/lib/mantine";
 
-const Contact: NextPage = () => {
+const Contact = () => {
   const [opened, setOpened] = useState(false);
   const [visible, setVisible] = useState(false);
 
@@ -54,7 +53,7 @@ const Contact: NextPage = () => {
   };
 
   return (
-    <>
+    <div>
       <div className="headline-wrapper">
         <Headline title="Contact" />
       </div>
@@ -82,7 +81,7 @@ const Contact: NextPage = () => {
           />
           <div className="text-center">
             <Button
-              className="rounded-full bg-light font-main text-dark"
+              className="rounded-full bg-light font-main text-dark transition hover:bg-primary"
               type="submit"
             >
               Send message
@@ -90,7 +89,6 @@ const Contact: NextPage = () => {
           </div>
         </form>
       </div>
-
       <Dialog
         opened={opened}
         withCloseButton
@@ -110,7 +108,7 @@ const Contact: NextPage = () => {
           </Link>
         </Group>
       </Dialog>
-    </>
+    </div>
   );
 };
 

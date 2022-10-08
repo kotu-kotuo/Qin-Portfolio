@@ -196,7 +196,6 @@ module.exports = {
     },
     fontFamily: {
       main: ["Avenir Next", "sans-serif"],
-      button: ["Open Sans"],
     },
   },
   plugins: [require("@tailwindcss/line-clamp")],

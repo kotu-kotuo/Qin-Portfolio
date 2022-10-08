@@ -12,7 +12,7 @@ type ButtonProps = {
 const ButtonPrimary: FC<ButtonProps> = ({ text, link, externalLink, type }) => {
   return externalLink ? (
     <Button
-      className="rounded-full bg-light font-button text-dark no-underline hover:bg-primary transition"
+      className="rounded-full bg-light font-main text-dark no-underline transition hover:bg-primary"
       href={link}
       target="_blank"
       rel="noopener noreferrer"
@@ -23,7 +23,7 @@ const ButtonPrimary: FC<ButtonProps> = ({ text, link, externalLink, type }) => {
   ) : (
     <Link href={`/${link}`} passHref>
       <Button
-        className="rounded-full bg-light font-button text-dark"
+        className="rounded-full bg-light font-main text-dark"
         component="a"
         type={type}
       >
