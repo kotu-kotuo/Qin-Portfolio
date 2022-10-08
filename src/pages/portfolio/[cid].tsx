@@ -22,9 +22,9 @@ const PortfolioContent: NextPage<PortfolioProps> = (props) => {
         />
         <div className="my-4 text-xl font-bold text-light">{props.title}</div>
         <p className="mb-4 text-xs font-bold text-gray-400">
-          {dayjs(props.startDate).format("YYYY.MM")}{" "}
+          {/* {dayjs(props.startDate).format("YYYY.MM")}{" "}
           <span>{props.endDate ? "-" : "~"}</span>{" "}
-          {dayjs(props.endDate).format("YYYY.MM")}
+          {dayjs(props.endDate).format("YYYY.MM")} */}
         </p>
         <TypographyStylesProvider>
           <div

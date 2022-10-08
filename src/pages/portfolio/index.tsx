@@ -26,8 +26,9 @@ const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
                     title={content.title}
                     content={content.content}
                     featuredImage={content.featuredImage}
-                    startDate={content.startDate}
-                    endDate={content.endDate}
+                    technologies={content.technologies}
+                    siteLink={content.siteLink}
+                    githubLink={content.githubLink}
                     publishedAt={content.publishedAt}
                     createdAt={content.createdAt}
                     updatedAt={content.updatedAt}

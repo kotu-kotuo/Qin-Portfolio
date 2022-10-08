@@ -3,7 +3,7 @@
 
 @layer components {
   .headline-wrapper {
-    @apply pt-10 pb-6;
+    @apply pt-10 pb-6 sm:pb-8;
   }
 
   .item-wrapper {

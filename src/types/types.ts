@@ -12,12 +12,14 @@ export type Blog = {
 export type BlogProps = Blog & MicroCMSContentId & MicroCMSDate;
 
 export type Portfolio = {
-  id: string;
+  id: number;
+  order: number;
   title: string;
   featuredImage: { url: string; height: number; width: number };
   content: string;
-  startDate: string;
-  endDate: string;
+  technologies: string[];
+  siteLink: string;
+  githubLink: string;
   publishedAt: string;
   createdAt: string;
   updatedAt: string;

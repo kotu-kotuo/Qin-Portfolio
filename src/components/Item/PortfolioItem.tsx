@@ -2,27 +2,62 @@ import Link from "next/link";
 import dayjs from "dayjs";
 import { PortfolioProps } from "src/types/types";
 import { FC } from "react";
+import ButtonPrimary from "src/components/Element/ButtonPrimary";
 
 const PortfolioItem: FC<PortfolioProps> = (props) => {
   return (
-    <Link href={`/portfolio/${props.id}`}>
-      <a className="no-underline">
+    <div
+      className={`sm:flex sm:items-center ${
+        props.order % 2 === 0 ? "sm:flex-row-reverse" : null
+      } sm:justify-between sm:gap-x-8`}
+    >
+      <div className="sm:w-1/2">
         <img
           src={props.featuredImage.url}
-          alt="画像"
+          alt="Work Image"
           className="aspect-video w-full object-cover"
         />
-        <div className="my-4 text-xl font-bold text-light">{props.title}</div>
-        <p className="my-2 text-gray-300 line-clamp-3">
+      </div>
+      <div className="sm:w-1/2">
+        <div className="mt-6 text-2xl font-bold text-light sm:mt-0">
+          {props.title}
+        </div>
+        <p className="mt-4 mb-3 text-gray-300">
           {props.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "")}
         </p>
-        <p className="my-2 text-sm font-bold text-gray-400">
-          {dayjs(props.startDate).format("YYYY.MM")}{" "}
-          <span>{props.endDate ? "-" : "~"}</span>{" "}
-          {dayjs(props.endDate).format("YYYY.MM")}
-        </p>
-      </a>
-    </Link>
+        <div className="mb-5 flex flex-wrap items-baseline">
+          <p className="my-[1px] mr-1.5 text-primary">Technologies:</p>{" "}
+          {props.technologies.map((tech) => (
+            <p className="my-[1px] mr-1.5 text-sm">{tech}</p>
+          ))}
+        </div>
+        <div className="flex gap-x-4">
+          <div className="text-center">
+            <ButtonPrimary
+              text="View Site"
+              link={props.siteLink}
+              externalLink={true}
+            />
+          </div>
+          <div className="text-center">
+            <ButtonPrimary
+              text="Github"
+              link={props.githubLink}
+              externalLink={true}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    // <Link href={`/portfolio/${props.id}`}>
+    //   <a className="no-underline">
+    // <p className="my-2 text-sm font-bold text-gray-400">
+    //   {dayjs(props.startDate).format("YYYY.MM")}{" "}
+    //   <span>{props.endDate ? "-" : "~"}</span>{" "}
+    //   {dayjs(props.endDate).format("YYYY.MM")}
+    // </p>
+    //   </a>
+    // </Link>
   );
 };
 

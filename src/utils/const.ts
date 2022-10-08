@@ -8,7 +8,7 @@ import {
   SiFirebase,
   SiRubyonrails,
   SiFigma,
-  SiWordpress,
+  SiVercel,
   SiVisualstudio,
 } from "react-icons/si";
 import { FaReact } from "react-icons/fa";
@@ -23,7 +23,7 @@ export const skillList = [
   { title: "Next.js", icon: SiNextdotjs },
   { title: "Firebase", icon: SiFirebase },
   { title: "Ruby on Rails", icon: SiRubyonrails },
-  { title: "WordPress", icon: SiWordpress },
+  { title: "Vercel", icon: SiVercel },
   { title: "Figma", icon: SiFigma },
   { title: "VSCode", icon: SiVisualstudio },
 ];

@@ -31,24 +31,6 @@ const Home: NextPage<HomeProps> = (props) => {
 
   return (
     <>
-      {/* <div className="w-full bg-pink-600 px-4 py-10 text-white">
-        <div className="md:mx-auto md:flex md:max-w-screen-md md:items-center md:justify-between">
-          <div className="flex flex-col justify-start">
-            <Title className="inline font-main text-3xl">
-              Shimabu IT University
-            </Title>
-            <Text className="inline text-base">
-              しまぶーのポートフォリオのためのページです
-            </Text>
-          </div>
-          <Group className="mt-10 md:mt-0">
-            <BsTwitter />
-            <BsFacebook />
-            <ImRss />
-          </Group>
-        </div>
-      </div> */}
-
       {/* ホーム */}
       <Container className="mb-28 mt-48 sm:mt-40">
         <p className="tracking-wider text-primary">Hi! My name is</p>
@@ -64,13 +46,14 @@ const Home: NextPage<HomeProps> = (props) => {
           <Headline title="About" />
         </div>
         <div className="sm:flex">
-          <div className="-my-20 text-center sm:-mt-8 sm:-mb-6  sm:w-1/2">
+          <div className="-my-12 text-center sm:-mt-14 sm:-mb-20  sm:w-1/2">
             <Image src="/Qin-Neko.png" width={400} height={400} />
           </div>
           <div className="sm:w-1/2">
             <p className="text-light">
-              After graduating, I worked at an Italian restaurant as a cooking
-              assistant, but I resigned and am currently unemployed. <br />
+              After graduating from college, I worked at an Italian restaurant
+              as a cooking assistant, but I resigned and am currently
+              unemployed. <br />
               <br />
               I taught myself the front-end field and developed "happy horse," a
               horse trading platform, and "NonoTech," a technology blog using
@@ -99,12 +82,31 @@ const Home: NextPage<HomeProps> = (props) => {
         </Grid>
       </Container>
 
-      {/* ポートフォリオ */}
+      {/* ワーク */}
       <Container>
         <div className="headline-wrapper">
           <Headline title="Portfolio" />
         </div>
         <Skeleton visible={largerThanSM === null}>
+          {props.portfolioData.contents.map((content, index) => (
+            <div className="mb-20 mt-4" key={index}>
+              <PortfolioItem
+                id={content.id}
+                order={index + 1}
+                title={content.title}
+                content={content.content}
+                featuredImage={content.featuredImage}
+                technologies={content.technologies}
+                siteLink={content.siteLink}
+                githubLink={content.githubLink}
+                publishedAt={content.publishedAt}
+                createdAt={content.createdAt}
+                updatedAt={content.updatedAt}
+              />
+            </div>
+          ))}
+        </Skeleton>
+        {/* <Skeleton visible={largerThanSM === null}>
           <div className="sm:mx-auto">
             <Grid>
               {props.portfolioData.contents
@@ -117,8 +119,9 @@ const Home: NextPage<HomeProps> = (props) => {
                         title={content.title}
                         content={content.content}
                         featuredImage={content.featuredImage}
-                        startDate={content.startDate}
-                        endDate={content.endDate}
+                        technologies={content.technologies}
+                        siteLink={content.siteLink}
+                        githubLink={content.githubLink}
                         publishedAt={content.publishedAt}
                         createdAt={content.createdAt}
                         updatedAt={content.updatedAt}
@@ -128,10 +131,7 @@ const Home: NextPage<HomeProps> = (props) => {
                 ))}
             </Grid>
           </div>
-        </Skeleton>
-        <div className="text-center">
-          <ButtonPrimary text="View All" link="portfolio" />
-        </div>
+        </Skeleton> */}
       </Container>
 
       {/* ブログ */}
