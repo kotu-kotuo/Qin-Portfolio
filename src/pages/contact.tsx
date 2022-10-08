@@ -55,9 +55,9 @@ const Contact: NextPage = () => {
 
   return (
     <>
-      <div className="headline-wrapper">
+      {/* <div className="headline-wrapper">
         <Headline title="Contact" />
-      </div>
+      </div> */}
       <div style={{ position: "relative" }}>
         <LoadingOverlay visible={visible} />
 

@@ -55,7 +55,7 @@ const Contact = () => {
   return (
     <div>
       <div className="headline-wrapper">
-        <Headline title="Contact" />
+        <Headline title="Contact" id="contact" />
       </div>
       <div style={{ position: "relative" }}>
         <LoadingOverlay visible={visible} />

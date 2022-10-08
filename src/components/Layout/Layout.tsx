@@ -13,6 +13,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
   const handleMenuClick = () => {
     setIsOpen((prevState) => !prevState);
   };
+  const [isActiveScroll, setIsActiveScroll] = useState("");
 
   return (
     <div className="contain w-full bg-dark">
@@ -42,9 +43,12 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
       <div className="hidden sm:block">
         <div className="mx-auto flex max-w-screen-md pr-4">
           <div className="fixed flex h-screen items-center">
-            <SideMenu />
+            <SideMenu
+              isActiveScroll={isActiveScroll}
+              setIsActiveScroll={setIsActiveScroll}
+            />
           </div>
-          <div className="w-[240px] min-w-[150px]"></div>
+          <div className="w-[300px] min-w-[150px]"></div>
           <main>{children}</main>
         </div>
       </div>

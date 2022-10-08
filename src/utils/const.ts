@@ -27,3 +27,14 @@ export const skillList = [
   { title: "Figma", icon: SiFigma },
   { title: "VSCode", icon: SiVisualstudio },
 ];
+
+export const menuList = [
+  "home",
+  "about",
+  "skill",
+  "work",
+  "blog",
+  "github",
+  "twitter",
+  "contact",
+];

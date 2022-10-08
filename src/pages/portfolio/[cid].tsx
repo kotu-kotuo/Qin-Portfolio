@@ -11,9 +11,9 @@ type PortfolioProps = Portfolio & MicroCMSContentId & MicroCMSDate;
 const PortfolioContent: NextPage<PortfolioProps> = (props) => {
   return (
     <>
-      <div className="headline-wrapper">
+      {/* <div className="headline-wrapper">
         <Headline title="Portfolio" />
-      </div>
+      </div> */}
       <div className="">
         <img
           src={props.featuredImage.url}

@@ -31,7 +31,7 @@ const Home: NextPage<HomeProps> = (props) => {
   return (
     <>
       {/* Home */}
-      <Container className="mb-28 mt-48 sm:mt-40">
+      <Container className="mb-28 mt-48 sm:mt-40" id="home">
         <p className="tracking-wider text-primary">Hi! My name is</p>
         <h1 className="text-6xl font-bold text-light">Makoto Nonoyama</h1>
         <h2 className="mb-24 text-3xl font-bold text-gray-400">
@@ -42,7 +42,7 @@ const Home: NextPage<HomeProps> = (props) => {
       {/* About */}
       <Container>
         <div className="headline-wrapper">
-          <Headline title="About" />
+          <Headline title="About" id="about" />
         </div>
         <div className="sm:flex">
           <div className="-my-12 text-center sm:-mt-14 sm:-mb-20  sm:w-1/2">
@@ -72,7 +72,7 @@ const Home: NextPage<HomeProps> = (props) => {
       {/* Skill */}
       <Container>
         <div className="headline-wrapper">
-          <Headline title="Skill" />
+          <Headline title="Skill" id="skill" />
         </div>
         <Grid>
           {skillList.map((skill, index) => (
@@ -89,7 +89,7 @@ const Home: NextPage<HomeProps> = (props) => {
       {/* Work */}
       <Container>
         <div className="headline-wrapper">
-          <Headline title="Work" />
+          <Headline title="Work" id="work" />
         </div>
         <Skeleton visible={largerThanSM === null}>
           {props.portfolioData.contents.map((content, index) => (
@@ -122,7 +122,7 @@ const Home: NextPage<HomeProps> = (props) => {
       {/* Blog */}
       <Container>
         <div className="headline-wrapper">
-          <Headline title="Blog" />
+          <Headline title="Blog" id="blog" />
         </div>
         <ul className="my-0 list-none px-0">
           {props.blogData.contents.slice(0, 4).map((content) => (
@@ -144,68 +144,75 @@ const Home: NextPage<HomeProps> = (props) => {
       </Container>
 
       {/* Github */}
-      <div className="gap-x-20 sm:mx-auto sm:flex sm:max-w-screen-md">
-        <div className="sm:flex-1">
-          <Container>
-            <div className="headline-wrapper">
-              <Headline title="Github" />
+      {/* <div className="gap-x-20 sm:mx-auto sm:flex sm:max-w-screen-md"> */}
+      {/* <div className="sm:flex-1"> */}
+      <Container>
+        <div className="headline-wrapper">
+          <Headline title="Github" id="github" />
+        </div>
+        <div className="mb-8">
+          {repositories?.map((repository) => (
+            <div className="item-wrapper" key={repository.node.name}>
+              <GithubItem
+                name={repository.node.name}
+                description={repository.node.description}
+                stargazerCount={repository.node.stargazerCount}
+                forkCount={repository.node.forkCount}
+                languages={repository.node.languages}
+              />
             </div>
-            <div className="mb-8">
-              {repositories?.map((repository) => (
-                <div className="item-wrapper" key={repository.node.name}>
-                  <GithubItem
-                    name={repository.node.name}
-                    description={repository.node.description}
-                    stargazerCount={repository.node.stargazerCount}
-                    forkCount={repository.node.forkCount}
-                    languages={repository.node.languages}
+          ))}
+        </div>
+        <div className="text-center">
+          <ButtonPrimary
+            text="View on GitHub"
+            link={githubUrl}
+            externalLink={true}
+          />
+        </div>
+      </Container>
+      {/* </div> */}
+
+      {/* Twitter */}
+      <div className="sm:flex-1">
+        <Container>
+          <div className="headline-wrapper">
+            <Headline title="Twitter" id="twitter" />
+          </div>
+          {twitterData?.recentSearch.data
+            ? twitterData?.recentSearch.data.slice(0, 3).map((data: Tweet) => (
+                <div className="item-wrapper" key={data.id}>
+                  <TwitterItem
+                    data={data}
+                    user={twitterData?.recentSearch.includes.users[0]}
+                    userImage={twitterData?.user.profile_image_url}
                   />
                 </div>
-              ))}
-            </div>
-            <div className="text-center">
-              <ButtonPrimary
-                text="View on GitHub"
-                link={githubUrl}
-                externalLink={true}
-              />
-            </div>
-          </Container>
-        </div>
-
-        {/* Twitter */}
-        <div className="sm:flex-1">
-          <Container>
-            <div className="headline-wrapper">
-              <Headline title="Twitter" />
-            </div>
-            {twitterData?.recentSearch.data
-              ? twitterData?.recentSearch.data
-                  .slice(0, 3)
-                  .map((data: Tweet) => (
-                    <div className="item-wrapper" key={data.id}>
-                      <TwitterItem
-                        data={data}
-                        user={twitterData?.recentSearch.includes.users[0]}
-                        userImage={twitterData?.user.profile_image_url}
-                      />
-                    </div>
-                  ))
-              : null}
-            <div className="text-center">
-              <ButtonPrimary
-                text="View on Twitter"
-                link={twitterUrl}
-                externalLink={true}
-              />
-            </div>
-          </Container>
-        </div>
+              ))
+            : null}
+          <div className="text-center">
+            <ButtonPrimary
+              text="View on Twitter"
+              link={twitterUrl}
+              externalLink={true}
+            />
+          </div>
+        </Container>
       </div>
+      {/* </div> */}
 
       <Container>
         <Contact />
       </Container>
+
+      <div className="pt-6 text-center sm:pt-0">
+        <Image
+          src="/portfolio-bottom-art.png"
+          width={600}
+          height={600}
+          alt="Clip art of girl zoning out in park while drinking"
+        />
+      </div>
     </>
   );
 };

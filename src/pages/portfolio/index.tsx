@@ -12,9 +12,9 @@ const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
 
   return (
     <>
-      <div className="headline-wrapper">
+      {/* <div className="headline-wrapper">
         <Headline title="Portfolio" />
-      </div>
+      </div> */}
       <Skeleton visible={largerThanSM === null}>
         <div className="">
           <Grid>
