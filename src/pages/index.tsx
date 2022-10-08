@@ -36,7 +36,7 @@ const Home: NextPage<HomeProps> = (props) => {
         <p className="tracking-wider text-primary">Hi! My name is</p>
         <h1 className="text-6xl font-bold text-light">Makoto Nonoyama</h1>
         <h2 className="mb-24 text-3xl font-bold text-gray-400">
-          I'm a would-be front-end engineer.
+          I&apos;m a would-be front-end engineer.
         </h2>
       </Container>
 
@@ -47,7 +47,12 @@ const Home: NextPage<HomeProps> = (props) => {
         </div>
         <div className="sm:flex">
           <div className="-my-12 text-center sm:-mt-14 sm:-mb-20  sm:w-1/2">
-            <Image src="/Qin-Neko.png" width={400} height={400} />
+            <Image
+              src="/Qin-Neko.png"
+              width={400}
+              height={400}
+              alt="Clip art of Neko sucked into box immediately"
+            />
           </div>
           <div className="sm:w-1/2">
             <p className="text-light">
@@ -55,9 +60,9 @@ const Home: NextPage<HomeProps> = (props) => {
               as a cooking assistant, but I resigned and am currently
               unemployed. <br />
               <br />
-              I taught myself the front-end field and developed "happy horse," a
-              horse trading platform, and "NonoTech," a technology blog using
-              NotionAPI and Next.js. <br />
+              I taught myself the front-end field and developed &quot;happy
+              horse&quot;, a horse trading platform, and &quot;NonoTech&quot;, a
+              technology blog using NotionAPI and Next.js. <br />
               <br /> I would like to continue to develop various products in the
               future, so I will devote myself to it every day!
             </p>
@@ -85,7 +90,7 @@ const Home: NextPage<HomeProps> = (props) => {
       {/* ワーク */}
       <Container>
         <div className="headline-wrapper">
-          <Headline title="Portfolio" />
+          <Headline title="Work" />
         </div>
         <Skeleton visible={largerThanSM === null}>
           {props.portfolioData.contents.map((content, index) => (

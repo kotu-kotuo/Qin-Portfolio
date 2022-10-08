@@ -23,6 +23,7 @@ const PortfolioList: NextPage<MicroCMSListResponse<Portfolio>> = (props) => {
                 <div className="item-wrapper">
                   <PortfolioItem
                     id={content.id}
+                    order={content.order}
                     title={content.title}
                     content={content.content}
                     featuredImage={content.featuredImage}

@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import { PortfolioProps } from "src/types/types";
 import { FC } from "react";
 import ButtonPrimary from "src/components/Element/ButtonPrimary";
+import Image from "next/image";
 
 const PortfolioItem: FC<PortfolioProps> = (props) => {
   return (
@@ -12,8 +13,10 @@ const PortfolioItem: FC<PortfolioProps> = (props) => {
       } sm:justify-between sm:gap-x-8`}
     >
       <div className="sm:w-1/2">
-        <img
+        <Image
           src={props.featuredImage.url}
+          width={800}
+          height={450}
           alt="Work Image"
           className="aspect-video w-full object-cover"
         />
@@ -28,7 +31,9 @@ const PortfolioItem: FC<PortfolioProps> = (props) => {
         <div className="mb-5 flex flex-wrap items-baseline">
           <p className="my-[1px] mr-1.5 text-primary">Technologies:</p>{" "}
           {props.technologies.map((tech) => (
-            <p className="my-[1px] mr-1.5 text-sm">{tech}</p>
+            <p className="my-[1px] mr-1.5 text-sm" key={tech}>
+              {tech}
+            </p>
           ))}
         </div>
         <div className="flex gap-x-4">

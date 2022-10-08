@@ -14,7 +14,12 @@ const Header: FC = () => {
     >
       <Link href="/">
         <a className="mt-0.5 no-underline">
-          <Image src="/Qin-Neko.png" width={60} height={60} />
+          <Image
+            src="/Qin-Neko.png"
+            width={60}
+            height={60}
+            alt="Clip art of Neko sucked into box immediately"
+          />
         </a>
       </Link>
       <Menu2 size={24} strokeWidth={2} className="text-transparent" />
