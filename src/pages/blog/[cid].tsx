@@ -12,9 +12,9 @@ const BlogContent: NextPage<BlogProps> = (props) => {
   console.log("cid", props);
   return (
     <>
-      <div className="headline-wrapper">
+      {/* <div className="headline-wrapper">
         <Headline title={props.title} />
-      </div>
+      </div> */}
       <div className="">
         <p className="-mt-1 mb-1 text-sm font-bold text-gray-400">
           {dayjs(props.publishedAt).format("YYYY/MM/DD")}

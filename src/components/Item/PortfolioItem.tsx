@@ -54,15 +54,6 @@ const PortfolioItem: FC<PortfolioProps> = (props) => {
         </div>
       </div>
     </div>
-    // <Link href={`/portfolio/${props.id}`}>
-    //   <a className="no-underline">
-    // <p className="my-2 text-sm font-bold text-gray-400">
-    //   {dayjs(props.startDate).format("YYYY.MM")}{" "}
-    //   <span>{props.endDate ? "-" : "~"}</span>{" "}
-    //   {dayjs(props.endDate).format("YYYY.MM")}
-    // </p>
-    //   </a>
-    // </Link>
   );
 };
 

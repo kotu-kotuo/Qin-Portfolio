@@ -5,9 +5,9 @@ import Headline from "src/components/Element/Headline";
 const About: NextPage = () => {
   return (
     <>
-      <div className="headline-wrapper">
+      {/* <div className="headline-wrapper">
         <Headline title="About" />
-      </div>
+      </div> */}
       <div className="">
         <Title className="text-xl font-semibold text-light">
           Lightsound Shimabu

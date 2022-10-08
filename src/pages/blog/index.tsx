@@ -8,9 +8,9 @@ import { Blog } from "src/types/types";
 const Blog: NextPage<MicroCMSListResponse<Blog>> = (props) => {
   return (
     <>
-      <div className="headline-wrapper">
+      {/* <div className="headline-wrapper">
         <Headline title="Blog" />
-      </div>
+      </div> */}
       <div className="px-4">
         <ul className="list-none pl-0 sm:mx-auto  sm:max-w-screen-md">
           {props.contents.map((content) => (

@@ -144,8 +144,6 @@ const Home: NextPage<HomeProps> = (props) => {
       </Container>
 
       {/* Github */}
-      {/* <div className="gap-x-20 sm:mx-auto sm:flex sm:max-w-screen-md"> */}
-      {/* <div className="sm:flex-1"> */}
       <Container>
         <div className="headline-wrapper">
           <Headline title="Github" id="github" />
@@ -171,35 +169,31 @@ const Home: NextPage<HomeProps> = (props) => {
           />
         </div>
       </Container>
-      {/* </div> */}
 
       {/* Twitter */}
-      <div className="sm:flex-1">
-        <Container>
-          <div className="headline-wrapper">
-            <Headline title="Twitter" id="twitter" />
-          </div>
-          {twitterData?.recentSearch.data
-            ? twitterData?.recentSearch.data.slice(0, 3).map((data: Tweet) => (
-                <div className="item-wrapper" key={data.id}>
-                  <TwitterItem
-                    data={data}
-                    user={twitterData?.recentSearch.includes.users[0]}
-                    userImage={twitterData?.user.profile_image_url}
-                  />
-                </div>
-              ))
-            : null}
-          <div className="text-center">
-            <ButtonPrimary
-              text="View on Twitter"
-              link={twitterUrl}
-              externalLink={true}
-            />
-          </div>
-        </Container>
-      </div>
-      {/* </div> */}
+      <Container>
+        <div className="headline-wrapper">
+          <Headline title="Twitter" id="twitter" />
+        </div>
+        {twitterData?.recentSearch.data
+          ? twitterData?.recentSearch.data.slice(0, 3).map((data: Tweet) => (
+              <div className="item-wrapper" key={data.id}>
+                <TwitterItem
+                  data={data}
+                  user={twitterData?.recentSearch.includes.users[0]}
+                  userImage={twitterData?.user.profile_image_url}
+                />
+              </div>
+            ))
+          : null}
+        <div className="text-center">
+          <ButtonPrimary
+            text="View on Twitter"
+            link={twitterUrl}
+            externalLink={true}
+          />
+        </div>
+      </Container>
 
       <Container>
         <Contact />
