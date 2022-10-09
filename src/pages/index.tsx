@@ -75,8 +75,8 @@ const Home: NextPage<HomeProps> = (props) => {
           <Headline title="Skill" id="skill" />
         </div>
         <Grid>
-          {skillList.map((skill, index) => (
-            <Grid.Col span={4} xs={3} sm={2} key={index}>
+          {skillList.map((skill) => (
+            <Grid.Col span={4} xs={3} sm={2} key={skill.title}>
               <div className="p-2 text-center">
                 <skill.icon className="h-auto w-4/5 text-light" />
                 <p>{skill.title}</p>
@@ -138,9 +138,6 @@ const Home: NextPage<HomeProps> = (props) => {
             </li>
           ))}
         </ul>
-        <div className="text-center">
-          <ButtonPrimary text="View All" link="blog" />
-        </div>
       </Container>
 
       {/* Github */}

@@ -1,5 +1,3 @@
-import Link from "next/link";
-import dayjs from "dayjs";
 import { PortfolioProps } from "src/types/types";
 import { FC } from "react";
 import ButtonPrimary from "src/components/Element/ButtonPrimary";
@@ -18,7 +16,7 @@ const PortfolioItem: FC<PortfolioProps> = (props) => {
           width={800}
           height={450}
           alt="Work Image"
-          className="aspect-video w-full object-cover"
+          className="aspect-video w-full border-2 border-solid border-gray-400 border-opacity-10 object-cover"
         />
       </div>
       <div className="sm:w-1/2">

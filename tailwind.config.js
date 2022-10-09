@@ -174,7 +174,8 @@ const mantineColors = {
 module.exports = {
   mode: "jit",
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
-  important: "#__next",
+  // important: "#__next",
+  important: true,
   theme: {
     /* Mantineと一致させる: https://mantine.dev/theming/responsive */
     screens: {

@@ -1,10 +1,10 @@
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import Headline from "src/components/Element/Headline";
 import { client } from "src/lib/client";
 import dayjs from "dayjs";
 import { Blog } from "src/types/types";
 import { TypographyStylesProvider } from "@mantine/core";
+import ButtonPrimary from "src/components/Element/ButtonPrimary";
 
 type BlogProps = Blog & MicroCMSContentId & MicroCMSDate;
 
@@ -12,11 +12,14 @@ const BlogContent: NextPage<BlogProps> = (props) => {
   console.log("cid", props);
   return (
     <>
-      {/* <div className="headline-wrapper">
-        <Headline title={props.title} />
-      </div> */}
+      <div className="headline-wrapper">
+        <div className="font-main text-3xl font-bold text-light">
+          {props.title}
+        </div>
+        <hr className="mt-6 border-b border-t-0 border-solid border-light opacity-80" />
+      </div>
       <div className="">
-        <p className="-mt-1 mb-1 text-sm font-bold text-gray-400">
+        <p className="-mt-1 mb-6 text-sm font-bold text-gray-400">
           {dayjs(props.publishedAt).format("YYYY/MM/DD")}
         </p>
         <TypographyStylesProvider>
@@ -26,6 +29,9 @@ const BlogContent: NextPage<BlogProps> = (props) => {
             }}
           />
         </TypographyStylesProvider>
+      </div>
+      <div className="text-center">
+        <ButtonPrimary text="Go Back" link="/" />
       </div>
     </>
   );
