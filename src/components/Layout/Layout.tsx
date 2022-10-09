@@ -1,5 +1,4 @@
 import { Footer } from "@mantine/core";
-import Link from "next/link";
 import { FC, ReactNode, useState } from "react";
 type LayoutProps = {
   children: ReactNode;
@@ -7,6 +6,8 @@ type LayoutProps = {
 import { slide as Menu, State } from "react-burger-menu";
 import Header from "src/components/Layout/Header";
 import SideMenu from "src/components/Layout/SideMenu";
+import { Link as ScrollLink } from "react-scroll";
+import { menuList } from "src/utils/const";
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -22,20 +23,25 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
         onStateChange={(state: State) => setIsOpen(state.isOpen)}
         right
       >
-        <div className="flex flex-col font-main">
-          <Link href="/about">
-            <a onClick={handleMenuClick}>About</a>
-          </Link>
-          <Link href="/blog">
-            <a onClick={handleMenuClick}>Blog</a>
-          </Link>
-          <Link href="/portfolio">
-            <a onClick={handleMenuClick}>Portfolio</a>
-          </Link>
-          <Link href="/contact">
-            <a onClick={handleMenuClick}>Contact</a>
-          </Link>
-        </div>
+        <ul className="flex flex-col font-main">
+          {menuList.map((menu) => (
+            <ScrollLink
+              to={menu}
+              smooth
+              duration={400}
+              offset={-40}
+              spy={true}
+              key={menu}
+            >
+              <li
+                onClick={handleMenuClick}
+                className="cursor-pointer list-none"
+              >
+                <div>{menu.charAt(0).toUpperCase() + menu.slice(1)}</div>
+              </li>
+            </ScrollLink>
+          ))}
+        </ul>
       </Menu>
 
       <Header />
@@ -59,7 +65,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
         height={60}
         className="mt-16 border-gray-600 bg-dark py-6 text-center text-xs text-gray-400"
       >
-        &copy; {new Date().getFullYear()} Shimabu IT University
+        &copy; {new Date().getFullYear()} Nono
       </Footer>
     </div>
   );

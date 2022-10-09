@@ -32,7 +32,8 @@ const SideMenu: FC<SideMenuProps> = ({ isActiveScroll, setIsActiveScroll }) => {
                       : "cursor-pointer rounded-lg px-3 hover:bg-gray-50/10"
                   } py-1.5`}
                 >
-                  {menu.charAt(0).toUpperCase() + menu.slice(1)} {/* 頭文字を大文字に */}
+                  {menu.charAt(0).toUpperCase() + menu.slice(1)}{" "}
+                  {/* 頭文字を大文字に */}
                 </div>
               </li>
             </ScrollLink>
