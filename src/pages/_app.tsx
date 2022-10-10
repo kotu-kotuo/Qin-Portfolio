@@ -1,7 +1,7 @@
 import "src/lib/tailwind.css";
 import "styles/global.css";
 import type { AppProps } from "next/app";
-import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
 import { Layout } from "src/components/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {

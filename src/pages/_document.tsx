@@ -10,6 +10,7 @@ class _Document extends Document {
     return (
       <Html lang="ja" dir="ltr">
         <Head>
+          <title>Makoto Nonoyama</title>
           <link
             rel="apple-touch-icon"
             sizes="180x180"

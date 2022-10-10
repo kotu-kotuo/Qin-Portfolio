@@ -1,20 +1,21 @@
 import { Footer } from "@mantine/core";
 import { FC, ReactNode, useState } from "react";
-type LayoutProps = {
-  children: ReactNode;
-};
 import { slide as Menu, State } from "react-burger-menu";
 import Header from "src/components/Layout/Header";
 import SideMenu from "src/components/Layout/SideMenu";
 import { Link as ScrollLink } from "react-scroll";
 import { menuList } from "src/utils/const";
 
+type LayoutProps = {
+  children: ReactNode;
+};
+
 export const Layout: FC<LayoutProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const handleMenuClick = () => {
     setIsOpen((prevState) => !prevState);
   };
-  const [isActiveScroll, setIsActiveScroll] = useState("");
+  const [isActiveScroll, setIsActiveScroll] = useState<string>("");
 
   return (
     <div className="contain w-full bg-dark">
