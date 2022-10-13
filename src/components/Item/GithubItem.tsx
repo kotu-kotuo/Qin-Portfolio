@@ -5,7 +5,6 @@ import { BsStar } from "react-icons/bs";
 import { GithubProps } from "src/types/types";
 
 const GithubItem: FC<GithubProps> = (props) => {
-  console.log(props);
   const languagesTotalSize = props.languages.totalSize;
 
   return (
@@ -42,7 +41,7 @@ const GithubItem: FC<GithubProps> = (props) => {
       <div>
         <div className="flex flex-wrap gap-x-4">
           {props.languages.edges.map((edge) => (
-            <div className="flex items-center gap-x-1 mb-1" key={edge.node.id}>
+            <div className="mb-1 flex items-center gap-x-1" key={edge.node.id}>
               <div
                 className="h-1.5 w-1.5 rounded-full "
                 style={{ backgroundColor: edge.node.color }}

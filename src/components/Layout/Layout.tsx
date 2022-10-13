@@ -6,6 +6,7 @@ import SideMenu from "src/components/Layout/SideMenu";
 import { Link as ScrollLink } from "react-scroll";
 import { menuList } from "src/utils/const";
 import { useMediaQuery } from "src/lib/mantine";
+import { useRouter } from "next/router";
 
 type LayoutProps = {
   children: ReactNode;
@@ -18,47 +19,56 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
     setIsOpen((prevState) => !prevState);
   };
   const [isActiveScroll, setIsActiveScroll] = useState<string>("");
+  const isBlogPage = useRouter().pathname === "/blog/[cid]";
 
   return (
     <div className="contain w-full bg-dark">
       {/* ハンバーガーメニュー */}
-      <Menu
-        isOpen={isOpen}
-        onStateChange={(state: State) => setIsOpen(state.isOpen)}
-        right
-      >
-        <ul className="flex flex-col font-main">
-          {menuList.map((menu) => (
-            <ScrollLink
-              to={menu}
-              smooth
-              duration={400}
-              offset={largerThanSM ? -40 : -92}
-              spy={true}
-              key={menu}
-            >
-              <li
-                onClick={handleMenuClick}
-                className="cursor-pointer list-none"
+      {!isBlogPage ? ( //ブログの時に非表示
+        <Menu
+          isOpen={isOpen}
+          onStateChange={(state: State) => setIsOpen(state.isOpen)}
+          right
+        >
+          <ul className="flex flex-col font-main">
+            {menuList.map((menu) => (
+              <ScrollLink
+                to={menu}
+                smooth
+                duration={400}
+                offset={largerThanSM ? -40 : -92}
+                spy={true}
+                key={menu}
               >
-                <div>{menu.charAt(0).toUpperCase() + menu.slice(1)}</div>
-              </li>
-            </ScrollLink>
-          ))}
-        </ul>
-      </Menu>
+                <li
+                  onClick={handleMenuClick}
+                  className="cursor-pointer list-none"
+                >
+                  <div>{menu.charAt(0).toUpperCase() + menu.slice(1)}</div>
+                </li>
+              </ScrollLink>
+            ))}
+          </ul>
+        </Menu>
+      ) : null}
 
       <Header />
 
       {/* PCサイドメニュー + main */}
       <div className="sm:mx-auto sm:flex sm:max-w-screen-md sm:pr-4">
         <div className="fixed hidden h-screen items-center sm:flex">
-          <SideMenu
-            isActiveScroll={isActiveScroll}
-            setIsActiveScroll={setIsActiveScroll}
-          />
+          {!isBlogPage ? ( //ブログの時に非表示
+            <SideMenu
+              isActiveScroll={isActiveScroll}
+              setIsActiveScroll={setIsActiveScroll}
+            />
+          ) : null}
         </div>
-        <div className="hidden w-[300px] min-w-[150px] sm:block"></div>
+        <div
+          className={`hidden  sm:block ${
+            !isBlogPage ? "w-[300px] min-w-[150px]" : "w-0 pl-4"
+          }`}
+        ></div>
         <main>{children}</main>
       </div>
 

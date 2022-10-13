@@ -9,31 +9,30 @@ import ButtonPrimary from "src/components/Element/ButtonPrimary";
 type BlogProps = Blog & MicroCMSContentId & MicroCMSDate;
 
 const BlogContent: NextPage<BlogProps> = (props) => {
-  console.log("cid", props);
   return (
-    <>
-      <div className="headline-wrapper">
+    <div className="px-4">
+      <div className="headline-wrapper mt-12 sm:mt-2">
         <div className="font-main text-3xl font-bold text-light">
           {props.title}
         </div>
         <hr className="mt-6 border-b border-t-0 border-solid border-light opacity-80" />
       </div>
-      <div className="">
-        <p className="-mt-1 mb-6 text-sm font-bold text-gray-400">
-          {dayjs(props.publishedAt).format("YYYY/MM/DD")}
-        </p>
-        <TypographyStylesProvider>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: props.content,
-            }}
-          />
-        </TypographyStylesProvider>
-      </div>
+
+      <p className="-mt-1 mb-6 text-sm font-bold text-gray-400">
+        {dayjs(props.publishedAt).format("YYYY/MM/DD")}
+      </p>
+      <TypographyStylesProvider>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: props.content,
+          }}
+        />
+      </TypographyStylesProvider>
+
       <div className="text-center">
         <ButtonPrimary text="Go Back" link="/" />
       </div>
-    </>
+    </div>
   );
 };
 

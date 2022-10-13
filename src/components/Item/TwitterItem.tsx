@@ -10,7 +10,6 @@ type TwitterProps = {
 };
 
 const TwitterItem: FC<TwitterProps> = (props) => {
-  console.log(props);
   return (
     <div className="flex">
       <Avatar src={props.userImage} radius="xl" className="mr-4" />
