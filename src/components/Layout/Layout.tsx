@@ -19,6 +19,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
 
   return (
     <div className="contain w-full bg-dark">
+      {/* ハンバーガーメニュー */}
       <Menu
         isOpen={isOpen}
         onStateChange={(state: State) => setIsOpen(state.isOpen)}
@@ -47,20 +48,17 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
 
       <Header />
 
-      <div className="hidden sm:block">
-        <div className="mx-auto flex max-w-screen-md pr-4">
-          <div className="fixed flex h-screen items-center">
-            <SideMenu
-              isActiveScroll={isActiveScroll}
-              setIsActiveScroll={setIsActiveScroll}
-            />
-          </div>
-          <div className="w-[300px] min-w-[150px]"></div>
-          <main>{children}</main>
+      {/* PCサイドメニュー + main */}
+      <div className="sm:mx-auto sm:flex sm:max-w-screen-md sm:pr-4">
+        <div className="fixed hidden h-screen items-center sm:flex">
+          <SideMenu
+            isActiveScroll={isActiveScroll}
+            setIsActiveScroll={setIsActiveScroll}
+          />
         </div>
+        <div className="hidden w-[300px] min-w-[150px] sm:block"></div>
+        <main>{children}</main>
       </div>
-
-      <main className="sm:hidden">{children}</main>
 
       <Footer
         height={60}
