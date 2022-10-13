@@ -5,12 +5,14 @@ import Header from "src/components/Layout/Header";
 import SideMenu from "src/components/Layout/SideMenu";
 import { Link as ScrollLink } from "react-scroll";
 import { menuList } from "src/utils/const";
+import { useMediaQuery } from "src/lib/mantine";
 
 type LayoutProps = {
   children: ReactNode;
 };
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
+  const largerThanSM = useMediaQuery("sm");
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const handleMenuClick = () => {
     setIsOpen((prevState) => !prevState);
@@ -31,7 +33,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
               to={menu}
               smooth
               duration={400}
-              offset={-40}
+              offset={largerThanSM ? -40 : -92}
               spy={true}
               key={menu}
             >
