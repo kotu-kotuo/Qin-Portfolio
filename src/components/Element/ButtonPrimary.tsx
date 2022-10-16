@@ -23,7 +23,7 @@ const ButtonPrimary: FC<ButtonProps> = ({ text, link, externalLink, type }) => {
   ) : (
     <Link href={`/${link}`} passHref>
       <Button
-        className="rounded-full bg-light font-main text-dark  transition hover:bg-primary"
+        className="rounded-full bg-light font-main text-dark transition hover:bg-primary z-10"
         component="a"
         type={type}
       >

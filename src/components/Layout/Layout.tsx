@@ -22,62 +22,64 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
   const isBlogPage = useRouter().pathname === "/blog/[cid]";
 
   return (
-    <div className="contain w-full bg-dark">
-      {/* ハンバーガーメニュー */}
-      {!isBlogPage ? ( //ブログの時に非表示
-        <Menu
-          isOpen={isOpen}
-          onStateChange={(state: State) => setIsOpen(state.isOpen)}
-          right
-        >
-          <ul className="flex flex-col font-main">
-            {menuList.map((menu) => (
-              <ScrollLink
-                to={menu}
-                smooth
-                duration={400}
-                offset={largerThanSM ? -40 : -92}
-                spy={true}
-                key={menu}
-              >
-                <li
-                  onClick={handleMenuClick}
-                  className="cursor-pointer list-none"
+    <>
+      <div className="contain w-full bg-dark">
+        {/* ハンバーガーメニュー */}
+        {!isBlogPage ? ( //ブログの時に非表示
+          <Menu
+            isOpen={isOpen}
+            onStateChange={(state: State) => setIsOpen(state.isOpen)}
+            right
+          >
+            <ul className="flex flex-col font-main">
+              {menuList.map((menu) => (
+                <ScrollLink
+                  to={menu}
+                  smooth
+                  duration={400}
+                  offset={largerThanSM ? -40 : -92}
+                  spy={true}
+                  key={menu}
                 >
-                  <div>{menu.charAt(0).toUpperCase() + menu.slice(1)}</div>
-                </li>
-              </ScrollLink>
-            ))}
-          </ul>
-        </Menu>
-      ) : null}
+                  <li
+                    onClick={handleMenuClick}
+                    className="cursor-pointer list-none"
+                  >
+                    <div>{menu.charAt(0).toUpperCase() + menu.slice(1)}</div>
+                  </li>
+                </ScrollLink>
+              ))}
+            </ul>
+          </Menu>
+        ) : null}
 
-      <Header />
+        <Header />
 
-      {/* PCサイドメニュー + main */}
-      <div className="sm:mx-auto sm:flex sm:max-w-screen-md sm:pr-4">
-        <div className="fixed hidden h-screen items-center sm:flex">
-          {!isBlogPage ? ( //ブログの時に非表示
-            <SideMenu
-              isActiveScroll={isActiveScroll}
-              setIsActiveScroll={setIsActiveScroll}
-            />
-          ) : null}
+        {/* PCサイドメニュー + main */}
+        <div className="sm:mx-auto sm:flex sm:max-w-screen-md sm:pr-4">
+          <div className="fixed hidden h-screen items-center sm:flex">
+            {!isBlogPage ? ( //ブログの時に非表示
+              <SideMenu
+                isActiveScroll={isActiveScroll}
+                setIsActiveScroll={setIsActiveScroll}
+              />
+            ) : null}
+          </div>
+          <div
+            className={`hidden  sm:block ${
+              !isBlogPage ? "w-[300px] min-w-[150px]" : "w-0 pl-4"
+            }`}
+          ></div>
+          <main>{children}</main>
         </div>
-        <div
-          className={`hidden  sm:block ${
-            !isBlogPage ? "w-[300px] min-w-[150px]" : "w-0 pl-4"
-          }`}
-        ></div>
-        <main>{children}</main>
-      </div>
 
-      <Footer
-        height={60}
-        className="mt-16 border-gray-600 bg-dark py-6 text-center text-xs text-gray-400"
-      >
-        &copy; {new Date().getFullYear()} Nono
-      </Footer>
-    </div>
+        <Footer
+          height={60}
+          className="mt-16 border-gray-600 bg-dark py-6 text-center text-xs text-gray-400"
+        >
+          &copy; {new Date().getFullYear()} Nono
+        </Footer>
+      </div>
+    </>
   );
 };

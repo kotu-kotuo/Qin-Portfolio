@@ -11,6 +11,10 @@ class _Document extends Document {
       <Html lang="ja" dir="ltr">
         <Head>
           <title>Makoto Nonoyama</title>
+          <meta name="description" content="My portfolio site." />
+          <meta property="og:type" content="website" />
+          <meta property="og:image" content="/portfolio-ogp.png" />
+          <meta name="twitter:card" content="summary_large_image" />
           <link
             rel="apple-touch-icon"
             sizes="180x180"
