@@ -1,5 +1,6 @@
 import { createGetInitialProps } from "@mantine/next";
 import Document, { Head, Html, Main, NextScript } from "next/document";
+import { siteUrl } from "src/utils/urls";
 
 const getInitialProps = createGetInitialProps();
 
@@ -13,7 +14,7 @@ class _Document extends Document {
           <title>Makoto Nonoyama</title>
           <meta name="description" content="My portfolio site." />
           <meta property="og:type" content="website" />
-          <meta property="og:image" content="/portfolio-ogp.png" />
+          <meta property="og:image" content={siteUrl + "/portfolio-ogp.png"} />
           <meta name="twitter:card" content="summary_large_image" />
           <link
             rel="apple-touch-icon"
