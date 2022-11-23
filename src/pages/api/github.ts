@@ -15,7 +15,7 @@ export default async function getRepositories(
     const user = await graphqlWithAuth(`
     {
     user(login: "kotu-kotuo"){
-    repositories(first: 3, orderBy: {field:UPDATED_AT,direction:DESC}){
+    repositories(first: 3, privacy: PUBLIC, orderBy: {field:UPDATED_AT,direction:DESC}){
       edges{
         node{
           name
